@@ -1,0 +1,404 @@
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-71557216-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Vivian Kha</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <link rel="stylesheet" href="css/photoswipe.css"> 
+    <link rel="stylesheet" href="css/default-skin.css"> 
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+<body>
+
+
+
+<div id="content" class="container">
+  <img id="logo" src="img/logo.png">
+
+  <div class="name">Vivian Kha</div>
+  <div class="nav">
+    <a href="#about" data-toggle="tab">ABOUT</a>
+    <a href="#travel" data-toggle="tab">TRAVEL</a>
+    <a href="#photos" data-toggle="tab">PHOTOS</a>
+    <a href="#contact" data-toggle="tab">CONTACT</a>
+  </div>
+
+
+  <div id="tabs" class="tab-content">
+
+    <div id="about" class="tab-pane fade in active">
+        <div class="col-lg-offset-2 col-lg-8">
+            <div class="col-lg-7">
+              <h4>HI, MY NAME IS VIVIAN. </h4><br>
+              <p>I'm a UCSD graduate that studied Bioengineering with a specialization in Bioinformatics. Some things that I enjoy are exploring the outdoors, discovering new music, pushing my limits, and making people question themselves. </p>
+
+              <p>Nowadays, you can find me generally in the Bay Area but trying to explore the world one destination at a time. Whenever I get the chance, I am chronicling my adventures with my handy-dandy GoPro Hero4 Silver.</p>
+            </div>
+            <div class="col-lg-5">
+              <img src="img/vivian.jpg" width="100%" style="max-width:300px">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="travel" class="tab-pane fade">
+      <div class="col-lg-offset-2 col-lg-8">
+        These are the places that I've ventured to. Help me complete the map!
+
+
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <!-- amCharts javascript sources -->
+            <script type="text/javascript" src="https://www.amcharts.com/lib/3/ammap.js"></script>
+            <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+
+            <!-- amCharts javascript code -->
+            <script type="text/javascript">
+              AmCharts.makeChart("map",{
+                  "type": "map",
+                  "pathToImages": "http://www.amcharts.com/lib/3/images/",
+                  "addClassNames": true,
+                  "fontSize": 15,
+                  "color": "#FFFFFF",
+                  "projection": "mercator",
+                  "backgroundAlpha": 1,
+                  "backgroundColor": "rgba(80,80,80,0)",
+                  "dataProvider": {
+                    "map": "worldLow",
+                    "getAreasFromMap": true,
+                    "images": [
+                      {
+                        "top": 40,
+                        "left": 60,
+                        "width": 80,
+                        "height": 40,
+                        "pixelMapperLogo": true,
+                        "imageURL": "http://pixelmap.amcharts.com/static/img/logo.svg",
+                        "url": "http://www.amcharts.com"
+                      }
+                    ],
+                    "areas": [
+                      {
+                        "id": "CA",
+                        "title": "Canada",
+                        "color": "rgba(114,131,154,1)"
+                      },
+                      {
+                        "id": "CN",
+                        "title": "China",
+                        "color": "rgba(114,131,154,1)"
+                      },
+                      {
+                        "id": "JP",
+                        "title": "Japan",
+                        "color": "rgba(114,131,154,1)"
+                      },
+                      {
+                        "id": "MX",
+                        "title": "Mexico",
+                        "color": "rgba(114,131,154,1)"
+                      },
+                      {
+                        "id": "MY",
+                        "title": "Malaysia",
+                        "color": "rgba(114,131,154,1)"
+                      },
+                      {
+                        "id": "TH",
+                        "title": "Thailand",
+                        "color": "rgba(114,131,154,1)"
+                      },
+                      {
+                        "id": "TW",
+                        "title": "Taiwan",
+                        "color": "rgba(114,131,154,1)"
+                      },
+                      {
+                        "id": "US",
+                        "title": "United States",
+                        "color": "rgba(114,131,154,1)"
+                      },
+                      {
+                        "id": "VN",
+                        "title": "Vietnam",
+                        "color": "rgba(114,131,154,1)"
+                      }
+                    ]
+                  },
+                  "balloon": {
+                    "horizontalPadding": 5,
+                    "borderAlpha": 0,
+                    "borderThickness": 1,
+                    "verticalPadding": 5
+                  },
+                  "areasSettings": {
+                    "color": "rgba(129,129,129,0.8)",
+                    "outlineColor": "rgba(80,80,80,0.3)",
+                    "rollOverOutlineColor": "rgba(80,80,80,1)",
+                    "rollOverBrightness": 35,
+                    "selectedBrightness": 20,
+                    "selectable": false,
+                    "unlistedAreasAlpha": 0,
+                    "unlistedAreasOutlineAlpha": 0
+                  },
+                  "imagesSettings": {
+                    "alpha": 1,
+                    "color": "rgba(129,129,129,0.8)",
+                    "outlineAlpha": 0,
+                    "rollOverOutlineAlpha": 0,
+                    "outlineColor": "rgba(80,80,80,0)",
+                    "rollOverBrightness": 20,
+                    "selectedBrightness": 20,
+                    "selectable": true
+                  },
+                  "linesSettings": {
+                    "color": "rgba(129,129,129,0.8)",
+                    "selectable": true,
+                    "rollOverBrightness": 20,
+                    "selectedBrightness": 20
+                  },
+                  "zoomControl": {
+                    "zoomControlEnabled": false,
+                    "zoomOnDoubleClick": false, // disables zoom on doubleclick
+                    "dragMap": false, // disables map pan
+                    "homeButtonEnabled": true,
+                    "panControlEnabled": false,
+                    "right": 38,
+                    "bottom": 30,
+                    "minZoomLevel": 0.25,
+                    "gridHeight": 100,
+                    "gridAlpha": 0.1,
+                    "gridBackgroundAlpha": 0,
+                    "gridColor": "#FFFFFF",
+                    "draggerAlpha": 1,
+                    "buttonCornerRadius": 2
+                  }
+                });
+            </script>
+          </head>
+          <body style="margin: 0;background-color: rgba(80,80,80,0);">
+            <div id="map" style="width: 100%; height: 60%; margin-top:50px"></div>
+          </body>
+        </html>
+        <br><br>
+<!--         <div class="col-lg-6 col-lg-offset-3" >
+          <h3>UPCOMING TRIPS</h3><br>
+          <ul align="left">
+            <li>9/30 - 10/2 &nbsp;&nbsp;&nbsp;<b>Las Vegas, NV</b></li>
+            <li>10/13 - 10/16 &nbsp;&nbsp;&nbsp;<b>Southern California</b></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+
+
+    <div id="photos" class="tab-pane fade">
+      <div class="col-lg-offset-1 col-lg-10 text-center">
+       <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/thailand.jpg" itemprop="contentUrl" data-size="960x720">
+                <img src="img/photos/thailand.png" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Snorkeling in Maya Bay - Phuket, Thailand</figcaption>
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/vancouver.jpg" itemprop="contentUrl" data-size="3022x3022">
+                <img src="img/photos/vancouver.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Granville Island - Vancouver, Canada</figcaption>
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/newyork.jpg" itemprop="contentUrl" data-size="960x720">
+                <img src="img/photos/newyork-t.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Brooklyn Bridge - New York, NY</figcaption>                           
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/ostrich.jpg" itemprop="contentUrl" data-size="750x1334">
+                <img src="img/photos/ostrich-t.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Ostrichland - Solvang, CA</figcaption>
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/yosemite.jpg" itemprop="contentUrl" data-size="1814x2419">
+                <img src="img/photos/yosemite-t.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Yosemite Falls - Yosemite, CA</figcaption>                           
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/coachella.jpg" itemprop="contentUrl" data-size="1224x918">
+                <img src="img/photos/coachella-t.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Coachella - Indio, CA</figcaption>
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/monterey.png" itemprop="contentUrl" data-size="489x582">
+                <img src="img/photos/monterey-t.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Monterey Bay Aquarium - Monterey, CA</figcaption>
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/oneonta.jpg" itemprop="contentUrl" data-size="3024x4032">
+                <img src="img/photos/oneonta.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Oneonta Gorge - Portland, CA</figcaption>
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/taiwan.jpg" itemprop="contentUrl" data-size="960x720">
+                <img src="img/photos/taiwan.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Qixingtan Beach - Taiwan</figcaption>
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/japan.jpg" itemprop="contentUrl" data-size="960x720">
+                <img src="img/photos/japan-t.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Nara, Japan</figcaption>
+          </figure>
+<!-- 
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="img/photos/breckenridge.jpg" itemprop="contentUrl" data-size="960x720">
+                <img src="img/photos/breckenridge-t.jpg" itemprop="thumbnail" alt="Image description" />
+            </a>
+            <figcaption itemprop="caption description">Image caption 4</figcaption>
+          </figure> -->
+
+  </div>
+
+
+
+          <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="pswp__bg"></div>
+            <div class="pswp__scroll-wrap">
+         
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+         
+                <div class="pswp__ui pswp__ui--hidden">
+                    <div class="pswp__top-bar">
+                        <div class="pswp__counter"></div>
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                        <!-- <button class="pswp__button pswp__button--share" title="Share"></button> -->
+                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<!--                         <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button> -->
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                              <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div> 
+                    </div>
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                    </button>
+                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                    </button>
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div id="contact" class="tab-pane fade">
+      <div class="col-lg-offset-2 col-lg-8">
+          Questions, comments, concerns, or just bored? Send me a message :)
+          <div class="row" style="margin-top:25px">
+            <a href="mailto:viviankha@gmail.com"><i class="fa fa-envelope-o fa-2x" aria-hidden="true" id="mail"></i></a>
+            <a href="https://www.facebook.com/viviankha"><i class="fa fa-facebook-square fa-2x" aria-hidden="true" id="facebook"></i></a>
+            <a href="https://www.linkedin.com/in/viviankha"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true" id="linkedin"></i></a>
+            <a href="https://www.instagram.com/vivian.kha/"><i class="fa fa-instagram fa-2x" aria-hidden="true" id="instagram"></i></a>
+            <a href="https://github.com/viviankha"><i class="fa fa-github-square fa-2x" aria-hidden="true" id="github"></i></a>
+          </div>
+      </div>
+    </div>
+
+
+</div>
+
+
+
+   
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/main.js"></script>
+
+    <script src="js/photoswipe.min.js"></script> 
+    <script src="js/photoswipe-ui-default.min.js"></script> 
+
+    
+
+
+</body>
+
+</html>
