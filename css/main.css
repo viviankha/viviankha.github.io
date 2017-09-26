@@ -761,6 +761,7 @@ animation-duration: 1s;
     margin: auto;
     text-align: center;
     margin-bottom:30px;
+
 }
 
 .title {
@@ -778,11 +779,21 @@ animation-duration: 1s;
     text-align: center;
     cursor: pointer;
     width: 100%;
-    overflow:auto;
-    bottom:0px;
 
 }
 
+
+#card-title {
+    display: table;
+    height:100px;
+    width:100%;
+}
+
+#card-title-text {
+    display: table-cell;
+    vertical-align: middle;
+    text-align:center;
+}
 
 
 button:hover, a:hover {
