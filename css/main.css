@@ -19,6 +19,10 @@ body {
     font-size: 18px;
 }
 
+ul {
+    font-size:16px;
+}
+
 hr {
     max-width: 50px;
     border-color: #CABEBB;
