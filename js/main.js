@@ -1,50 +1,3 @@
-
-
-(function($) {
-    "use strict"; // Start of use strict
-
-    // jQuery for page scrolling feature - requires jQuery Easing plugin
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: ($($anchor.attr('href')).offset().top - 50)
-        }, 1250, 'easeInOutExpo');
-        event.preventDefault();
-    });
-
-    // Highlight the top nav as scrolling occurs
-    $('body').scrollspy({
-        target: '.navbar-fixed-top',
-        offset: 51
-    })
-
-    // Closes the Responsive Menu on Menu Item Click
-    $('.navbar-collapse ul li a').click(function() {
-        $('.navbar-toggle:visible').click();
-    });
-
-    // Fit Text Plugin for Main Header
-    $("h1").fitText(
-        1.2, {
-            minFontSize: '35px',
-            maxFontSize: '65px'
-        }
-    );
-
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 100
-        }
-    })
-
-    // Initialize WOW.js Scrolling Animations
-    new WOW().init();
-
-})(jQuery); // End of use strict
-
-
-
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements 
@@ -251,18 +204,12 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 // execute above function
 initPhotoSwipeFromDOM('.my-gallery');
 
-
-
-// $("#home").click(function(){
-
-//     $("header").addClass('magictime puffIn');
-//     $("header").hide(1000);
-//     $('#content').show();
-
-// });
-
 $('.nav a').click(function(e)
 {
     e.preventDefault();
 });
 
+// Open the tab named in the URL, e.g. /#blog from a blog post's "Back to Blogs" link
+$('.nav a').filter(function() {
+    return this.getAttribute('href') === window.location.hash;
+}).tab('show');

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="description" content="Experimenting with TensorFlow on the Pico Pro Maker Kit.">
+    <meta name="author" content="Vivian Kha">
+
+    <title>Android Things - Pico Pro Maker Kit - Vivian Kha</title>
+    <link rel="canonical" href="https://www.viviankha.com/blog/pico-pro-maker-kit/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Vivian Kha">
+    <meta property="og:title" content="Android Things - Pico Pro Maker Kit">
+    <meta property="og:description" content="Experimenting with TensorFlow on the Pico Pro Maker Kit.">
+    <meta property="og:url" content="https://www.viviankha.com/blog/pico-pro-maker-kit/">
+    <meta property="og:image" content="https://www.viviankha.com/img/blog/picoprokit/androidthings_thumbnail.jpg">
+    <meta property="article:published_time" content="2020-07-25">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
+
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+<div id="content" class="container">
+  <a href="/"><img id="logo" src="/img/logo.png" alt="Vivian Kha"></a>
+
+  <div class="name">Vivian Kha</div>
+  <div class="nav">
+    <a href="/#about">ABOUT</a>
+    <a href="/#blog">BLOG</a>
+    <a href="/#travel">TRAVEL</a>
+    <a href="/#photos">PHOTOS</a>
+    <a href="/#contact">CONTACT</a>
+  </div>
+
+  <main id="tabs">
+    <div class="col-lg-offset-2 col-lg-8" style="text-align:left">
+      <a href="/#blog">&#8592; Back to Blogs</a>
+      <img src="/img/blog/picoprokit/picopro_cover.jpg"  style="width:100%;margin-bottom:50px">
+      <p> Like many other people quarantining during COVID, I picked up a few new hobbies with all of the extra time that I at home. Some of my new hobbies consisted of paint-by-numbers, baking goods that I couldn't finish, and digging through things that I haven't touched in ages.<br><br> One of the things that I found laying around was a brand new, unopened Pico Pro Maker Kit that I had received at GHC a few years ago. I figured this would be a fun opportunity to test it out and tinker with some hardware. 
+      </p>
+
+      <h3>CONNECTING AND SETTING UP THE KIT</h3>
+      <p>I followed the instructions on the <a href="https://developer.android.com/things/hardware/imx7d">Android Things developer guide</a> to connect and setup the kit. 
+        <br><br> The kit came with:</p>
+      <ul>
+        <li>Pico i.MX7 Dual Development Board</li> 
+        <li>Camera module</li> 
+        <li>5-inch multi-touch display</li>
+        <li>Wi-Fi antenna</li>
+      </ul>
+       <img loading="lazy" src="/img/blog/picoprokit/picoprokit.jpg" style="width:50%;margin-bottom:50px">
+
+      <p>Once I finished connecting the kit, I was ready to set things up. Through the <a href="https://partner.android.com/things/console">Android Things console</a>, I created a new product and downloaded the latest build. I then flashed the board with the latest image and ran <a href="https://developer.android.com/things/hardware/imx7d#flash-at">setup utility</a> to connect the board to my home wifi. I also downloaded the <a href="https://play.google.com/store/apps/details?id=com.google.android.things.companion">Android Things Toolkit</a> on my phone to run sample apps.
+      <br><br>
+      Once the board was connected to my wifi, I was able to find my dev board on the Android Things Toolkit app. I explored the sample apps and selected TensorFlow Lite. </p>
+      <br><br>
+      <img loading="lazy" src="/img/blog/picoprokit/androidthingstoolkitapp.png" style="width:25%;margin-bottom:50px">
+
+    <h3>RUNNING TENSORFLOW LITE</h3>
+    <p>TensorFlow Lite works by taking in an image input and outputting a few words that it thinks the object should be classified as. First, I held up my board's camera module towards an object. When I'm ready, I tap the multi-display screen and it triggers a snapshot to be taken. The multi-display screen will then instantly display the snapshot and a few words it may classify the object as. I found a few of them accurate, and some of them very inaccurate (mostly human face detection). Below are a few of the results I got.</p>
+    <br><br>
+    <img loading="lazy" src="/img/blog/picoprokit/book.jpg" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="/img/blog/picoprokit/fork.jpg" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="/img/blog/picoprokit/coffeemug.jpg" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="/img/blog/picoprokit/lime.jpg" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="/img/blog/picoprokit/face.jpg" style="width:50%;margin-bottom:50px">
+
+
+    <br><br>
+    <a href="/#blog">&#8592; Back to Blogs</a>
+    </div>
+  </main>
+
+</div>
+
+</body>
+
+</html>

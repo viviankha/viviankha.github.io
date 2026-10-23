@@ -624,6 +624,28 @@ body {
   display: none;
 }
 
+.travel-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  margin-top: 50px;
+}
+.travel-map path {
+  fill: rgba(129,129,129,0.8);
+  stroke: rgba(80,80,80,0.3);
+  stroke-width: 0.5;
+}
+.travel-map path:hover {
+  fill: rgba(170,170,170,0.9);
+}
+.travel-map path.visited {
+  fill: rgb(114,131,154);
+}
+.travel-map path.visited:hover {
+  fill: rgb(154,177,208);
+}
+
 
 .row-centered {
     text-align:center;

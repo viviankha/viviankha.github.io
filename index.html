@@ -6,11 +6,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="description" content="Vivian Kha's personal website: blog posts, a map of places I've traveled, and photos.">
     <meta name="keywords" content="self driving cars, autonomous driving, AV, autonomous vehicles, Nuro, TPM, technical program manager, android, developer, software engineer, niantic, personal website, vivian kha, data, operations, AR, augmented reality, data operations, 23andme, dna, tools, science, blog, vivian, kha, bioinformatics, ghc, ghc17, grace hopper, grace hopper celebration">
-    <meta name="author" content="">
+    <meta name="author" content="Vivian Kha">
 
     <title>Vivian Kha</title>
+    <link rel="canonical" href="https://www.viviankha.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vivian Kha">
+    <meta property="og:title" content="Vivian Kha">
+    <meta property="og:description" content="Vivian Kha's personal website: blog posts, a map of places I've traveled, and photos.">
+    <meta property="og:url" content="https://www.viviankha.com/">
+    <meta property="og:image" content="https://www.viviankha.com/img/logo.png">
+    <meta name="twitter:card" content="summary">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
@@ -21,7 +31,6 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
 
 
-    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/photoswipe.css"> 
     <link rel="stylesheet" href="css/default-skin.css"> 
@@ -29,15 +38,6 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-71557216-1', 'auto');
-      ga('send', 'pageview');
-    </script>
 
 </head>
 
@@ -81,7 +81,7 @@
 
           <div class="col-md-4">
             <div class="card">
-              <img src="img/blog/23andme/23andme_thumbnail.jpg"  style="width:100%">
+              <img src="img/blog/23andme/23andme_thumbnail.jpg" loading="lazy" style="width:100%">
               <div id="card-title">
                 <span id="card-title-text">
                   <h3>23andMe</h3>
@@ -89,13 +89,13 @@
                 </span>
               </div>
               <p class="title" style="height:100px">My experience with 23andMe and using the raw data to explore other tools.</p>
-               <a href="#23andme" data-toggle="tab"><button style="width:100%">Read More</button></a>
+               <a href="blog/23andme/"><button style="width:100%">Read More</button></a>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="card">
-              <img src="img/blog/ghc17/ghc17_thumbnail.jpg"  style="width:100%">
+              <img src="img/blog/ghc17/ghc17_thumbnail.jpg" loading="lazy" style="width:100%">
               <div id="card-title">
                 <span id="card-title-text">
                   <h3>Grace Hopper Celebration 2017</h3>
@@ -103,13 +103,13 @@
                 </span>
               </div>
               <p class="title" style="height:100px">Attending GHC as a Google Travel Grant Scholar.</p>
-              <a href="#gracehopper" data-toggle="tab"><button style="width:100%">Read More</button></a>
+              <a href="blog/grace-hopper-2017/"><button style="width:100%">Read More</button></a>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="card">
-              <img src="img/blog/picoprokit/androidthings_thumbnail.jpg"  style="width:100%">
+              <img src="img/blog/picoprokit/androidthings_thumbnail.jpg" loading="lazy" style="width:100%">
               <div id="card-title">
                 <span id="card-title-text">
                   <h3>Android Things - Pico Pro Maker Kit</h3>
@@ -117,7 +117,7 @@
                 </span>
               </div>
               <p class="title" style="height:100px">Experimenting with TensorFlow on the Pico Pro Maker Kit.</p>
-               <a href="#picoprokit" data-toggle="tab"><button style="width:100%">Read More</button></a>
+               <a href="blog/pico-pro-maker-kit/"><button style="width:100%">Read More</button></a>
             </div>
           </div>
 
@@ -125,443 +125,193 @@
         </div>
       </div>
     </div>
-
-    <div id="23andme" class="tab-pane fade">
-      <div class="col-lg-offset-2 col-lg-8" style="text-align:left">
-        <a href="#blog" data-toggle="tab">&#8592; Back to Blogs</a>
-        <img src="img/blog/23andme/23andme_banner.jpg"  style="width:100%;margin-bottom:50px">
-        <p> As far as I've known, my ancestry was a mix of Chinese and Vietnamese East-Asian. Wanting to discover my true genetic roots, I was eager to try out 23andMe to have clearer understanding of my background. This post will walk-through my experience using 23andMe as well as other similar tools.</p>
-          First, I'd like to point out a few hesitations I had doing this. <br><br>
-          <ul style="width:75%;font-size:16px">
-            <li><b>Price.</b> At $99 for Ancestry kit and $199 for Ancestry + Health kit, this is pretty pricey for just a 'curiosity' I had about my background</li><br>
-            <li><b>FDA regulations.</b> There had been concerns of what kind of data 23andMe was releasing to their customers... “potential health consequences that could result from false positive or false negative assessments for high-risk indications"</li><br>
-            <li><b>East Asian data.</b> 23andMe seemed to categorize all East Asians into either Chinese, Korean, or Japanese. The result is that East Asians get less comprehensive reports compared to people of European ancestry</li><br>
-          </ul>
-        <p>
-        In the end, I decided to jump the gun and thought it'd be a good learning experience. I've opted for the Ancestry kit over the Ancestry + Health because I decided that it’d be a better learning experience to use the raw data to learn more about my health using other tools.</p><br><br>
-
-        <h3>THE PROCESS/TIMELINE</h3><br>
-        <p>
-          June 27th - Ordered Kit<br>
-          June 28th - Kit Shipped<br>
-          June 29th - Kit Received <br>
-          June 30th - Kit Shipped back to 23andMe<br>
-          July 7th - Kit Received by 23andMe<br>
-          July 8th - Receiving and Quality Inspection Complete<br>
-          July 30th - DNA Extraction Complete<br>
-          August 1st- DNA Analysis Complete<br>
-          August 1st - Quality Review Complete<br>
-          August 1st - Initial Raw Data Processing Complete<br>
-          August 4th - Computation and Report Generation Complete<br>
-        </p><br><br>
-
-        <h3>MY <a href="http://www.23andme.com">23ANDME</a> ANCESTRY REPORT</h3><br>
-        <center><img src="img/blog/23andme/23andme_1.png" width="75%"></center><br>
-        <p>
-          This first diagram is the bulk of the ancestry report. It describes my ancestry based on genetic makeup. As you can see, the East Asian category isn’t very well defined. As far as I know, only Chinese, Japanese, Korea, Yakut, and Mongolian ancestries are currently categorized. I read somewhere that anything below 1% could just be noise so it will be safe to assume I’m not European.
-        </p>
-        <center><img src="img/blog/23andme/23andme_2.png" width="75%"></center><br>
-        <p>
-          This next tool is the Ancestry Timeline. It tells me about my ancestor’s ancestry, categorized by generations and time period. For the ‘Oceanian’ part, it says :<br><br>
-
-          “You most likely had a fourth great-grandparent, fifth great-grandparent, sixth great-grandparent, or seventh great (or greater) grandparent who was 100% Oceanian. This person was likely born between 1720 and 1810.” 
-        </p>
-        <center><img src="img/blog/23andme/23andme_3.png" width="75%"></center><br>
-        <center><img src="img/blog/23andme/23andme_4.png" width="75%"></center><br>
-        <p>
-          Next, we have some information about my ‘Maternal Line’. This is the line of women that I have descended from, tracing back to Eastern Africa. It shows the paths that are traced back and which branches my ancestors came from. Each of these diverse groups are labeled and according to this, my haplogroup is ‘M7c1’. There isn’t much info I can gather from this since I don’t know much about haplogroups but I thought it was cool learning about my ancestors’ migration paths.
-        </p>
-        <p>
-          Another tool that comes with the Ancestry kit is the Relative finder where you can find a list of people that are somewhat related to you, from ‘Close Relatives’ up to ‘Sixth Cousins’ and beyond.<br><br>
-
-          You can also download your ‘Raw Data’ and use it to input into other tools like below. To do this, go to Tools > Browse Raw Data > Download.
-        </p><br><br>
-
-
-        <h3><a href="http://dna.land">DNA.LAND</a> (FREE)</h3><br>
-        <center><img src="img/blog/23andme/23andme_5.png" width="75%"></center><br>
-        <p>
-          DNA.LAND basically shows me that I’m full Asian as well...but with different makeup! It seems as if DNA.LAND has a lot more data on Asians as it can distinguish Cambodian/Thai as well as Central Chinese from other Chinese categories. <br><br>
-
-          DNA.LAND also has some wellness/physical traits below which I found somewhat accurate!
-        <p>
-        <center><img src="img/blog/23andme/23andme_6.png" width="75%"></center><br>
-        <br>
-
-
-        <h3><a href="http://myheritage.com">MyHeritage</a> (FREE)</h3><br>
-        <center><img src="img/blog/23andme/23andme_7.png" width="75%"></center><br>
-        <p>
-          MyHeritage is a newer tool with less data and therefore is a lot more vague. I thought it’d be interesting trying the new service anyway.
-        </p>
-        <br><br>
-
-
-        <h3><a href="http://www.gedmatch.com">GEDmatch</a> (FREE)</h3><br>
-        <p>
-          GEDmatch is a pretty popular tool. However, I think it is a lot more technical and less user-friendly. This tool is great for comparing DNA one-to-one, or one-to-many from their database. I can’t show a snapshot of what this looks like because it also has other peoples’ information on it. 
-          <br><br>
-          One of the tools that I liked from GEDmatch was the ‘Eye Color Predictor’. 
-        </p>
-        <center><img src="img/blog/23andme/23andme_8.png" width="75%"></center><br>
-        <p>
-          Not only does it tell you the color that it thinks your eye is, but it also tells you exactly which part of your DNA contributes to it.
-          <br><br>
-          Another tool I enjoyed was ‘Are your parents related?’. It works by comparing your base pairs. I can tell you that my parents are not related but Joffrey, Myrcella, and Tommen definitely would’ve gotten some red flags.  
-        </p>
-        <br><br>
-
-
-        <h3><a href="http://www.wegene.com/en/">WeGene</a> (FREE)</h3><br>
-        <p>
-          I was particularly excited to try out WeGene for another take on my ancestry results since they are a Chinese company, and they might have more data on Asian DNA.
-        </p>
-        <center><img src="img/blog/23andme/23andme_9.png" width="75%"></center><br>
-        <p>
-          My above results seem pretty consistent with the other tools: mostly Chinese, with some Southeast Asian. I was surprised at how detailed the Chinese and Southeast Asian categories were. <br>
-          Note: ‘kinh’ is Vietnamese
-          <br><br>
-          I also noticed that on their Chinese website, there are more reports (Health, Fitness, Metabolism, etc) that are not available on the English website. I found these reports interesting so I thought I’d share a few (even if some Google translations might be wrong).
-        </p>
-        <center><img src="img/blog/23andme/23andme_10.png" width="75%"></center><br>
-        <p>
-          I really enjoyed WeGene’s reports as I felt they are more geared towards Asians. I also think the health reports on the Chinese website are very detailed although there are probably some FDA regulations on some of that information (maybe why they are only on the Chinese site). 
-        </p>
-        <br><br>
-
-        <h3><a href="https://promethease.com/ ">Promethease</a> ($5)</h3><br>
-        <p>
-          Promethease is known as the favorite data analyzing tool (at least from the /r/23andme perspective). It is heavily health and disease focused (no ancestry). The difference with Promethease is that you have to pay $5 for the report to be generated. Your report is hosted on their site for 45 days, but you are emailed the HTML files to be able to render the report locally on your computer anytime after the 45 days is up. 
-          <br><br>
-          There is A LOT to see on Promethease and it is slightly more technical and less user friendly than other tools, but basically it will tell you traits that come up from analyzing your data. Here is a sample:
-        </p>
-        <center><img src="img/blog/23andme/23andme_11.png" width="75%"></center><br>
-        <p>
-          Basically, it’s saying I have Asian Flush, which I am well aware of, thanks. 
-          <br><br>
-          You can also sort by categories, magnitude, and good/bad traits. I feel like there is just so information on Promethease , you can spend hours looking through your data. I thought it was definitely worth the $5!
-        </p>
-        <br><br>
-
-        <h3>TL;DR</h3>
-        <p>
-          I had a lot of fun doing the 23andMe ancestry kit despite knowing that my report wouldn't be as comprehensive as someone with a European ancestry. Any genetic testing kit would be a great self-discovery experience of your genetic makeup, on top of you getting to contribute to more scientific discoveries! Just make sure you have realistic expectations instead of hoping to find some new crazy discovery about yourself. And make sure to be on the lookout for 23andMe sales on holidays!
-        </p>
-        <br><br>
-
-        <a href="#blog" data-toggle="tab">&#8592; Back to Blogs</a>
-      </div>
-    </div>
-
-
-
-
-    <div id="gracehopper" class="tab-pane fade">
-      <div class="col-lg-offset-2 col-lg-8" style="text-align:left">
-        <a href="#blog" data-toggle="tab">&#8592; Back to Blogs</a>
-        <img src="img/blog/ghc17/ghcbanner.jpg"  style="width:100%;margin-top:30px;margin-bottom:50px">
-        <p>
-          Grace Hopper Celebration is the world’s largest annual conference for women in computing. And this past year was no joke -- boasting over 18,000 attendees and held October 4th - October 6th at the humongous Orange County Convention Center in Orlando, Florida. I feel truly blessed to not only be able to spend 3 days with such inspiring and gifted women from all over the world but also to get a sponsorship through Google to attend this event.
-        </p>
-        <br>
-
-        <h3>PRE-CONFERENCE</h3><br>
-        <p>
-          On August 2nd, I received one of the best news I could’ve gotten to beat my mid-week slump -- I was selected as a travel grant recipient to attend the 2017 Grace Hopper Celebration of Women in Computing! This grant included conference registration, round trip flight to Orlando, hotel accommodations, $75 for miscellaneous reimbursements, and even a fun event planned just for grant recipients. <br><br>
-
-          I’ve never attended such a big conference before, especially by myself, so I wasn’t too sure of what to expect. I began searching around online and found Facebook groups that helped people network prior to the event as well as answering any questions. I also prepped by checking the conference schedule and marking the talks/workshops that I definitely wanted to go to. Around a month before the conference, many companies started posting events (breakfasts, after parties, etc.) that they were hosting for GHC attendees. One of the cool ones that I saw was a HBO Game of Thrones after party at an ice bar!
-        </p>
-        <br>
-
-        <h3>DAY 0</h3><br>
-        <div class="row">
-          <div class="col-md-6">
-            <p>
-              I arrived in Orlando a day early to have some time to explore the city a bit. As soon as I checked into my hotel and dropped off my stuff, I headed straight to Universal Orlando Resort! I spent most of my time in the Harry Potter World - Hogsmeade section and was glad I was able to check it out since it’s not yet open in California yet. After Universal, I walked back to my hotel to explore the city a bit. My main takeaways about Orlando: It's super humid and it's known for alligators. 
-            </p>
-          </div>
-          <div class="col-md-6">
-            <center><img src="img/blog/ghc17/universal.jpg" width="75%"></center>
-          </div>
-        </div>
-
-        <br>
-
-        <h3>DAY 1</h3><br>
-          <p>
-            It's finally the start of the convention! I was particularly most excited for the keynote by Melinda Gates. She was an amazing speaker and truly someone inspirational. It was a great way to pump everyone up for the start of the conference. After the keynote, I explored the conference Expo Hall a bit to grab some free swag and to just feel out the area. The Expo Hall was huge! It would definitely take someone several trips to the Expo Hall throughout the conference to be able to cover the whole area. Afterwards, I went to a few sessions and some after parties. 
-          </p>
-
-
-        <br>
-
-        <h3>DAY 2</h3><br>
-          <p>
-            After an exhausting first day, I was not as excited to wake up early to explore. However when I got back into the convention center, I immediately regained my energy. I attended a few more sessions this day and spent the rest of my time interviewing or exploring the Expo Hall. I got to meet some great companies and learn a bit more about their products. After day 2 of the conference, Google hosted a fancy dinner for all grant recipients for working professionals. They rented out a restaurant in the hotel lobby and had someone draw caricatures of everyone! I also finally got to meet some of the people that I was networking with in the Facebook groups before the event. 
-          </p>
-
-        <br>
-
-        <h3>DAY 3</h3><br>
-        <div class="row">
-          <div class="col-md-6">
-            <p>
-              By the third day of the conference, my feet were in pain but my excitement for the conference kept me going. I was most excited for the event Google’s Women Techmakers was hosting for GHC -- they rented out Disney World’s Epcot for an after party! We got the whole park to ourselves and they had a DJ, photo booths, lots of delicious food, and towards the end we got to go on several rides that they opened up with no lines! Also at this point I was slightly considering buying another suitcase to bring back all the swag... 
-            </p>
-          </div>
-          <div class="col-md-6">
-            <center><img src="img/blog/ghc17/swag.jpg" width="75%"></center><br>
-          </div>
-        </div>
-
-        <br>
-
-        <h3>CONCLUSION/TIPS</h3><br>
-        <div class="row">
-            <div class="col-md-6">
-              <p>
-                Overall it was a great experience and I highly suggest any woman in tech try to attend if the opportunity comes up. You never know what will happen from it and at the least, you will leave with new friends, new swag, and an unforgettable experience. I actually had an interview while at GHC that eventually lead to my current job! 
-              </p>
-              <br>
-              Tips for a GHC Attendee:
-              <ul>
-                <li>Network in GHC groups before the event</li>
-                <li>Sign up for events/parties hosted by companies</li>
-                <li>Make a schedule for the talks that you definitely want to see -- while leaving extra time to explore the Expo Hall</li>
-                <li>Be flexible with your schedule</li>
-                <li>Prepare resumes and/or business cards</li>
-                <li>Submit your resume to the GHC Attendee database as soon as you can! Companies will reach out to schedule interviews.</li>
-                <li>Pack comfortable shoes, you will be walking a lot</li>
-                <li>Network with as many people as you can</li>
-                <li>Bring a half empty suitcase, you’ll be bringing home a lot of swag</li>
-                <li>Come in with an open mind and you will have fun!</li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <center><img src="img/blog/ghc17/wtmparty.jpg" width="75%"></center><br>
-            </div>
-        </div>
-
-          <br>
-
-        <a href="#blog" data-toggle="tab">&#8592; Back to Blogs</a>
-      </div>
-    </div>
-
-
-      <div id="picoprokit" class="tab-pane fade">
-        <div class="col-lg-offset-2 col-lg-8" style="text-align:left">
-          <a href="#blog" data-toggle="tab">&#8592; Back to Blogs</a>
-          <img src="img/blog/picoprokit/picopro_cover.jpg"  style="width:100%;margin-bottom:50px">
-          <p> Like many other people quarantining during COVID, I picked up a few new hobbies with all of the extra time that I at home. Some of my new hobbies consisted of paint-by-numbers, baking goods that I couldn't finish, and digging through things that I haven't touched in ages.<br><br> One of the things that I found laying around was a brand new, unopened Pico Pro Maker Kit that I had received at GHC a few years ago. I figured this would be a fun opportunity to test it out and tinker with some hardware. 
-          </p>
-
-          <h3>CONNECTING AND SETTING UP THE KIT</h3>
-          <p>I followed the instructions on the <a href="https://developer.android.com/things/hardware/imx7d">Android Things developer guide</a> to connect and setup the kit. 
-            <br><br> The kit came with:</p>
-          <ul>
-            <li>Pico i.MX7 Dual Development Board</li> 
-            <li>Camera module</li> 
-            <li>5-inch multi-touch display</li>
-            <li>Wi-Fi antenna</li>
-          </ul>
-           <img src="img/blog/picoprokit/picoprokit.jpg" style="width:50%;margin-bottom:50px">
-
-          <p>Once I finished conncting the kit, I was ready to set things up. Through the <a href="https://partner.android.com/things/console">Android Things console</a>, I created a new product and downloaded the latest build. I then flashed the board with the latest image and ran <a href="https://developer.android.com/things/hardware/imx7d#flash-at">setup utility</a> to connect the board to my home wifi. I also downloaded the <a href="https://play.google.com/store/apps/details?id=com.google.android.things.companion">Android Things Toolkit</a> on my phone to run sample apps.
-          <br><br>
-          Once the board was connected to my wifi, I was able to find my dev board on the Android Things Toolkit app. I explored the sample apps and selected TensorFlow Lite. </p>
-          <br><br>
-          <img src="img/blog/picoprokit/androidthingstoolkitapp.png" style="width:25%;margin-bottom:50px">
-
-        <h3>RUNNING TENSORFLOW LITE</h3>
-        <p>TensorFlow Lite works by taking in an image input and outputing a few words that it thinks the object should be classified as. First, I held up my board's camera module towards and object. When I'm ready, I tap the multi-display screen and it triggers a snapshot to be taken. The multi-display screen will then instantly display the snapshot and a few words it may classify the object as. I found a few of them accurate, and some of them very inaccurate (mostly human face detection). Below are a few of the results I got.</p>
-        <br><br>
-        <img src="img/blog/picoprokit/book.jpg" style="width:50%;margin-bottom:50px">
-        <img src="img/blog/picoprokit/fork.jpg" style="width:50%;margin-bottom:50px">
-        <img src="img/blog/picoprokit/coffeemug.jpg" style="width:50%;margin-bottom:50px">
-        <img src="img/blog/picoprokit/lime.jpg" style="width:50%;margin-bottom:50px">
-        <img src="img/blog/picoprokit/face.jpg" style="width:50%;margin-bottom:50px">
-
-
-        <br><br>
-        <a href="#blog" data-toggle="tab">&#8592; Back to Blogs</a>
-        </div>
-      </div>
-
 
     <div id="travel" class="tab-pane fade">
       <div class="col-lg-offset-2 col-lg-8">
         These are the places that I've ventured to!
 
 
-            <!-- amCharts javascript sources -->
-            <script type="text/javascript" src="https://www.amcharts.com/lib/3/ammap.js"></script>
-            <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
-
-            <!-- amCharts javascript code -->
-            <script type="text/javascript">
-              AmCharts.makeChart("map",{
-                  "type": "map",
-                  "pathToImages": "http://www.amcharts.com/lib/3/images/",
-                  "addClassNames": true,
-                  "fontSize": 15,
-                  "color": "#FFFFFF",
-                  "projection": "mercator",
-                  "backgroundAlpha": 1,
-                  "backgroundColor": "rgba(80,80,80,0)",
-                  "dataProvider": {
-                    "map": "worldLow",
-                    "getAreasFromMap": true,
-                    "images": [
-                      {
-                        "top": 40,
-                        "left": 60,
-                        "width": 80,
-                        "height": 40,
-                        "pixelMierLogo": true,
-                        "imageURL": "http://pixelmap.amcharts.com/static/img/logo.svg",
-                        "url": "http://www.amcharts.com"
-                      }
-                    ],
-                    "areas": [
-                      {
-                        "id": "CA",
-                        "title": "Canada",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "CN",
-                        "title": "China",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "JP",
-                        "title": "Japan",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "MX",
-                        "title": "Mexico",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "MY",
-                        "title": "Malaysia",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "TH",
-                        "title": "Thailand",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "TW",
-                        "title": "Taiwan",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "US",
-                        "title": "United States",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "PT",
-                        "title": "Portugal",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "BR",
-                        "title": "Brazil",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "VN",
-                        "title": "Vietnam",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "BE",
-                        "title": "Belgium",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "DE",
-                        "title": "Germany",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "IN",
-                        "title": "India",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "NL",
-                        "title": "Netherlands",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "CH",
-                        "title": "Switzerland",
-                        "color": "rgba(114,131,154,1)"
-                      },
-                      {
-                        "id": "GB",
-                        "title": "United Kingdom",
-                        "color": "rgba(114,131,154,1)"
-                      }
-                    ]
-                  },
-                  "balloon": {
-                    "horizontalPadding": 5,
-                    "borderAlpha": 0,
-                    "borderThickness": 1,
-                    "verticalPadding": 5
-                  },
-                  "areasSettings": {
-                    "color": "rgba(129,129,129,0.8)",
-                    "outlineColor": "rgba(80,80,80,0.3)",
-                    "rollOverOutlineColor": "rgba(80,80,80,1)",
-                    "rollOverBrightness": 35,
-                    "selectedBrightness": 20,
-                    "selectable": false,
-                    "unlistedAreasAlpha": 0,
-                    "unlistedAreasOutlineAlpha": 0
-                  },
-                  "imagesSettings": {
-                    "alpha": 1,
-                    "color": "rgba(129,129,129,0.8)",
-                    "outlineAlpha": 0,
-                    "rollOverOutlineAlpha": 0,
-                    "outlineColor": "rgba(80,80,80,0)",
-                    "rollOverBrightness": 20,
-                    "selectedBrightness": 20,
-                    "selectable": true
-                  },
-                  "linesSettings": {
-                    "color": "rgba(129,129,129,0.8)",
-                    "selectable": true,
-                    "rollOverBrightness": 20,
-                    "selectedBrightness": 20
-                  },
-                  "zoomControl": {
-                    "zoomControlEnabled": false,
-                    "zoomOnDoubleClick": false, // disables zoom on doubleclick
-                    "dragMap": false, // disables map pan
-                    "homeButtonEnabled": true,
-                    "panControlEnabled": false,
-                    "right": 38,
-                    "bottom": 30,
-                    "minZoomLevel": 0.25,
-                    "gridHeight": 100,
-                    "gridAlpha": 0.1,
-                    "gridBackgroundAlpha": 0,
-                    "gridColor": "#FFFFFF",
-                    "draggerAlpha": 1,
-                    "buttonCornerRadius": 2
-                  }
-                });
-            </script>
-            <div id="map" style="width: 100%; height: 60vh; margin-top:50px"></div>
+        <!-- Country shapes: Natural Earth 1:110m (public domain) via world-atlas, ISC license (c) Mike Bostock.
+             To mark a new country, add class="visited" to the path whose <title> names it. -->
+        <svg class="travel-map" viewBox="0 0 1000 647" role="img" aria-labelledby="travel-map-title">
+          <title id="travel-map-title">Map of countries visited</title>
+          <path d="M994.8 509.5l0.7-0.4 0.9 0.8-0.4 1.5-1.7 0.4-1.6-0.3-0.2-1.3 1-1 1.3 0.3zM0 505.4l0.6-0.2-0.4 1.4-0.2 0.2-1.8 0.7-1.7 0.6-0.4-1.1 1.4-0.6 0.9-0.1 1.6-0.9zM1000 505.4l0.6-0.2-0.4 1.4-0.2 0.2-1.8 0.7-1.7 0.6-0.4-1.1 1.4-0.6 0.9-0.1 1.6-0.9z"><title>Fiji</title></path>
+          <path d="M594.2 462.8l0.4 0.3 10.1 5.6 0.2 1.7 4 2.7-1.3 3.5 0.2 1.6 1.8 1 0 0.7-0.7 1.7 0.1 0.9-0.1 1.3 0.9 1.8 1.2 2.7 1 0.7-2.2 1.6-3.1 1.1-1.6-0.1-1 0.9-1.9 0.1-0.8 0.3-3.3-0.8-2.1 0.3-0.8-3.9-0.9-1.3-0.6-0.8-2.7-0.5-1.6-0.9-1.7-0.4-1.2-0.5-1.1-0.7-1.5-3.5-1.6-1.6-0.6-1.6 0.3-1.5-0.5-2.6 1.1-0.1 1.1-1 1-1.4 0.7-0.6 0-0.9-0.6-0.7-0.2-1.1 0.8-0.3 0.2-1.6-1.1-1.6 1-0.3 3 0 5.7-0.2z"><title>Tanzania</title></path>
+          <path d="M475.9 380.1l0 0.3 0 0.6 0 4.7-9.1-0.2 0 7.8-2.6 0.3-0.6 1.6 0.5 4.3-10.9 0-0.6 1 0.1-1.3 0.1 0 6.2-0.2 0.4-1.1 1.1-1.4 0.9-4.1 3.9-3.3 1.3-3.9 0.8-0.2 1-2.4 2.3-0.4 1 0.4 1.3 0 0.9-0.7 1.7-0.1-0.1-1.7 0.4 0z"><title>W. Sahara</title></path>
+          <path d="M742.7 302.6l-2.2 2.9-2.3 0.4-0.1 4.1-1.5 1.9-5.5-1.4-2 7.2-1.5 0.9-5.5 1.6 2.5 6.7-1.9 1 0.2 2.1-1.7-0.5-1.4-1.4-4.1-0.4-4.6-0.1-1 0.4-4-1.5-1.5 0.7-0.5 2.3-4.5-1.3-1.9 0.5-0.6 1.7-1.6 0.7-3.6 2.5-1.3 2.7-1 0-0.8-1.7-3.5-0.2-0.6-3-1.3 0 0.2-3.8-3.3-2.8-4.8 0.3-3.2 0.6-2.7-3.5-2.3-1.5-4.3-2.8-0.5-0.4-7.1 2.4 0.1 14-1.5 0.2-1.9-2.9-1.9-1.1-3.1 0.8-1.3 1.3-0.1-0.9 0.7-1.6-0.6-1.3-3.2-1.3-1.2-3.5-1.6-0.9-0.1-1.3 2.7 0.4 0.1-2.9 2.4-0.6 2.4 0.5 0.5-3.8-0.5-2.5-2.7 0.2-2.4-1-3.2 1.8-2.6 0.8-1.4-0.7 0.3-2-1.8-2.8-2.1 0.1-2.3-2.8 1.6-3.2-0.8-0.9 2.2-4.7 2.8 2.5 0.4-3.1 5.7-4.9 4.4-0.1 6.1 3.1 3.3 1.8 2.9-1.9 4.4-0.1 3.6 2.3 0.8-1.3 3.9 0.2 0.7-2.1-4.5-3.1 2.6-2.2-0.5-1.2 2.7-1.2-2-3.2 1.3-1.6 10.3-1.7 1.4-1.1 7-1.8 2.5-2 4.9 1 0.9 5 2.9-1.2 3.6 1.7-0.2 2.5 2.6-0.2 7-4.5-1 1.5 3.5 3.6 6.2 11.5 1.5-2.3 3.8 2.5 4-1.1 1.6 0.8 1.3 2.5 1.9 0.9 1.2 1.8 3.6-0.6 1.5 2.6z"><title>Kazakhstan</title></path>
+          <path d="M655.5 333.9l-0.1-14 7.1-2.4 0.5 0.4 4.3 2.8 2.3 1.5 2.7 3.5 3.2-0.6 4.8-0.3 3.3 2.8-0.2 3.8 1.3 0 0.6 3 3.5 0.2 0.8 1.7 1 0 1.3-2.7 3.6-2.5 1.6-0.7 0.8 0.3-2.3 2.4 2.1 1.4 1.9-0.9 3.3 2-3.5 2.6-2.1-0.4-1.2 0.1-0.4-1 0.6-1.7-3.7 0.9-0.9 2.3-1.3 2-2.3-0.2-0.8 1.6 2.1 0.9 0.6 2.6-1.6 3.6-2.1-0.8-1.5 0 0-2.1-3.6-1.6-3-1.7-1.8-1.7-3.1-2.5-1.4-3.7-0.9-0.7-3 0.1-1.1-0.7-0.3-3-3.7-2-2.4 2.2-2.4 1.3 0.5 1.9-3.1 0z"><title>Uzbekistan</title></path>
+          <path d="M891.7 467.4l4.8 1.9 5.1 1.6 1.9 1.4 1.6 1.4 0.4 1.6 4.6 1.8 0.7 1.5-2.6 0.3 0.7 1.8 2.4 1.9 1.8 2.9 1.6-0.1-0.1 1.3 2.2 0.5-0.9 0.5 3 1.2-0.3 0.8-1.9 0.2-0.6-0.7-2.4-0.3-2.8-0.5-2.2-1.8-1.6-1.5-1.4-2.5-3.6-1.2-2.4 0.8-1.7 0.9 0.4 2.1-2.2 1-1.6-0.5-2.8-0.1-0.1-9.2 0-9zM924 470.3l1.1 0.9 0.3 1.4-0.9 0.8-0.5-1.7-0.7-1-1.2-0.9-1.6-1.2-2-0.8 0.8-0.7 1.5 0.8 0.9 0.6 1.2 0.6 1.1 1.2zM920.3 476.4l-1.5 0.7-1.5 0.6-1.4 0-2.3-0.8-1.6-0.8 0.2-0.8 2.5 0.4 1.5-0.2 0.5-1.4 0.4-0.1 0.2 1.5 1.6-0.2 0.8-0.9 1.5-1-0.3-1.7 1.7 0 0.6 0.4-0.1 1.6-0.9 1.7-1.5 0.2-0.4 0.8zM929.9 475l0.8 0.6 1.4 1.8 1.3 0.9-0.4 0.8-0.8 0.3-1.2-1.1-1.2-1.7-0.6-2.2 0.4-0.2 0.3 0.8z"><title>Papua New Guinea</title></path>
+          <path d="M891.7 467.4l0 9 0.1 9.2-2.5-2.3-2.8-0.6-0.7 0.8-3.5 0.1 1.1-2.3 1.8-0.8-0.7-3-1.4-2.4-5.4-2.3-2.2-0.3-4.2-2.5-0.8 1.3-1.1 0.3-0.6-1 0-1.3-2.2-1.3 3-1 2 0-0.2-0.7-4.1 0-1.1-1.7-2.5-0.5-1.1-1.4 3.7-0.6 1.4-0.9 4.5 1.1 0.4 1 0.8 4.5 2.9 1.7 2.3-3 3.2-1.6 2.4 0 2.4 0.9 2.1 1 3 0.6zM847.1 484.9l0.3 0.6 0.1 0.8-1.8 2.2-2.4 0.6-0.4-0.4 0.3-0.9 1.2-1.7 2.7-1.2zM872.8 479.3l-0.3-2.1 0.5-1 0.6-0.9 0.6 0.8 0 1.3-1.4 1.9zM827.4 448.6l-1.5 2.5 2 2.7-0.5 1.3 3.1 2.5-3.2 0.4-1 1.9 0.1 2.5-2.6 1.9-0.1 2.7-1.1 4.3-0.4-1-3.1 1.3-1.1-1.7-2-0.2-1.4-0.9-3.3 1-1-1.3-1.8 0.1-2.3-0.3-0.5-3.7-1.3-0.8-1.4-2.4-0.4-2.4 0.4-2.6 1.6-1.8 0.5 1.8 1.9 1.6 1.8-0.6 1.7 0.2 1.7-1.4 1.3-0.2 2.6 0.8 2.3-0.6 1.4-3.9 1.1-1 0.9-3.1 3.2 0 2.4 0.4zM859.4 467.9l3 0.8 1 2.2-2.3-1.2-2.3-0.2-1.6 0.2-1.9-0.1 0.6-1.6 3.5-0.1zM852.4 470.7l-1.9-0.5-0.5-1.2 2.8-0.2 0.7 1-1.1 0.9zM855.4 454.1l0.2 1.5 1.6 0.3 0.3 1.1-0.2 2.4-1.4-0.3-0.4 1.7 1.1 1.5-0.8 0.3-1.1-1.7-0.8-3.6 0.5-2.2 1-1zM841.5 457.7l3.2-0.1 2.7-2 0.5 0.6-2.2 2.8-2.1 0.5-2.7-0.6-4.6 0.2-2.5 0.4-0.4 2.1 2.5 2.5 1.5-1.3 5.2-1-0.2 1.3-1.2-0.4-1.2 1.7-2.5 1 2.6 3.6-0.5 0.9 2.5 3.3 0 1.8-1.5 0.8-1.1-1 1.4-2.2-2.7 1-0.7-0.7 0.3-1.1-2-1.6 0.2-2.8-1.8 0.9 0.2 3.2 0.1 4-1.7 0.4-1.2-0.8 0.8-2.6-0.5-2.6-1.1-0.1-0.9-1.9 1.2-1.8 0.4-2.2 1.3-4.2 0.6-1.1 2.4-2.1 2.2 0.8 3.5 0.4zM834.1 488.8l-3.6-2 2.6-0.5 1.4 0.8 1 0.9-0.2 0.7-1.2 0.1zM837.1 483.9l1.8-0.2 2.5-1-0.4 1.6-4.2 0.8-3.7-0.4 0-1 2.2-0.6 1.8 0.8zM828.5 483.4l1.7-0.2 0.7 1.2-3.2 0.6-1.9 0.4-1.5-0.1 0.9-1.6 1.6 0 0.7-1 1 0.7zM801.3 478l0.4 1 5.4 0.3 0.6-1.2 5.1 1.4 1 1.8 4.2 0.5 3.4 1.7-3.2 1-3-1.1-2.5 0.1-2.9-0.2-2.6-0.5-3.2-1.1-2.1-0.3-1.1 0.4-5.1-1.2-0.5-1.2-2.5-0.2 1.9-2.7 3.4 0.2 2.2 1.1 1.1 0.2zM789.9 463.1l0.5 2 1 1.5 2 0.3 1.3 1.7-0.7 3.5-0.1 4.3-3 0.1-2.4-2.4-3.5-2.2-1.2-1.7-2.1-2.3-1.4-2.1-2.1-3.9-2.5-2.3-0.8-2.4-1-2.1-2.5-1.8-1.5-2.4-2.1-1.5-2.9-3.1-0.2-1.4 1.8 0.1 4.3 0.5 2.4 2.8 2.2 1.9 1.5 1.1 2.7 3 2.8 0 2.3 2 1.6 2.3 2.1 1.2-1.1 2.3 1.6 1 1 0z"><title>Indonesia</title></path>
+          <path d="M309.4 632.7l1 2.1 1.4 3.5 3.6 2.9 3.9 1.2-1.2 2.4-2.7 0.3-1.4-1.8-1.7-0.1-2.9 0 0-10.5zM339.9 548.3l-0.7 2.5-0.7 3.4 0 3.3-0.6 0.7-0.2 2.2-0.2 1.7 3.5 2.9-0.3 2.4 1.7 1.5-0.1 1.7-2.7 4.5-4.1 1.9-5.6 0.7-3.1-0.4 0.6 2.2-0.5 2.7 0.5 1.8-1.7 1.3-2.8 0.5-2.7-1.3-1.1 0.9 0.4 3.7 1.9 1.2 1.5-1.2 0.8 1.9-2.5 1.2-2.3 2.4-0.4 3.9-0.6 2.1-2.6 0-2.2 2-0.8 3 2.7 2.9 2.7 0.9-1 3.7-3.3 2.3-1.8 5-2.5 1.7-1.1 2.1 0.8 4.6 1.9 2.6-1.2-0.2-2.5-0.7-6.8-0.6-1.1-2.7 0-3.3-1.8 0.3-1-1.6-0.2-4.5 2.1-1.9 0.9-2.7-0.3-2.1 1.4-3.5 1-5.3-0.3-2.3 1.3-0.7-0.3-1.5-1.3-0.8 0.9-1.6-1.3-1.5-0.6-4.3 1.1-0.8-0.5-4.5 0.7-3.7 0.7-3.2 1.7-1.3-0.8-3.5-0.1-3.2 2.1-2.2 0-2.9 1.6-3.3 0-3.1-0.7-0.6-1.3-5.6 1.7-3.4-0.3-3.1 1-2.8 1.8-3 2-1.9-0.8-1.3 0.5-1 0-5.1 3-1.5 0.9-3.1-0.3-0.8 2.3-2.7 3.6 0.7 1.7 2.2 1.1-2.4 3.1 0.1 0.5 0.7 5.1 4.9 2.3 0.4 3.3 2.3 2.9 1.2 0.4 1.4-2.7 4.7 2.8 0.8 3.1 0.5 2.2-0.5 2.5-2.4 0.5-2.7 1.3-0.6 1.4 1.8 0 2.4-2.4 1.8-1.8 1.2-3.2 3.1-3.7 4.4z"><title>Argentina</title></path>
+          <path d="M309.4 632.7l0 10.5 2.9 0 1.7 0.1-0.9 2-2.4 1.5-1.4-0.1-1.6-0.4-2-1.5-2.9-0.7-3.5-2.7-2.9-2.5-3.8-5.3 2.3 1 3.9 3.1 3.7 1.7 1.4-2.1 0.9-3.2 2.6-1.9 2 0.5zM306.7 509.8l1.4 1.9 0.3 2.2 1.5 1.2-0.9 2.9 1.5 3.3 1.1 4.1 2-0.4 0.3 0.8-0.9 3.1-3 1.5 0 5.1-0.5 1 0.8 1.3-2 1.9-1.8 3-1 2.8 0.3 3.1-1.7 3.4 1.3 5.6 0.7 0.6 0 3.1-1.6 3.3 0 2.9-2.1 2.2 0.1 3.2 0.8 3.5-1.7 1.3-0.7 3.2-0.7 3.7 0.5 4.5-1.1 0.8 0.6 4.3 1.3 1.5-0.9 1.6 1.3 0.8 0.3 1.5-1.3 0.7 0.3 2.3-1 5.3-1.4 3.5 0.3 2.1-0.9 2.7-2.1 1.9 0.2 4.5 1 1.6 1.8-0.3 0 3.3 1.1 2.7 6.8 0.6 2.5 0.7-2.4-0.1-1.4 1.2-2.5 1.6-0.4 4.4-1.2 0.1-3.1-1.5-3.2-3.3-3.5-2.6-0.9-2.8 0.8-2.6-1.4-3-0.3-7.3 1.2-4 2.9-3.1-4.2-1.2 2.6-3.6 1-6.5 3.1 1.4 1.4-7.9-1.9-1-0.8 4.7-1.8-0.6 0.9-5.3 0.9-6.9 1.3-2.4-0.8-3.5-0.2-3.9 1.2-0.2 1.7-5.5 1.9-5.4 1.2-5-0.7-4.9 0.9-2.6-0.4-4 1.6-3.8 0.5-6 0.9-6.4 0.9-6.7-0.2-4.9-0.6-4.1 1.5-0.7 0.7-1.5z"><title>Chile</title></path>
+          <path d="M581.5 472.6l0.5 2.6-0.3 1.5 0.6 1.6 1.6 1.6 1.5 3.5-1.1-0.3-3.7 0.5-0.8 0.3-0.8 1.8 0.6 1.2-0.4 3.4-0.4 2.8 0.8 0.5 1.9 1.1 0.8-0.5 0.2 3.1-2.1 0-1.2-1.6-1-1.2-2.1-0.4-0.6-1.5-1.7 0.9-2.3-0.4-0.9-1.3-1.8-0.2-1.3 0-0.1-0.9-1 0-1.2-0.2-1.8 0.4-1.2 0-0.7 0.2 0.2-3.3-0.9-1.1-0.2-1.7 0.4-1.7-0.6-1.1 0-1.8-3.4 0.1 0.2-1-1.4 0-0.1 0.5-1.8 0.1-0.7 1.6-0.4 0.7-1.5-0.4-0.9 0.4-1.9 0.2-1-1.4-0.7-0.9-0.8-1.7-0.6-2.1-8.2 0-1 0.3-0.8-0.1-1.2 0.4-0.4-0.9 0.7-0.2 0.1-1.3 0.5-0.7 1-0.6 0.7 0.3 1-1.1 1.5 0.1 0.2 0.8 1 0.5 1.6-1.8 1.7-1.3 0.7-0.9-0.1-2.3 1.2-2.7 1.2-1.5 1.9-1.3 0.3-0.9 0.1-1 0.4-1-0.1-1.5 0.3-2.5 0.6-1.7 0.8-1.5 0.2-1.7 0.2-1.9 1.1-1.5 1.5-0.9 2.3 1 1.7 1 2.1 0.3 2 0.5 0.9-1.6 0.3-0.3 1.3 0.3 3.1-1.4 1.1 0.6 0.9-0.1 0.4-0.6 1.1-0.3 2 0.3 1.8 0.1 0.9-0.3 1.7 2.3 1.3 0.3 0.7-0.5 1.3 0.2 1.5-0.6 0.7 1.2 2.4 1.9-0.1 3.2 1.1 0.4-0.9 1-1.1 0.7-1 1.5-0.6 1.3-0.2 2.2-0.6 1.1 0 2.1-0.8 0.7-0.1 1.7-0.4 0.2-0.3 1.5 0.7 1.3 0.2 3.3z"><title>Dem. Rep. Congo</title></path>
+          <path d="M615.5 464.8l-1.6-2.3-0.1-10.1 2.5-3.2 0.7-0.8 1.8-0.1 2.5-2 3.6-0.1 7.8-8.4 2-2.3 1.2-1.7 0-1.5 0-2.9 0-1.1 0.1-0.1 0.9 0 1.2-0.4 1.5-0.3 1.3-1 1.1 0 0 0.8-0.2 1.6 0 1.5-0.6 1-0.8 3.1-1.3 3.1-1.7 3.6-2.4 4.1-2.4 3.1-3.3 3.8-2.7 2.3-4.2 2.7-2.6 2.1-3 3.4-0.7 1.5-0.6 0.6z"><title>Somalia</title></path>
+          <path d="M608.9 473.1l-4-2.7-0.2-1.7-10.1-5.6-0.4-0.3-0.1-3 0.8-1.1 1.4-1.8 1-2.1-1.2-3.2-0.3-1.3-1.3-2 1.7-1.6 1.8-1.9 1.5 0.5 0 1.6 0.9 0.9 2 0 3.5 2.3 0.9 0.1 0.6-0.1 0.6 0.3 1.9 0.2 0.8-1.1 2.5-1.2 1.2 0.9 1.9 0-2.5 3.2 0.1 10.1 1.6 2.3-1.9 1.1-0.7 1.2-1.1 0.2-0.4 1.9-0.8 1.2-0.6 1.8-1.1 0.9z"><title>Kenya</title></path>
+          <path d="M568.2 437.2l-2.1-1.2-0.9-0.8-0.2-0.9 0.4-1.2 0-1.1-1.6-1.8-0.3-1.2 0-0.7-1-0.8 0-1.7-0.6-1.1-1 0.2 0.3-1.1 0.7-1.1-0.3-1.2 0.9-0.9-0.5-0.7 0.7-1.8 1.3-2.1 2.4 0.2-0.2-11.5 0-1.3 3.2 0 0-5.9 11.2 0 10.8 0 11 0 0.9 2.9-0.6 0.5 0.4 3.1 1 3.5 1.1 0.7 1.5 1.1-1.4 1.7-2.1 0.4-0.8 0.9-0.3 2-1.2 4.2 0.3 1.1-0.5 2.5-1.1 2.8-1.7 1.4-1.1 2.2-0.3 1.1-1.3 0.8-0.9 3 0.1 2.5-0.1-2.2-0.3 0 0-1.4-0.3-1-1.5-1.1-0.3-2.1 0.3-2-1.2-0.2-0.2 0.6-1.7 0.1 0.7 0.9 0.2 1.7-1.5 1.5-1.4 2.1-1.4 0.2-2.4-1.6-1 0.6-0.3 0.8-1.4 0.5-0.1 0.6-2.8 0-0.4-0.6-2-0.1-1 0.5-0.8-0.2-1.4-1.7-0.5-0.7-2 0.3-0.7 1.4-0.7 2.5-1 0.5-0.8 0.3 1.8 1.1z"><title>Sudan</title></path>
+          <path d="M566.2 404.7l0.2 11.5-2.4-0.2-1.3 2.1-0.7 1.8 0.5 0.7-0.9 0.9 0.3 1.2-0.7 1.1-0.3 1.1 1-0.2 0.6 1.1 0 1.7 1 0.8 0 0.7-1.7 0.5-1.5 1.1-2 3.1-2.6 1.3-2.7-0.2-0.7 0.3 0.2 1-1.4 1-1.2 1-3.5 1.1-0.7-0.6-0.4-0.1-0.6 0.8-2.3 0.2 0.5-0.8-0.9-1.9-0.4-1.2-1.2-0.5-1.6-1.6 0.6-1.3 1.2 0.2 0.8-0.2 1.6 0.1-1.5-2.6 0.1-1.9-0.2-1.9-1.1-1.8 0.2-1.3-1.7-0.1 0-1.8-1.2-1.1 1.2-3.8 3.6-2.7 0.1-3.8 1.1-6 0.6-1.2-1.2-1 0-1-1.1-0.8-0.6-4.6 2.8-1.7 11 5.8 11.1 5.7z"><title>Chad</title></path>
+          <path d="M300.8 404.3l0.2 1.6-0.2 1.1-0.6 0.5 0.7 0.9-0.1 0.8-1.8-0.5-1.3 0.2-1.7-0.2-1.3 0.5-1.5-0.9 0.2-1 2.6 0.5 2.1 0.2 1-0.7-1.3-1.2 0-1.2-1.7-0.4 0.6-0.8 1.7 0.1 2.4 0.5z"><title>Haiti</title></path>
+          <path d="M300.8 409.2l0.1-0.8-0.7-0.9 0.6-0.5 0.2-1.1-0.2-1.6 0.3-0.5 2.2 0 1.7 0.7 0.7 0 0.5 1 1.5-0.1-0.1 0.9 1.3 0.1 1.3 1.1-1 1.2-1.3-0.6-1.3 0.1-0.9-0.2-0.5 0.6-1.1 0.2-0.4-0.8-0.9 0.5-1.1 2-0.7-0.5-0.2-0.8z"><title>Dominican Rep.</title></path>
+          <path d="M760.5 55.1l6-4.1 5.4 9 6.4 15.9-0.7 13.5-6.1 1.8-7.7-4.2-4.6-5.7-2.1-11.2-3.8-3.3 7.2-11.7zM785.7 83.5l7 8.3-0.8 5.6-15.7 5.2 5.1-18.4 2.3-1.7 2.1 1zM885.6 124.8l7.4 0.5 10 6-2.2 8.1-10.2-0.3-4.6 2.4-5.5-6.9 1.5-7.7 3.6-2.1zM911.7 133.7l7 2.8-3.2 4.3-4.5-1-5.1-4.2 0.6-3.6 5.2 1.7zM888.5 154.1l2.6-3.9 3.5-0.9 4 3.7 0.3 2.6-4.2 0.1-5.7-1.1-0.5-0.5zM624.6 62.7l5.4-3.1 4.2-0.3 0.6 4.7 1.6-4.1 2.6-2.9 4.1 3.8-1.1 2.6-3.7 2.2-2.5 1.3-0.4 2.7-3.2 2.6-3-3.8 1.6-5.2-6.2-0.5zM563.1 279.7l-5.1 0-3.4-0.5 0.6-2.1 3.9-1.6 2.9 0.9 1.2 0.7-0.3 1.3 0.2 1.3zM648.6 150.3l6.7-8.9-0.8-4.8 6.2-5.8 9.2-7.4 9.3-2.2 4.7-4.4 5.4-1.6 2 4.8-1.9 3.6-9.9 5.7-8.4 5.3-8.7 10.1-4.1 9.7-4.4 9.1 0.6 7.4 5.3 7.1-1.6 0.7-9.1-1.1-0.7-3.8-5.1-2.3-0.4-4.8 2.9-1.9-0.1-5.1 5.5-8.1-2.6-1.3zM897 282.6l0.9 4.5 0 4.4 1.1 4.5 2.8 7.7-4.1-1.4-1.7 6 2.7 4.2-0.1 2.8-2.1-2.4-1.8 3.1-0.5-3.4 0.3-3.9-0.3-4.5 0.6-3.3 0.1-5.8-1.6-4.4 0.3-6.2 2.5-2.2-1.1-2.1 1.3-0.7 0.7 3.1zM863.3 330.5l-0.4-0.6 0-1.9 1.4-0.2 0.4-4.5-0.7-3.3 2.3-1.4 3.4 0.7 1.9-3.9 0.9-4.4 1.1-1.5 1.5-3.7-4.6 1.2-2.4 1.6-4.3 0-1.1-3.9-3.3-3-4.8-1.4-1-4.2-1-2.8-1-1.9-1.8-4.6-2.4-1.7-4.1-1.3-3.7 0.1-3.5 0.8-2.3 2.3 1.5 1.1 0.1 2.5-1.6 1.5-2.5 4.6 0.1 2-4 2.7-3.3-1.6-3.3 0.3-1.5-1.4-1.6-0.5-4.1 3-3.7 0.8-2.5 1-3.5-0.7-2.6 0.1-1.7-2.2-2.7-2.1-2.8-0.6-3.5 0.6-2.6 0.8-4-1.8-0.5-3.3-3.3-1.2-2.5-0.5-3.1-1.9-2.9 4.7 1.2 2.6-2.7 3-4.1-1.1-2.7-0.2-1.9-2-2.9-0.1-2.4-1.3-4.2 2-5.3 3.8-2.9 0.7-1.1 0.3-1.5-2.6-3.6 0.6-1.2-1.8-1.9-0.9-1.3-2.5-1.6-0.8-4 1.1-3.8-2.5-1.5 2.3-6.2-11.5-3.5-3.6 1-1.5-7 4.5-2.6 0.2 0.2-2.5-3.6-1.7-2.9 1.2-0.9-5-4.9-1-2.5 2-7 1.8-1.4 1.1-10.3 1.7-1.3 1.6 2 3.2-2.7 1.2 0.5 1.2-2.6 2.2 4.5 3.1-0.7 2.1-3.9-0.2-0.8 1.3-3.6-2.3-4.4 0.1-2.9 1.9-3.3-1.8-6.1-3.1-4.4 0.1-5.7 4.9-0.4 3.1-2.8-2.5-2.2 4.7 0.8 0.9-1.6 3.2 2.3 2.8 2.1-0.1 1.8 2.8-0.3 2 1.4 0.7-1.3 2.4-2.7 0.6-2.7 4.1 2.5 3.7-0.3 2.5 3.1 4.5-1.7 1.5-0.5 0.9-1.2-0.2-1.9-2.3-0.8-0.1-1.7-0.9-0.9-1.5-2.6-0.8-1.7 0.6-0.5-0.7-3.7-1.9-4.1-0.6-2.4-0.6-0.3 0.4-3.6-3.2-3.1-1.5-2.4-2.3 2-0.6 2.3-3.4-1.6-1.6 4.1-1.6 0-0.9-2.5 0.6 0.1-1.8 1.4-1.1 2.7-0.3 0.4-1.4-0.6-2.3 1.1-2.2 0-1.3-4.1-1.4-1.6 0-1.7-2-2.2 0.7-3.5-1.5 0.1-0.9-1-1.9-2.2-0.2-0.3-1.4 0.7-0.9-1.7-2.6-2.9 0.5-0.9-0.3-0.7 1.1-1-0.2-0.7-2.9-0.6-1.6 0.5-0.4 2.2 0.2 1.1-1-0.8-1.3-1.9-0.8 0.2-0.9-1.1-0.8-1.8-3.2 0.6-1.3-0.2-2.2-2.8-1.2-1.4 0.6-0.4-1.3-2.9-1.2-0.9-3-0.3-2.5-1.3-1.1 1.2-1.7-0.8-4.9 1.9-3.1-0.4-1 3.2-3-2.9-2.7 5.9-7.3 2.6-3.5 1-3-4.1-4.3 1.2-4.1-2.5-4.8 1.8-5.7-3.2-7.9 2.6-5.4-4.3-5 0.4-5.3 2.3-0.7 4.7-3.2 2.9-2.8 4.5 4.8 7.6 1.9 10.5 8.5 2.2 3.5 0.1 4.8-3 3.7-4.6 1.8-12.4-5.3-2 0.9 4.5 5.1 0.2 3.1 0.2 6.7 3.5 1.9 2.2 1.7 0.4-3.1-1.7-2.8 1.8-2.5 6.7 4.1 2.3-1.6-1.8-4.8 6.4-6.7 2.6 0.4 2.6 2.4 1.6-4.8-2.3-4.2 1.3-4.4-2-4.6 7.8 2.4 1.6 4.1-3.6 0.9 0.1 4 2.1 2.5 4.3-1.6 0.7-4.5 5.8-3.5 9.7-6.5 2.1 0.4-2.7 4.6 3.4 0.7 2-2.5 5.2-0.2 4.1-3.2 3.2 4.6 3.2-5.1-3-4.5 1.5-2.7 8.2 2.5 3.8 2.4 10.1 8.8 1.9-4-2.9-4.1 0-1.6-3.4-0.8 0.9-3.8-1.5-6.4 0-2.7 5.1-8 1.8-8.3 2.1-1.9 7.3 2.5 0.6 5.2-2.6 7.2 1.7 2.7 0.9 5.9-0.6 11 3 4.7-1.2 5-5.4 10.1 3.2 1 1.1-2.5 3-1.8 0.8-3.5 2.4-3.5-1.6-4.2 1.3-5-3.1-0.7-0.7-4.4 2.3-8.2-3.6-6.9 4.9-6-0.6-6.6 1.4-0.2 1.4 5.1-1.1 8.6 3 1.6-1.3-6.3 4.7-3.6 5.8-0.4 5.1 5.1-2.5-7.6-0.3-10.2 4.9-2 6.7 0.5 6-1.3-2.3-5.4 3.2-6.9 3.2-0.3 5.4-5.5 7.4-1.5 0.9-3.1 7.3-1.1 2.2 2.6 6.3-6.2 5.1 0.2 0.8-5.2 2.6-5.3 6.6-5.2 4.7 4.1-3.8 3.2 6.3 1.8 0.8 6 2.5-2.9 8.1 0.2 6.3 5.8 2.2 4.3-0.7 5.8-3 3.2-7.3 5.9-2.1 3 3.4 1.4 4.1 2.6 2.5-1.9 1.5 6.3 1.2-2.5 4.4-1.6 8.9 1.6 0.7 4.6 11.6 1.4 0.2-7.4 5.9 1.7 4.4 0 4.5 5.1 1.3 5.9-1.7 3.8 3.5 7 4.4 3.4 2.7-9.1 4.4 4 4.8-2.4 5.3 2.7 2.1-2.4 4.5 1.2-2-8.3 3.7-4.1 25.1 6 2.3 5.4 7.3 6.6 11.2-1.7 5.6 1.5 2.3 3.4-0.4 6 3.5 2.2 3.7-1.6 4.9-0.2 5.2 1.6 5.3-0.9 4.8 6.9 3.5-2.4-2.3-5.1 1.3-3.5 8.8 2.2 5.8-0.5 8 3.8 3.9 3.5 6.8 5.8 7.3 7.2-0.2 4.4 1.8 1.8-0.6-5.1 7.5 1 5.5 6.5-2.8 3-4.5 0.7-0.1 6.4-1.1 1.3-2.6-0.2-2.1-2.2-3.7-1.9-0.7-2.9-2.8-1.1-3.1 0.9-1.5-2.4 0.6-2.5-3.4 1.6 1.3 3.2-1.6 2.8-3.6 2.9-3.6-0.5 2.5 3.4 1.7 5.2 1.2 1.7 0.4 2.5-0.7 1.6-5.2-1.3-7.8 4.4-2.5 0.7-4.2 4.1-4 3.5-1.1 2.5-3.9-3.9-7.3 4.4-1.2-2-2.7 2.3-3.7-0.7-0.9 3.6-3.4 5.1 0.1 2.2 3.2 1.1-0.4 7.4-2.5 0.2-1.2 4.1 1.1 2.1-4.8 2.5-1 5.4-4.1 1.1-0.9 4.6-4 4.2-1-3.1-1.2-6.6-1.5-10.6 1.3-6.9 2.3-3.1 0.2-2.4 4.3-1.2 5-6.7 4.7-5.7 5-4.5 2.3-8.3-3.4 0.5-1.7 4.9-7 6.3-2.3-7.1-7.2 2-6.9 9.5 2.3 3.3-6.2 1.4-4.3 0.6 0.2-3.9-4.3-0.9-3.5 2.7-8.5-0.9-9.1 1.6-9 10.2-10.7 11.7 4.4 0.6 1.4 3 2.7 1.1 1.8-2.4 3 0.3 4 5.2 0.1 3.9-2.2 4.5-0.2 5.2-1.2 6.8-4.2 6-1 2.8-3.7 4.6-3.8 4.5-1.8 2.3-3.7 2.2-1.7 0.1-1.8-1.9-3.7 2.8-0.4 1.2zM-136.7 330.5l-0.4-0.6 0-1.9 1.4-0.2 0.4-4.5-0.7-3.3 2.3-1.4 3.4 0.7 1.9-3.9 0.9-4.4 1.1-1.5 1.5-3.7-4.6 1.2-2.4 1.6-4.3 0-1.1-3.9-3.3-3-4.8-1.4-1-4.2-1-2.8-1-1.9-1.8-4.6-2.4-1.7-4.1-1.3-3.7 0.1-3.5 0.8-2.3 2.3 1.5 1.1 0.1 2.5-1.6 1.5-2.5 4.6 0.1 2-4 2.7-3.3-1.6-3.3 0.3-1.5-1.4-1.6-0.5-4.1 3-3.7 0.8-2.5 1-3.5-0.7-2.6 0.1-1.7-2.2-2.7-2.1-2.8-0.6-3.5 0.6-2.6 0.8-4-1.8-0.5-3.3-3.3-1.2-2.5-0.5-3.1-1.9-2.9 4.7 1.2 2.6-2.7 3-4.1-1.1-2.7-0.2-1.9-2-2.9-0.1-2.4-1.3-4.2 2-5.3 3.8-2.9 0.7-1.1 0.3-1.5-2.6-3.6 0.6-1.2-1.8-1.9-0.9-1.3-2.5-1.6-0.8-4 1.1-3.8-2.5-1.5 2.3-6.2-11.5-3.5-3.6 1-1.5-7 4.5-2.6 0.2 0.2-2.5-3.6-1.7-2.9 1.2-0.9-5-4.9-1-2.5 2-7 1.8-1.4 1.1-10.3 1.7-1.3 1.6 2 3.2-2.7 1.2 0.5 1.2-2.6 2.2 4.5 3.1-0.7 2.1-3.9-0.2-0.8 1.3-3.6-2.3-4.4 0.1-2.9 1.9-3.3-1.8-6.1-3.1-4.4 0.1-5.7 4.9-0.4 3.1-2.8-2.5-2.2 4.7 0.8 0.9-1.6 3.2 2.3 2.8 2.1-0.1 1.8 2.8-0.3 2 1.4 0.7-1.3 2.4-2.7 0.6-2.7 4.1 2.5 3.7-0.3 2.5 3.1 4.5-1.7 1.5-0.5 0.9-1.2-0.2-1.9-2.3-0.8-0.1-1.7-0.9-0.9-1.5-2.6-0.8-1.7 0.6-0.5-0.7-3.7-1.9-4.1-0.6-2.4-0.6-0.3 0.4-3.6-3.2-3.1-1.5-2.4-2.3 2-0.6 2.3-3.4-1.6-1.6 4.1-1.6 0-0.9-2.5 0.6 0.1-1.8 1.4-1.1 2.7-0.3 0.4-1.4-0.6-2.3 1.1-2.2 0-1.3-4.1-1.4-1.6 0-1.7-2-2.2 0.7-3.5-1.5 0.1-0.9-1-1.9-2.2-0.2-0.3-1.4 0.7-0.9-1.7-2.6-2.9 0.5-0.9-0.3-0.7 1.1-1-0.2-0.7-2.9-0.6-1.6 0.5-0.4 2.2 0.2 1.1-1-0.8-1.3-1.9-0.8 0.2-0.9-1.1-0.8-1.8-3.2 0.6-1.3-0.2-2.2-2.8-1.2-1.4 0.6-0.4-1.3-2.9-1.2-0.9-3-0.3-2.5-1.3-1.1 1.2-1.7-0.8-4.9 1.9-3.1-0.4-1 3.2-3-2.9-2.7 5.9-7.3 2.6-3.5 1-3-4.1-4.3 1.2-4.1-2.5-4.8 1.8-5.7-3.2-7.9 2.6-5.4-4.3-5 0.4-5.3 2.3-0.7 4.7-3.2 2.9-2.8 4.5 4.8 7.6 1.9 10.5 8.5 2.2 3.5 0.1 4.8-3 3.7-4.6 1.8-12.4-5.3-2 0.9 4.5 5.1 0.2 3.1 0.2 6.7 3.5 1.9 2.2 1.7 0.4-3.1-1.7-2.8 1.8-2.5 6.7 4.1 2.3-1.6-1.8-4.8 6.4-6.7 2.6 0.4 2.6 2.4 1.6-4.8-2.3-4.2 1.3-4.4-2-4.6 7.8 2.4 1.6 4.1-3.6 0.9 0.1 4 2.1 2.5 4.3-1.6 0.7-4.5 5.8-3.5 9.7-6.5 2.1 0.4-2.7 4.6 3.4 0.7 2-2.5 5.2-0.2 4.1-3.2 3.2 4.6 3.2-5.1-3-4.5 1.5-2.7 8.2 2.5 3.8 2.4 10.1 8.8 1.9-4-2.9-4.1 0-1.6-3.4-0.8 0.9-3.8-1.5-6.4 0-2.7 5.1-8 1.8-8.3 2.1-1.9 7.3 2.5 0.6 5.2-2.6 7.2 1.7 2.7 0.9 5.9-0.6 11 3 4.7-1.2 5-5.4 10.1 3.2 1 1.1-2.5 3-1.8 0.8-3.5 2.4-3.5-1.6-4.2 1.3-5-3.1-0.7-0.7-4.4 2.3-8.2-3.6-6.9 4.9-6-0.6-6.6 1.4-0.2 1.4 5.1-1.1 8.6 3 1.6-1.3-6.3 4.7-3.6 5.8-0.4 5.1 5.1-2.5-7.6-0.3-10.2 4.9-2 6.7 0.5 6-1.3-2.3-5.4 3.2-6.9 3.2-0.3 5.4-5.5 7.4-1.5 0.9-3.1 7.3-1.1 2.2 2.6 6.3-6.2 5.1 0.2 0.8-5.2 2.6-5.3 6.6-5.2 4.7 4.1-3.8 3.2 6.3 1.8 0.8 6 2.5-2.9 8.1 0.2 6.3 5.8 2.2 4.3-0.7 5.8-3 3.2-7.3 5.9-2.1 3 3.4 1.4 4.1 2.6 2.5-1.9 1.5 6.3 1.2-2.5 4.4-1.6 8.9 1.6 0.7 4.6 11.6 1.4 0.2-7.4 5.9 1.7 4.4 0 4.5 5.1 1.3 5.9-1.7 3.8 3.5 7 4.4 3.4 2.7-9.1 4.4 4 4.8-2.4 5.3 2.7 2.1-2.4 4.5 1.2-2-8.3 3.7-4.1 25.1 6 2.3 5.4 7.3 6.6 11.2-1.7 5.6 1.5 2.3 3.4-0.4 6 3.5 2.2 3.7-1.6 4.9-0.2 5.2 1.6 5.3-0.9 4.8 6.9 3.5-2.4-2.3-5.1 1.3-3.5 8.8 2.2 5.8-0.5 8 3.8 3.9 3.5 6.8 5.8 7.3 7.2-0.2 4.4 1.8 1.8-0.6-5.1 7.5 1 5.5 6.5-2.8 3-4.5 0.7-0.1 6.4-1.1 1.3-2.6-0.2-2.1-2.2-3.7-1.9-0.7-2.9-2.8-1.1-3.1 0.9-1.5-2.4 0.6-2.5-3.4 1.6 1.3 3.2-1.6 2.8-3.6 2.9-3.6-0.5 2.5 3.4 1.7 5.2 1.2 1.7 0.4 2.5-0.7 1.6-5.2-1.3-7.8 4.4-2.5 0.7-4.2 4.1-4 3.5-1.1 2.5-3.9-3.9-7.3 4.4-1.2-2-2.7 2.3-3.7-0.7-0.9 3.6-3.4 5.1 0.1 2.2 3.2 1.1-0.4 7.4-2.5 0.2-1.2 4.1 1.1 2.1-4.8 2.5-1 5.4-4.1 1.1-0.9 4.6-4 4.2-1-3.1-1.2-6.6-1.5-10.6 1.3-6.9 2.3-3.1 0.2-2.4 4.3-1.2 5-6.7 4.7-5.7 5-4.5 2.3-8.3-3.4 0.5-1.7 4.9-7 6.3-2.3-7.1-7.2 2-6.9 9.5 2.3 3.3-6.2 1.4-4.3 0.6 0.2-3.9-4.3-0.9-3.5 2.7-8.5-0.9-9.1 1.6-9 10.2-10.7 11.7 4.4 0.6 1.4 3 2.7 1.1 1.8-2.4 3 0.3 4 5.2 0.1 3.9-2.2 4.5-0.2 5.2-1.2 6.8-4.2 6-1 2.8-3.7 4.6-3.8 4.5-1.8 2.3-3.7 2.2-1.7 0.1-1.8-1.9-3.7 2.8-0.4 1.2zM0 171.2l0.4-0.4 2.3 0 4 2.5-0.2 1.2-2.9 2-3.6 0.5-3.1 0.5-0.4-2.7 3.5-3.6zM1000 171.2l0.4-0.4 2.3 0 4 2.5-0.2 1.2-2.9 2-3.6 0.5-3.1 0.5-0.4-2.7 3.5-3.6zM592.9 316l0.7-1 2 0.9 0.9 0.1 0.3 0.8 0.5 0.1 0 0.4 1.3 0.9 2.9-0.2-0.6 1.4-3 0.7-3.8 2.3-1.5-0.8 0.6-1.9-3.1-1.1 0.5-0.8 2.7-1.3-0.4-0.5z"><title>Russia</title></path>
+          <path d="M280.6 382.8l1.3-0.2 1.9 0.1 0 0.8-3 0.5-0.2-1.2zM283.9 382.1l2.2 1.4-0.5 2.2-0.5-0.4 0.1-1.6-1.3-1.3 0-0.3zM282.8 387.7l0.8 0.2 1 2.5 0 1.8-0.7 0.1-0.7-1.7-1-0.9 0.6-2z"><title>Bahamas</title></path>
+          <path d="M330 629.1l3.3-2.6 2.4 1.1 1.7-1.8 2.2 2-0.8 1.6-3.8 1.3-1.2-1.6-2.4 2.1-1.4-2.1z"><title>Falkland Is.</title></path>
+          <path d="M542.1 77.5l1-5.4 4.1-0.5 3.5 5.5 9.1 11.2-6.9 5.6-1.6 10-2.4 2.5-1.3 10.4-3.4 0.4-6-7.5 2.5-4.6-4.1-3.8-5.4-11.7-2.2-11.7 7.6-5.7 1.5 5.5 4-0.2zM586.4 187.5l-4.7 3.2-2.3 0.7 1.2-5.6-3.6-3.2-4.3 2.7-1.3 5.9-2.7 3.4-3-1.9-3.6 0.4-3.1-4.1-1.7 2-1.7 0.4-0.4 5-5.2-1.2-0.8 4.2-2.6-0.1-1.9 5.3-2.7 7.8-4.3 9.4 1 2.2-1 2.5-2.8-0.1-1.8 5.9 0.2 7.9 1.8 3-0.9 6.7-2.3 3.8-1.3 3.1-1.8-3.3-5.5 6.2-3.7 1.2-3.9-2.7-1-5.8-0.8-13.2 2.5-3.8 7.4-5.1 5.4-6.6 5.1-9.2 6.7-13.7 4.7-5.6 7.6-9.8 6.1-3.5 4.6 0.4 4.2-6.9 5 0.3 5-1.7 8.7 6.2-3.6 2.2 3.1 5.1zM576.1 71.5l-4.1 8.4-8 1.8-8.2-2.5-0.5-4.3-4-0.3-3.1-7.4 8.6-4.7 4.1 4.1 2.8-5.1 7 4.2 5.4 5.8zM568.7 103.5l-6.2 5.3-4.9-3 1.9-3.3-1.7-4.3 5.8-2.8 1.1 5.1 4 3z"><title>Norway</title></path>
+          <path d="M370.1 23.7l9.3-13.5 9.8 1.1 3.5-8.9 9.8-2.4 22.2 3.1 17.4 18.4-5.1 8.3-10.7 0.9-14.9 2 1.4 3.6 9.8-2.2 8.4 6.8 5.4-6 2.3 7.1-3.1 10.8 7.1-6.8 13.5-7.5 8.3 3.7 1.6 8.1-11.3 12.5-1.6 3.9-8.9 2.8 6.4 0.8-3.2 11.4-2.2 9.5 0.1 15.2 3.3 8.2-4.4 0.5-4.5 3.9 5.1 6.2 0.7 9.5-3 1.1 3.6 9-6.2 0.8 3.2 4.1-0.9 3.4-3.9 1.5-3.9 0.1 3.5 6.4 0.1 4.1-5.5-3.8-1.5 2.5 3.8 2.2 3.6 5.5 1.1 6.9-5 1.6-2.1-3.3-3.5-4.9 1 5.8-3.2 4.4 7.3 0.3 3.8 0.5-7.4 7-7.6 6-8.1 2.6-3.1 0.1-2.8 2.8-3.9 7.6-6 4.8-1.9 0.3-3.7 1.7-4 1.5-2.4 4.1 0 4.6-1.4 4.1-4.5 4.9 1.1 4.7-1.3 4.8-1.4 5.5-3.9 0.3-4.1-4.6-5.6 0-2.7-3.1-1.8-5.8-4.8-7.6-1.4-4.1-0.4-5.9-3.9-6.2 1-5.1-1.8-2.5 2.7-8.6 4.2-2.9 1.1-3.2 0.6-6.2-3.2 2.9-1.5 1.1-2.5 1.2-3.4-2.6-0.2-5.5 1.1-4.5 2.6-0.1 5.7 2.2-4.8-5.3-2.5-3-2.8 1.2-2.3-2.2 3.1-8.4-1.7-3.5-2.2-6.7-3.3-10.8-3.6-4.1 0.1-4.6-7.5-6.7-5.9-0.8-7.4 0.5-6.8 0.8-3.2-3.7-4.8-7.6 7.3-3.9 5.5-0.7-11.8-3.3-6.3-5.4 0.4-5.3 10.5-6.8 10.2-7.1 1-5.6-7.5-5.7 2.5-6.6 9.6-12.2 4-2-1.1-8.4 6.6-5.2 8.5-3.2 8.5-0.2 3.1 6.3 7.3-11.3 6.7 7.7 3.9 1.6 5.7 6.4-6.6-10.7 0.4-9z"><title>Greenland</title></path>
+          <path d="M691.5 615.1l1.8 1.4 2.6 0.5 0.1 0.8-0.8 1.9-4.2 0.3-0.1-2.3 0.4-1.7 0.2-0.9z"><title>Fr. S. Antarctic Lands</title></path>
+          <path d="M847.1 484.9l0.4-0.6 2.3-0.7 2-0.1 0.9-0.3 1 0.3-1 0.8-2.9 1.2-2.3 0.8-0.1-0.8-0.3-0.6z"><title>Timor-Leste</title></path>
+          <path d="M545.4 543l1.3-1.5 1.1 0.8 0.5 1.4 1.2 0.2 1.8 0.6 1.5-0.2 2.5-1.6 0-11.5 0.7 0.4 1.7 3-0.3 1.9 0.6 1 2-0.3 1.4-1.4 1.3-0.9 0.7-1.5 1.4-0.7 1.1 0.4 1.4 0.9 2.2 0.1 1.8-0.7 0.3-1 0.5-1.4 1.5-0.3 0.8-1.1 0.9-2 2.5-2.3 4-2.2 1.1 0 1.3 0.5 1-0.3 1.4 0.3 1.4 4.2 0.7 2.2-0.5 3.4 0.2 1.1-1.4-0.6-0.8 0.2-0.2 0.9-0.8 1.2 0 1.1 1.7 1.7 1.6-0.4 0.6-1.4 2.1 0.1-0.7 2.2-0.3 2.7-0.7 1.4-1.9 1.6-0.6 0.5-1.2 1.6-0.7 1.6-1.6 2.3-3.2 3.4-1.9 2-2.1 1.5-2.9 1.3-1.4 0.2-0.4 0.9-1.7-0.5-1.4 0.6-3-0.6-1.6 0.4-1.2-0.2-2.9 1.3-2.3 0.6-1.7 1.2-1.3 0.1-1.2-1.2-0.9 0-1.2-1.5-0.2 0.4-0.3-0.9 0-1.9-0.9-2.2 0.9-0.6-0.1-2.6-1.8-3-1.4-2.7-2-4.2zM580.5 544.2l-1.2-0.9-1.3 0.6-1.5 1.2-1.5 2.1 2.1 2.4 1-0.3 0.5-1 1.5-0.5 0.5-1.1 0.9-1.5-1-1z"><title>South Africa</title></path>
+          <path d="M580.5 544.2l1 1-0.9 1.5-0.5 1.1-1.5 0.5-0.5 1-1 0.3-2.1-2.4 1.5-2.1 1.5-1.2 1.3-0.6 1.2 0.9z"><title>Lesotho</title></path>
+          <path d="M339.9 548.3l1.8-0.4 2.8 2.5 1.1-0.1 2.8 2.1 2.2 1.8 1.6 2.2-1.2 1.6 0.7 1.9-1.2 2.1-3.1 1.9-2-0.7-1.6 0.4-2.5-1.5-1.9 0.1-1.7-1.8 0.2-2.2 0.6-0.7 0-3.3 0.7-3.4 0.7-2.5z"><title>Uruguay</title></path>
+          <path d="M306.9 490.7l2 0.3 1.5-0.1 0.6-0.8 2.4-1.2 1.5-1 3.6-0.5-0.3 2.1 0.4 1.1-0.3 1.9 3 2.5 3.2 0.5 1 1.1 1.9 0.5 1.2 0.9 1.7-0.1 1.6 0.9 0.2 1.6 0.5 0.9 0 1.2-0.8 0.1 1.1 3.3 5.3 0.1-0.4 1.7 0.3 1.2 1.5 0.8 0.7 1.8-0.5 2.3-0.8 1.3 0.3 1.7-0.9 0.6 0-0.9-2.6-1.5-2.6-0.1-4.8 0.9-1.4 2.6 0 1.6-1.1 3.6-0.5-0.7-3.1-0.1-1.1 2.4-1.7-2.2-3.6-0.7-2.3 2.7-2 0.4-1.1-4.1-1.5-3.3 0.9-2.9-1.5-1.2-0.3-2.2-1.4-1.9 1.7-3.2-1.1-2.4 0.6-1-0.5-1 1.1-1.5 0-2.4 0.2-2 0.6-1-2.4-4.6z"><title>Bolivia</title></path>
+          <path d="M305.9 472.1l-2.6-0.1-0.3 0.4-2.3 0.5-3.2 1.9-0.2 1.3-0.7 1 0.3 1.5-1.7 0.8 0 1.2-0.7 0.5 1.1 2.5 1.6 1.7-0.6 1.2 1.8 0.2 1.1 1.5 2.4 0.1 2.3-1.7-0.2 4.3 1.3 0.3 1.6-0.5 2.4 4.6-0.6 1-0.2 2 0 2.4-1.1 1.5 0.5 1-0.6 1 1.1 2.4-1.7 3.2-0.7 1.5-1.5 0.7-2.8-1.7-0.2-1.2-5.5-2.9-5-3.1-2.1-1.8-1.2-2.4 0.5-0.8-2.4-3.7-2.7-5.3-2.6-5.6-1.2-1.3-0.9-2-2.1-1.9-2-1.1 0.9-1.2-1.3-2.7 0.8-1.9 2.2-1.8 0.4 1.2-0.8 0.6 0.1 1 1.1-0.2 1.1 0.3 1.2 1.4 1.6-1.1 0.5-1.9 1.7-2.4 3.3-1.1 3.1-2.9 0.8-1.8-0.4-2.1 0.8-0.3 1.8 1.3 0.9 1.3 1.3 0.7 1.6 3 2.1 0.3 1.5-0.7 1 0.4 1.7-0.2 2.1 1.3-1.8 2.8 0.9 0.1 1.4 1.5z"><title>Peru</title></path>
+          <path d="M314.2 456.7l-0.5 0.3-0.5-1.6-0.8-0.9-0.9 0.9-5.4 0 0 1.7 1.6 0.3-0.1 1.1-0.5-0.3-1.6 0.4 0 2.1 1.2 1 0.5 1.6-0.1 1.2-1.2 7.6-1.4-1.5-0.9-0.1 1.8-2.8-2.1-1.3-1.7 0.2-1-0.4-1.5 0.7-2.1-0.3-1.6-3-1.3-0.7-0.9-1.3-1.8-1.3-0.8 0.3-1.2-0.7-1.3-0.9-0.8 0.4-2.4-0.4-0.6-1.2-0.6 0.1-2.7-1.6-0.4-0.9 1-0.2-0.1-1.4 0.6-1 1.4-0.2 1.2-1.7 1.1-1.5-1.1-0.6 0.6-1.6-0.7-2.6 0.6-0.7-0.4-2.4-1.1-1.5 0.3-1.3 0.9 0.2 0.5-0.9-0.6-1.6 0.3-0.4 1.5 0 2.1-1.9 1.1-0.3 0-0.9 0.5-2.4 1.6-1.3 1.8-0.1 0.2-0.6 2.2 0.2 2.2-1.4 1-0.6 1.4-1.4 1 0.2 0.7 0.7-0.5 1-1.8 0.5-0.7 1.4-1.1 0.8-0.8 1-0.4 2.1-0.7 1.6 1.4 0.2 0.4 1.3 0.6 0.6 0.2 1.1-0.3 1.1 0.1 0.6 0.7 0.2 0.6 1 3.6-0.3 1.6 0.4 2 2.4 1.1-0.3 2 0.1 1.6-0.3 0.9 0.5-0.5 1.5-0.6 0.9-0.2 2 0.6 1.9 0.8 0.8 0 0.6-1.4 1.4 1 0.6 0.8 1 0.8 2.8z"><title>Colombia</title></path>
+          <path d="M285.1 436l-0.3 0.4 0.6 1.6-0.5 0.9-0.9-0.2-0.3 1.3-1-0.8-0.6-1.5 0.7-0.8-0.7-0.1-0.5-1-1.4-0.8-1.2 0.2-0.6 1-1.1 0.7-0.6 0.1-0.3 0.6 1.4 1.5-0.8 0.4-0.4 0.4-1.3 0.1-0.5-1.6-0.3 0.4-0.9-0.1-0.6-1.2-1.1-0.2-0.8-0.3-1.2 0 0 0.6-0.4-0.4 0.2-0.5 0.2-0.6-0.1-0.5 0.4-0.4-0.6-0.4 0-1.1 1.1-0.3 1 1-0.1 0.6 1.2 0.2 0.2-0.3 0.8 0.7 1.3-0.2 1.2-0.7 1.7-0.5 1-0.9 1.5 0.2-0.1 0.3 1.5 0.1 1.3 0.4 0.9 0.9 1 0.8z"><title>Panama</title></path>
+          <path d="M270.7 433.4l-1.1 0.3 0 1.1 0.6 0.4-0.4 0.4 0.1 0.5-0.2 0.6-0.2 0.5-1.5-0.6-0.5-0.6 0.3-0.5-0.1-0.6-0.8-0.7-1.1-0.5-0.9-0.4-0.2-0.8-0.7-0.5 0.1 0.8-0.5 0.7-0.7-0.8-0.8-0.3-0.4-0.6 0-0.8 0.4-0.9-0.8-0.4 0.6-0.6 0.4-0.3 1.9 0.7 0.6-0.3 0.9 0.2 0.4 0.6 0.9 0.2 0.6-0.6 0.7 1.5 1.1 1.1 1.3 1.2z"><title>Costa Rica</title></path>
+          <path d="M267.6 429.6l-0.6 0.6-0.9-0.2-0.4-0.6-0.9-0.2-0.6 0.3-1.9-0.7-0.4 0.3-0.9-0.9-1.3-1.1-0.7-1-1.1-0.8-1.4-1.3 0.3-0.5 0.4 0.5 0.3-0.2 0.8-0.2 0.4-0.6 0.4 0-0.1-1.4 0.7-0.1 0.5 0 0.6-0.8 0.9 0.6 0.3-0.3 0.5-0.4 0.9-0.8 0.1-0.5 0.2 0 0.4-0.7 0.3-0.1 0.5 0.4 0.5 0.2 0.6-0.4 0.7 0 1-0.4 0.4-0.4 0.9 0.1-0.2 0.3-0.1 0.6 0.2 1.1-0.6 0.9-0.3 1.2-0.1 1.3 0.2 0.7 0 1.3-0.4 0.2-0.3 1.3 0.2 0.7-0.5 0.7 0.1 0.8 0.4 0.5z"><title>Nicaragua</title></path>
+          <path d="M269 418l-0.9-0.1-0.4 0.4-1 0.4-0.7 0-0.6 0.4-0.5-0.2-0.5-0.4-0.3 0.1-0.4 0.7-0.2 0-0.1 0.5-0.9 0.8-0.5 0.4-0.3 0.3-0.9-0.6-0.6 0.8-0.5 0-0.7 0.1 0.1 1.4-0.4 0-0.4 0.6-0.8 0.2-0.5-0.9-0.9-0.3 0.2-1.1-0.4-0.3-0.5-0.2-1.2 0.3-0.1-0.4-0.9-0.4-0.6-0.6-0.8-0.3 0.6-0.7-0.2-0.6 0.2-0.5 1.3-0.8 1.2-1.1 0.3 0.1 0.6-0.5 0.8 0 0.3 0.2 0.4-0.2 1.3 0.3 1.3-0.1 0.9-0.3 0.3-0.3 0.9 0.1 0.7 0.2 0.7 0 0.5-0.3 1.3 0.4 0.4 0.1 0.9 0.5 0.8 0.7 1 0.4 0.7 0.8z"><title>Honduras</title></path>
+          <path d="M251.8 419.6l0.8 0.3 0.6 0.6 0.9 0.4 0.1 0.4 1.2-0.3 0.5 0.2 0.4 0.3-0.2 1.1-0.3 0.7-1.6-0.1-1-0.2-1.1-0.6-1.6-0.2-0.8-0.6 0.1-0.4 1-0.7 0.5-0.3-0.2-0.4 0.7-0.2z"><title>El Salvador</title></path>
+          <path d="M243.8 419.3l0.1-0.8 0.3-0.7-0.4-0.5 1.3-2.4 3.6 0 0.1-1-0.5-0.2-0.3-0.6-1-0.7-1-0.9 1.2 0 0-1.7 2.6 0 2.6 0.1 0 2.3-0.3 3.2 0.9 0 0.9 0.6 0.2-0.5 0.8 0.4-1.2 1.1-1.3 0.8-0.2 0.5 0.2 0.6-0.6 0.7-0.7 0.2 0.2 0.4-0.5 0.3-1 0.7-0.1 0.4-1.4-0.5-1.7 0-1.3-0.6-1.5-1.2z"><title>Guatemala</title></path>
+          <path d="M252.4 409.9l0-0.5 0.3-0.1 0.5 0.3 1-1.7 0.5-0.1 0 0.5 0.6 0-0.1 0.8-0.4 1.2 0.2 0.5-0.3 1 0.2 0.3-0.3 1.5-0.6 0.7-0.5 0.1-0.5 1-0.9 0 0.3-3.2 0-2.3z"><title>Belize</title></path>
+          <path d="M331.3 445.7l0.4 0.8-1.1 1-3.1 1.1-2 0.4-0.8 0.7-2.2-0.7-2-0.4-0.5 0.3 1.2 0.7-0.1 1.8 0.4 1.8 2.3 0.2 0.2 0.6-2 0.8-0.3 1.2-1.2 0.4-2 0.7-0.6 0.8-2.1 0.2-1.6-1.4-0.8-2.8-0.8-1-1-0.6 1.4-1.4 0-0.6-0.8-0.8-0.6-1.9 0.2-2 0.6-0.9 0.5-1.5-0.9-0.5-1.6 0.3-2-0.1-1.1 0.3-2-2.4-1.6-0.4-3.6 0.3-0.6-1-0.7-0.2-0.1-0.6 0.3-1.1-0.2-1.1-0.6-0.6-0.4-1.3-1.4-0.2 0.7-1.6 0.4-2.1 0.8-1 1.1-0.8 0.7-1.4 1.8-0.5-0.1 0.7-1.7 0.3 1 1.3-0.1 1.5-1.2 1.6 1 2.2 1.2-0.2 0.7-2-0.9-1-0.1-2.1 3.4-1.2-0.4-1.3 1-0.9 1 2 2 0 1.8 1.6 0.1 0.9 2.5 0.1 2.9-0.3 1.6 1.2 2.2 0.4 1.5-0.9 0-0.7 3.5-0.2 3.3 0-2.3 0.8 0.9 1.4 2.2 0.2 2.1 1.4 0.5 2.2 1.4 0 1.1 0.6-2.2 1.7-0.2 1 0.9 1-0.7 0.5-1.7 0.5 0.1 1.3-0.8 0.8 1.9 2.1z"><title>Venezuela</title></path>
+          <path d="M342.9 454.9l-0.6 0.1-1.6-0.3-0.9 0.8-1.2 0.5-0.9 0.1-0.3 0.5-1.4-0.1-1.7-1.3-0.2-1.3-0.7-1.4 0.4-2.4 0.8-1-0.6-1.3-1-0.4 0.4-1.2-0.7-0.7-1.4 0.2-1.9-2.1 0.8-0.8-0.1-1.3 1.7-0.5 0.7-0.5-0.9-1 0.2-1 2.2-1.7 1.8 1 1.7 1.9 0.1 1.4 1.1 0.1 1.5 1.3 1.1 1-0.5 2.5-1.7 0.8 0.2 0.6-0.5 1.4 1.2 2.1 0.9 0 0.4 1.5 1.6 2.5z"><title>Guyana</title></path>
+          <path d="M348.5 453.7l-1.5-0.6-1.4 0.3-1.1-0.2-0.3 0.8 0.5 0.5-0.2 0.6-1.6-0.2-1.6-2.5-0.4-1.5-0.9 0-1.2-2.1 0.5-1.4-0.2-0.6 1.7-0.8 0.5-2.5 3.3 0.6 0.3-0.5 2.2-0.2 3 0.7-1.4 2.4 0.2 1.9 1.1 1.7-0.5 1.2-0.2 1.2-0.8 1.2z"><title>Suriname</title></path>
+          <path d="M356.5 448.6l-1.6 2.5-0.9 2.1-1.1 1-1.3 0.2-0.4-0.7-0.6-0.2-0.8 0.8-1.3-0.6 0.8-1.2 0.2-1.2 0.5-1.2-1.1-1.7-0.2-1.9 1.4-2.4 1 0.3 2 0.7 2.9 2.3 0.5 1.2zM517.2 301.6l1.3 1.1 4 0.8-1.4 2.9-0.4 2.9-0.7 0.7-1.3-0.4 0.1 1.1-2 2.3-0.1 1.8 1.4-0.6 0.9 1.7-0.1 1.2 0.8 1.5-1 1.2 0.8 3 1.5 0.5-0.3 1.6-2.6 2.2-5.4-1-4.1 1.2-0.3 2.3-3.2 0.5-3.2-1.7-1 0.8-5.1-1.7-1.1-1.5 1.5-2.3 0.5-7.9-2.9-4.2-2-2.1-4.3-1.6-0.3-3 3.6-0.9 4.7 1.1-0.9-4.9 2.7 1.9 6.4-3.4 0.9-3.5 2.4-0.9 0.4 1.5 1.3 0.1 1.3 1.7 1.9 2.1 1.4-0.4 2.5 2 0.6 0.4 0.8-0.1zM524.3 329l1.8-1.5 0.5 3.3-1 2.9-1.2-0.8-0.7-2.5 0.6-1.4z"><title>France</title></path>
+          <path d="M290.6 460.6l0.4 2.1-0.8 1.8-3.1 2.9-3.3 1.1-1.7 2.4-0.5 1.9-1.6 1.1-1.2-1.4-1.1-0.3-1.1 0.2-0.1-1 0.8-0.6-0.4-1.2 1.5-2.1-0.6-1.2-1 1.3-1.7-1.2 0.6-0.8-0.5-2.5 1-0.4 0.5-1.8 1-1.8-0.2-1.1 1.6-0.6 1.9-1.1 2.7 1.6 0.6-0.1 0.6 1.2 2.4 0.4 0.8-0.4 1.3 0.9 1.2 0.7z"><title>Ecuador</title></path>
+          <path d="M315.9 407.8l1.4 0.2 0.5 0.6-0.7 0.8-2.1-0.1-1.6 0.1-0.2-1.2 0.4-0.4 2.3 0z"><title>Puerto Rico</title></path>
+          <path d="M284.5 407.9l1.9 0.2 1.5 0.7 0.4 0.8-1.9 0.1-0.9 0.5-1.5-0.5-1.6-1.1 0.3-0.6 1.2-0.2 0.6 0.1z"><title>Jamaica</title></path>
+          <path d="M271.5 393.9l2.4 0.2 2.2 0 2.6 1.1 1.1 1.1 2.6-0.4 1 0.7 2.3 1.9 1.7 1.3 1 0 1.6 0.6-0.2 0.8 2.1 0.2 2.1 1.2-0.4 0.7-1.8 0.3-1.9 0.2-1.9-0.2-4 0.2 1.9-1.6-1.2-0.8-1.7-0.2-1-0.8-0.7-1.7-1.5 0.1-2.6-0.8-0.9-0.6-3.6-0.5-0.9-0.6 1-0.7-2.7-0.2-2 1.6-1.2 0-0.4 0.7-1.4 0.4-1.1-0.3 1.4-0.9 0.6-1.1 1.3-0.7 1.4-0.6 2.1-0.3 0.7-0.3z"><title>Cuba</title></path>
+          <path d="M586.6 523.6l-1.4-0.3-1 0.3-1.3-0.5-1.1 0-1.8-1.4-2.2-0.4-0.8-1.9 0-1.1-1.2-0.3-3.1-3.2-0.9-1.7-0.6-0.6-1-2.3 3.1 0.3 0.9 0.4 0.9-0.1 1.6-1.9 2.4-2.4 1-0.2 0.3-1 1.6-1.2 2.1-0.3 0.2 1 2.3 0 1.3 0.6 0.6 0.7 1.3 0.2 1.4 0.9 0 3.7-0.5 2-0.1 2.2 0.4 0.9-0.3 1.8-0.4 0.2-0.7 2.2-3 3.4z"><title>Zimbabwe</title></path>
+          <path d="M581.8 523.1l-4 2.2-2.5 2.3-0.9 2-0.8 1.1-1.5 0.3-0.5 1.4-0.3 1-1.8 0.7-2.2-0.1-1.4-0.9-1.1-0.4-1.4 0.7-0.7 1.5-1.3 0.9-1.4 1.4-2 0.3-0.6-1 0.3-1.9-1.7-3-0.7-0.4 0-8.8 2.7-0.1 0.1-10.6 2.1-0.1 4.2-1 1.1 1.2 1.8-1.1 0.8-0.1 1.6-0.6 0.5 0.2 1 2.3 0.6 0.6 0.9 1.7 3.1 3.2 1.2 0.3 0 1.1 0.8 1.9 2.2 0.4 1.8 1.4z"><title>Botswana</title></path>
+          <path d="M555.3 531.2l0 11.5-2.5 1.6-1.5 0.2-1.8-0.6-1.2-0.2-0.5-1.4-1.1-0.8-1.3 1.5-2.1-2.4-1-2.2-0.7-3.1-0.6-2.2-1-4.7 0-3.6-0.4-1.7-1.1-1.2-1.4-2.5-1.5-3.5-0.6-1.9-2.2-2.8-0.2-2.3 1.3-0.5 1.7-0.5 1.8 0.1 1.7 1.3 0.4-0.2 11.2-0.1 2 1.4 6.7 0.4 5.1-1.2 2.3-0.7 1.8 0.2 1.1 0.7 0 0.2-1.6 0.6-0.8 0.1-1.8 1.1-1.1-1.2-4.2 1-2.1 0.1-0.1 10.6-2.7 0.1 0 8.8z"><title>Namibia</title></path>
+          <path d="M453.6 422l-1.2-2.2-1.4-1 1.3-0.6 1.3-2 0.7-1.5 0.9-0.9 1.4 0.2 1.4-0.6 1.5 0 1.3 0.8 1.9 0.8 1.7 2.1 1.8 2 0.1 1.8 0.6 1.6 1 0.8 0.2 1.1-0.1 0.9-0.4 0.2-1.5-0.3-0.2 0.3-0.6 0.1-2-0.7-1.4 0-5.1-0.1-0.7 0.3-1-0.1-1.4 0.5-0.5-2.2 2.5 0 0.7-0.4 0.5 0 1-0.6 1.2 0.6 1.2 0 1.2-0.6-0.5-0.9-0.9 0.5-0.9 0-1.1-0.7-0.9 0.1-0.6 0.6-3 0.1z"><title>Senegal</title></path>
+          <path d="M468 425.3l0.1-0.9-0.2-1.1-1-0.8-0.6-1.6-0.1-1.8 0.9-0.5 0.5-1.7 0.9-0.1 1.9 0.8 1.6-0.6 1.1 0.2 0.4-0.6 11.1-0.1 0.6-2-0.4-0.3-1.4-12.7-1.3-13 4.2 0 9.4 6.6 9.4 6.5 0.6 1.4 1.8 0.8 1.2 0.5 0.1 1.9 3.1-0.3 0 6.7-1.6 2-0.2 1.7-2.5 0.5-3.8 0.3-1 1-1.8 0.1-1.7 0-0.7-0.5-1.6 0.4-2.6 1.2-0.5 0.8-2.1 1.3-0.4 0.8-1.2 0.5-1.3-0.3-0.8 0.7-0.4 1.9-2.2 2.4 0.1 0.9-0.8 1.2 0.2 1.7-1.2 0.4-0.6 0.3-0.4-1.2-0.8 0.4-0.5-0.1-0.5 0.8-2.2 0-0.7-0.4-0.4 0.2-0.9-0.8 0.2-0.8-0.4-0.4-0.5 0.3 0.1-0.9 0.5-0.7-1.1-1.2-0.3-0.8-0.7-0.6-0.5-0.1-0.7 0.4-0.9 0.4-0.7 0.6-1.2-0.2-0.8-0.7-0.5-0.1-0.7 0.3-0.4 0-0.2-1z"><title>Mali</title></path>
+          <path d="M452.6 400.5l0.6-1 10.9 0-0.5-4.3 0.6-1.6 2.6-0.3 0-7.8 9.1 0.2 0-4.7 10.4 7.5-4.2 0 1.3 13 1.4 12.7 0.4 0.3-0.6 2-11.1 0.1-0.4 0.6-1.1-0.2-1.6 0.6-1.9-0.8-0.9 0.1-0.5 1.7-0.9 0.5-1.8-2-1.7-2.1-1.9-0.8-1.3-0.8-1.5 0-1.4 0.6-1.4-0.2-0.9 0.9-0.3-1.5 0.8-1.5 0.3-2.7-0.3-2.9-0.3-1.5 0.3-1.5-0.7-1.4-1.5-1.2z"><title>Mauritania</title></path>
+          <path d="M507.5 442.7l-2.3 0.3-0.7-1.9 0.1-6.4-0.5-0.6-0.1-1.4-1-1-0.9-0.8 0.4-1.5 1-0.3 0.5-1.3 1.4-0.2 0.6-0.9 0.9-0.8 1 0 2.1 1.6-0.1 1 0.6 1.6-0.5 1.2 0.3 0.7-1.4 1.8-0.8 0.8-0.5 1.8 0 1.8-0.1 4.5z"><title>Benin</title></path>
+          <path d="M541.3 394.9l0.6 4.6 1.1 0.8 0 1 1.2 1-0.6 1.2-1.1 6-0.1 3.8-3.6 2.7-1.2 3.8 1.2 1.1 0 1.8 1.7 0.1-0.2 1.3-0.8 0.2-0.1 0.9-0.5 0-1.9-3.1-0.7-0.1-2.1 1.6-2.2-0.8-1.5-0.2-0.8 0.4-1.6-0.1-1.6 1.2-1.5 0.1-3.3-1.5-1.3 0.7-1.5 0-1-1.1-2.8-1.1-3 0.4-0.7 0.6-0.4 1.6-0.8 1.2-0.2 2.5-2.1-1.6-1 0-0.9 0.8 0-1.9-3.2-0.7 0-1.3-1.6-1.9-0.4-1.3 0.2-1.4 1.8-0.1 1-1 3.8-0.3 2.5-0.5 0.2-1.7 1.6-2 0-6.7 3.9-1.3 8-5.8 9.5-5.8 4.4 1.3 1.6 1.7 2-1.1z"><title>Niger</title></path>
+          <path d="M507.5 442.7l0.1-4.5 0-1.8 0.5-1.8 0.8-0.8 1.4-1.8-0.3-0.7 0.5-1.2-0.6-1.6 0.1-1 0.2-2.5 0.8-1.2 0.4-1.6 0.7-0.6 3-0.4 2.8 1.1 1 1.1 1.5 0 1.3-0.7 3.3 1.5 1.5-0.1 1.6-1.2 1.6 0.1 0.8-0.4 1.5 0.2 2.2 0.8 2.1-1.6 0.7 0.1 1.9 3.1 0.5 0 1.1 1.1-0.3 0.5-0.2 1-2.3 2.2-0.7 1.8-0.4 1.4-0.6 0.7-0.6 1.9-1.5 1.2-0.4 1.4-0.6 1.1-0.3 1.2-1.9 0.9-1.5-1.1-1.1 0-1.6 1.7-0.9 0-1.3 2.7-0.7 2-2.9 1-1-0.2-1.1 0.6-2.2 0-1.5-1.8-0.9-2-2-1.8-2.1 0-2.4 0z"><title>Nigeria</title></path>
+          <path d="M540.3 424.1l1.1 1.8 0.2 1.9-0.1 1.9 1.5 2.6-1.6-0.1-0.8 0.2-1.2-0.2-0.6 1.3 1.6 1.6 1.2 0.5 0.4 1.2 0.9 1.9-0.5 0.8-1.4 2.8-0.6 0.5-0.2 2.2 0.2 1.1-0.2 0.9 1.3 1.4 0.3 1 1 1.5 1.3 0.9 0.1 1.2 0.3 0.8-0.2 1.5-2.2-0.6-2.3-0.8-3.5-0.1-0.3-0.1-1.7 0.3-1.7-0.3-1.3 0.2-4.5-0.1 0.4-2.2-1.1-1.8-1.2-0.5-0.6-1.3-0.7-0.4 0-0.7 0.7-2 1.3-2.7 0.9 0 1.6-1.7 1.1 0 1.5 1.1 1.9-0.9 0.3-1.2 0.6-1.1 0.4-1.4 1.5-1.2 0.6-1.9 0.6-0.7 0.4-1.4 0.7-1.8 2.3-2.2 0.2-1 0.3-0.5-1.1-1.1 0.1-0.9 0.8-0.2z"><title>Cameroon</title></path>
+          <path d="M502.5 429.4l-0.4 1.5 0.9 0.8 1 1 0.1 1.4 0.5 0.6-0.1 6.4 0.7 1.9-2.3 0.6-0.6-0.9-0.7-1.8-0.2-1.4 0.6-2.5-0.7-1.1-0.3-2.2 0-2-1.1-1.5 0.2-0.9 2.4 0.1z"><title>Togo</title></path>
+          <path d="M500.1 429.3l-0.2 0.9 1.1 1.5 0 2 0.3 2.2 0.7 1.1-0.6 2.5 0.2 1.4 0.7 1.8 0.6 0.9-4.3 1.7-1.6 0.9-2.5 0.8-2.4-0.8 0.1-1.1-1.2-2.4 0.7-3.1 1.2-2.4-0.8-4-0.3-2.1 0-1.6 4.9-0.1 1.2 0.2 0.9-0.5 1.3 0.2z"><title>Ghana</title></path>
+          <path d="M477.7 431.6l0.4-0.2 0.7 0.4 2.2 0 0.5-0.8 0.5 0.1 0.8-0.4 0.4 1.2 0.6-0.3 1.2-0.4 1.2 0.6 0.5 0.9 1.3 0.6 0.9-0.7 1.3-0.1 1.9 0.7 0.8 4-1.2 2.4-0.7 3.1 1.2 2.4-0.1 1.1-1.3 0.1-1.9-0.6-1.8 0.1-3.3 0.4-1.9 0.9-2.8 1-0.5-0.1 0.2-2.3 0.3-0.3-0.1-1.1-1.2-1.2-0.9-0.2-0.8-0.8 0.6-1.2-0.3-1.4 0.2-0.8 0.4 0 0.2-1.2-0.3-0.5 0.3-0.4 1-0.4-0.6-2.2-0.7-1.2 0.2-0.9 0.6-0.3z"><title>Côte d&#x27;Ivoire</title></path>
+          <path d="M461.9 424.9l1.4 0 2 0.7 0.6-0.1 0.2-0.3 1.5 0.3 0.4-0.2 0.2 1 0.4 0 0.7-0.3 0.5 0.1 0.8 0.7 1.2 0.2 0.7-0.6 0.9-0.4 0.7-0.4 0.5 0.1 0.7 0.6 0.3 0.8 1.1 1.2-0.5 0.7-0.1 0.9 0.5-0.3 0.4 0.4-0.2 0.8 0.9 0.8-0.6 0.3-0.2 0.9 0.7 1.2 0.6 2.2-1 0.4-0.3 0.4 0.3 0.5-0.2 1.2-0.4 0-0.8 0-0.6 1.1-0.8 0-0.5-0.6 0.2-1.2-1.2-1.7-0.7 0.3-0.6 0.1-0.8 0.2 0-1.1-0.4-0.7 0.1-0.8-0.6-1.2-0.8-1-2.2 0-0.7 0.5-0.7 0.1-0.5 0.6-0.3 0.8-1.5 1.2-1.2-1.7-1.1-1.1-0.7-0.3-0.7-0.6-0.3-1.2-0.4-0.7-0.8-0.4 1.2-1.4 0.8 0 0.8-0.4 0.6 0 0.4-0.4-0.2-0.9 0.3-0.3 0-1z"><title>Guinea</title></path>
+          <path d="M453.7 425.5l1.4-0.5 1 0.1 0.7-0.3 5.1 0.1 0 1-0.3 0.3 0.2 0.9-0.4 0.4-0.6 0-0.8 0.4-0.8 0-1.2 1.4-1.5-1.2-1.2-0.2-0.6-0.8 0-0.4-0.8-0.6-0.2-0.6z"><title>Guinea-Bissau</title></path>
+          <path d="M476.6 438.7l-0.2 0.8 0.3 1.4-0.6 1.2 0.8 0.8 0.9 0.2 1.2 1.2 0.1 1.1-0.3 0.3-0.2 2.3-0.8 0-2.8-1.3-2.5-2.1-2.4-1.6-1.9-1.8 0.7-0.9 0.1-0.8 1.3-1.5 1.3-1.3 0.6-0.1 0.7-0.3 1.2 1.7-0.2 1.2 0.5 0.6 0.8 0 0.6-1.1 0.8 0z"><title>Liberia</title></path>
+          <path d="M463.2 435.3l1.5-1.2 0.3-0.8 0.5-0.6 0.7-0.1 0.7-0.5 2.2 0 0.8 1 0.6 1.2-0.1 0.8 0.4 0.7 0 1.1 0.8-0.2-1.3 1.3-1.3 1.5-0.1 0.8-0.7 0.9-0.7-0.2-2-1.1-1.5-1.5-0.5-1-0.3-2.1z"><title>Sierra Leone</title></path>
+          <path d="M485 431.2l-0.2-1.7 0.8-1.2-0.1-0.9 2.2-2.4 0.4-1.9 0.8-0.7 1.3 0.3 1.2-0.5 0.4-0.8 2.1-1.3 0.5-0.8 2.6-1.2 1.6-0.4 0.7 0.5 1.7 0-0.2 1.4 0.4 1.3 1.6 1.9 0 1.3 3.2 0.7 0 1.9-0.6 0.9-1.4 0.2-0.5 1.3-1 0.3-2.4-0.1-1.3-0.2-0.9 0.5-1.2-0.2-4.9 0.1 0 1.6 0.3 2.1-1.9-0.7-1.3 0.1-0.9 0.7-1.3-0.6-0.5-0.9-1.2-0.6z"><title>Burkina Faso</title></path>
+          <path d="M576 445.6l-0.9 0.3-1.8-0.1-2-0.3-1.1 0.3-0.4 0.6-0.9 0.1-1.1-0.6-3.1 1.4-1.3-0.3-0.3 0.3-0.9 1.6-2-0.5-2.1-0.3-1.7-1-2.3-1-1.5 0.9-1.1 1.5-0.2 1.9-1.8-0.2-1.9-0.4-1.7 1.4-1.4 2.6-0.3-0.8-0.1-1.2-1.3-0.9-1-1.5-0.3-1-1.3-1.4 0.2-0.9-0.2-1.1 0.2-2.2 0.6-0.5 1.4-2.8 2.3-0.2 0.6-0.8 0.4 0.1 0.7 0.6 3.5-1.1 1.2-1 1.4-1-0.2-1 0.7-0.3 2.7 0.2 2.6-1.3 2-3.1 1.5-1.1 1.7-0.5 0.3 1.2 1.6 1.8 0 1.1-0.4 1.2 0.2 0.9 0.9 0.8 2.1 1.2 1.6 1.1 0 0.9 1.9 1.5 1.1 1.2 0.7 1.7 2.1 1.1 0.4 0.9z"><title>Central African Rep.</title></path>
+          <path d="M551.3 450.4l-0.2 1.7-0.8 1.5-0.6 1.7-0.3 2.5 0.1 1.5-0.4 1-0.1 1-0.3 0.9-1.9 1.3-1.2 1.5-1.2 2.7 0.1 2.3-0.7 0.9-1.7 1.3-1.6 1.8-1-0.5-0.2-0.8-1.5-0.1-1 1.1-0.7-0.3-1-0.9-0.9 0.4-1.1 1.3-2.3-3 2.1-1.5-1-1.9 0.9-0.7 1.9-0.3 0.2-1.2 1.5 1.3 2.5 0.1 0.8-1.3 0.4-1.9-0.3-2.1-1.3-1.7 1.2-3.2-0.7-0.5-2.1 0.2-0.8-1.4 0.2-1.3 3.5 0.1 2.3 0.8 2.2 0.6 0.2-1.5 1.4-2.6 1.7-1.4 1.9 0.4 1.8 0.2z"><title>Congo</title></path>
+          <path d="M531.3 453.9l1.3-0.2 1.7 0.3 1.7-0.3 0.3 0.1-0.2 1.3 0.8 1.4 2.1-0.2 0.7 0.5-1.2 3.2 1.3 1.7 0.3 2.1-0.4 1.9-0.8 1.3-2.5-0.1-1.5-1.3-0.2 1.2-1.9 0.3-0.9 0.7 1 1.9-2.1 1.5-2.8-2.8-1.9-2.3-1.7-2.9 0.1-0.9 0.6-0.9 0.7-2 0.6-2.1 0.9-0.1 4 0 0-3.3z"><title>Gabon</title></path>
+          <path d="M526.8 453.8l4.5 0.1 0 3.3-4 0-0.9 0.1-0.6-0.4 1-3.1z"><title>Eq. Guinea</title></path>
+          <path d="M585.4 483.4l1.1 0.7 1.2 0.5 1.7 0.4 1.6 0.9 1.3 1.2 0.7 2.4-0.5 0.8-0.5 2.3 0.5 2.4-0.9 0.9-0.8 2.7 1.5 0.7-8.5 2.4 0.3 2.1-2.1 0.3-1.6 1.2-0.3 1-1 0.2-2.4 2.4-1.6 1.9-0.9 0.1-0.9-0.4-3.1-0.3-0.5-0.2 0-0.2-1.1-0.7-1.8-0.2-2.3 0.7-1.8-1.8-1.9-2.4 0.1-9.1 5.8 0-0.2-1 0.4-1-0.5-1.4 0.3-1.3-0.3-0.9 1 0 0.1 0.9 1.3 0 1.8 0.2 0.9 1.3 2.3 0.4 1.7-0.9 0.6 1.5 2.1 0.4 1 1.2 1.2 1.6 2.1 0-0.2-3.1-0.8 0.5-1.9-1.1-0.8-0.5 0.4-2.8 0.4-3.4-0.6-1.2 0.8-1.8 0.8-0.3 3.7-0.5 1.1 0.3z"><title>Zambia</title></path>
+          <path d="M591 485.9l2.7 0.5 0.6 0.8 0.9 1.3 0.8 3.9-0.8 2.1 0.8 3.7 1 0 1 0.9 1.1 2.1 0.3 3.7-1.2 0.6-0.9 2-1.8-1.8-0.2-2 0.6-1.4-0.2-1.1-1.1-0.7-0.7 0.2-1.6-1.4-1.5-0.7 0.8-2.7 0.9-0.9-0.5-2.4 0.5-2.3 0.5-0.8-0.7-2.4-1.3-1.2z"><title>Malawi</title></path>
+          <path d="M596 492.4l2.1-0.3 3.3 0.8 0.8-0.3 1.9-0.1 1-0.9 1.6 0.1 3.1-1.1 2.2-1.6 0.4 1.2-0.1 2.8 0.4 2.5 0.1 4.5 0.5 1.4-0.9 2.1-1 2-1.8 1.8-2.6 1.1-3.1 1.4-3.1 3.1-1.1 0.5-1.9 2.1-1.2 0.7-0.2 2.1 1.3 2.3 0.6 1.7 0 0.9 0.5-0.1-0.1 2.9-0.4 1.4 0.6 0.6-0.4 1.2-1.2 1.1-2.3 1-3.3 1.7-1.2 1.1 0.2 1.3 0.7 0.2-0.2 1.7-2.1-0.1-0.3-1.3-0.4-1.4-0.2-1.1 0.5-3.4-0.7-2.2-1.4-4.2 3-3.4 0.7-2.2 0.4-0.2 0.3-1.8-0.4-0.9 0.1-2.2 0.5-2 0-3.7-1.4-0.9-1.3-0.2-0.6-0.7-1.3-0.6-2.3 0-0.2-1-0.3-2.1 8.5-2.4 1.6 1.4 0.7-0.2 1.1 0.7 0.2 1.1-0.6 1.4 0.2 2 1.8 1.8 0.9-2 1.2-0.6-0.3-3.7-1.1-2.1-1-0.9-1 0-0.8-3.7 0.8-2.1z"><title>Mozambique</title></path>
+          <path d="M589.1 537.2l-0.6 1.4-1.6 0.4-1.7-1.7 0-1.1 0.8-1.2 0.2-0.9 0.8-0.2 1.4 0.6 0.4 1.4 0.3 1.3z"><title>eSwatini</title></path>
+          <path d="M536.1 473.4l-1 0.6-0.5 0.7-0.1 1.3-0.7 0.2-0.7-2 1.1-1.3 0.9-0.4 1 0.9zM534.2 477.1l1.2-0.4 0.8 0.1 1-0.3 8.2 0 0.6 2.1 0.8 1.7 0.7 0.9 1 1.4 1.9-0.2 0.9-0.4 1.5 0.4 0.4-0.7 0.7-1.6 1.8-0.1 0.1-0.5 1.4 0-0.2 1 3.4-0.1 0 1.8 0.6 1.1-0.4 1.7 0.2 1.7 0.9 1.1-0.2 3.3 0.7-0.2 1.2 0 1.8-0.4 1.2 0.2 0.3 0.9-0.3 1.3 0.5 1.4-0.4 1 0.2 1-5.8 0-0.1 9.1 1.9 2.4 1.8 1.8-5.1 1.2-6.7-0.4-2-1.4-11.2 0.1-0.4 0.2-1.7-1.3-1.8-0.1-1.7 0.5-1.3 0.5-0.3-1.8 0.4-2.5 1-2.7 0.1-1.2 0.9-2.6 0.7-1.1 1.6-1.9 0.9-1.3 0.3-2.1-0.2-1.6-0.8-1-0.8-1.7-0.6-1.7 0.1-0.6 0.9-1.1-0.9-2.7-0.5-1.9-1.4-1.7 0.2-0.6z"><title>Angola</title></path>
+          <path d="M584.6 466.8l0.2 1.1 0.6 0.7 0 0.9-0.7 0.6-1 1.4-1.1 1-1.1 0.1-0.2-3.3-0.7-1.3 1.7 0.2 0.9-1.5 1.4 0.1z"><title>Burundi</title></path>
+          <path d="M599.2 363.9l-0.5 1-1-0.4-0.5 2.2 0.6 0.3-0.7 0.5-0.1 0.8 1.3-0.4 0.1 1.3-1.4 5.1-0.3-0.8-1.5-4.7 0.8-1.1-0.2-0.2 0.7-1.5 0.6-2.5 0.4-0.8 0.1-0.1 0.9 0 0.3-0.5 0.7-0.1 0 1.4-0.3 0.5z"><title>Israel</title></path>
+          <path d="M599.5 362l-0.7 0.1-0.3 0.5-0.9 0 1-2.7 1.3-2.3 0.1-0.2 1.2 0.2 0.5 1.3-1.5 1.3-0.7 1.8z"><title>Lebanon</title></path>
+          <path d="M637.6 495.1l0.8 1.2 0.6 1.8 0.5 3.5 0.7 1.3-0.3 1.4-0.5 0.9-0.9-1.7-0.5 0.8 0.5 2.2-0.2 1.2-0.8 0.7-0.2 2.4-1.1 3.5-1.3 4-1.8 5.7-1 4.2-1.3 3.5-2.2 0.7-2.5 1.3-1.6-0.7-2.2-1.1-0.7-1.7-0.2-2.7-1-2.4-0.3-2.1 0.5-2.2 1.3-0.5 0-1 1.4-2.2 0.2-1.9-0.6-1.4-0.6-1.9-0.2-2.6 1-1.7 0.4-1.8 1.3-0.1 1.6-0.6 1-0.5 1.2-0.1 1.6-1.6 2.3-1.8 0.8-1.4-0.3-1.2 1.1 0.3 1.6-2 0-1.7 1-1.3 0.9 1.3z"><title>Madagascar</title></path>
+          <path d="M598.3 367.9l-1.3 0.4 0.1-0.8 0.7-0.5-0.6-0.3 0.5-2.2 1 0.4 0 2-0.4 1z"><title>Palestine</title></path>
+          <path d="M453.6 422l3-0.1 0.6-0.6 0.9-0.1 1.1 0.7 0.9 0 0.9-0.5 0.5 0.9-1.2 0.6-1.2 0-1.2-0.6-1 0.6-0.5 0-0.7 0.4-2.5 0 0.4-1.3z"><title>Gambia</title></path>
+          <path d="M526.3 371.7l-1.1-5.8-1.8-1.3 0-0.8-2.3-2-0.2-2.5 1.7-1.9 0.7-2.8-0.5-3.3 0.6-1.7 3-1.5 2 0.5-0.1 1.7 2.3-1.3 0.2 0.7-1.4 1.7 0 1.6 1 0.9-0.4 2.9-1.8 1.7 0.5 1.8 1.5 0.1 0.7 1.6 1 0.5-0.1 2.5-1.4 1-0.9 1-1.9 1.3 0.3 1.3-0.2 1.4-1.4 0.7z"><title>Tunisia</title></path>
+          <path d="M475.9 381l0-0.6 0-0.3 0-3.7 4.5-2.3 2.8-0.5 2.2-0.9 1.1-1.6 3.2-1.3 0.2-2.4 1.6-0.3 1.2-1.2 3.7-0.5 0.5-1.3-0.8-0.7-0.9-3.5-0.2-2.1-1-2.1 2.6-1.9 3-0.6 1.8-1.4 2.7-1.1 4.7-0.6 4.6-0.3 1.4 0.5 2.6-1.3 3 0 1.1 0.8 1.9-0.2-0.6 1.7 0.5 3.3-0.7 2.8-1.7 1.9 0.2 2.5 2.3 2 0 0.8 1.8 1.3 1.1 5.8 0.9 2.9 0.2 1.4-0.5 2.6 0.2 1.4-0.4 1.8 0.3 1.9-1.1 1.3 1.6 2.3 0.1 1.3 1 1.7 1.3-0.6 2.2 1.4 1.2 1.9-9.5 5.8-8 5.8-3.9 1.3-3.1 0.3-0.1-1.9-1.2-0.5-1.8-0.8-0.6-1.4-9.4-6.5-9.4-6.6-10.4-7.5z"><title>Algeria</title></path>
+          <path d="M598.7 364.9l0.5-1 3.1 1.3 5.5-3.5 1.1 4-0.6 0.5-5.5 1.6 2.8 3.3-1 0.5-0.4 1.1-2.1 0.4-0.7 1.2-1.2 1-3.1-0.5-0.1-0.5 1.4-5.1-0.1-1.3 0.4-1 0-2z"><title>Jordan</title></path>
+          <path d="M643.3 390.7l0.5-0.2 0.1 0.9 2.1-0.5 2.3 0.1 1.7 0.1 1.9-2.1 2.1-2 1.8-1.9 0.5 1.1 0.4 2.4-1.5 0-0.2 2 0.5 0.4-1.3 0.6 0 1.3-0.8 1.2 0 1.2-0.6 0.7-8.4-1.5-1-3.1-0.1-0.7z"><title>United Arab Emirates</title></path>
+          <path d="M641.1 389.1l-0.1-2.2 0.7-1.6 0.8-0.4 0.8 1 0.1 1.8-0.7 1.8-0.7 0.2-0.9-0.6z"><title>Qatar</title></path>
+          <path d="M633.3 372.8l0.5 1.4-0.2 0.7 0.9 2.4-2 0.1-0.7-1.5-2.4-0.3 2-3.1 1.9 0.3z"><title>Kuwait</title></path>
+          <path d="M608.9 365.7l-1.1-4 6.1-3.5 1.1-4.1-0.3-2.5 1.5-0.9 1.4-2.1 1.2-0.6 3.3 0.5 0.9 0.9 1.4-0.6 1.8 4.1 1.8 1 0.2 2-1.4 1.2-0.6 2.6 1.9 3.2 3.4 1.8 1.4 2.5-0.4 2.3 0.8 0 0.1 1.8 1.5 1.6-1.6-0.1-1.9-0.3-2 3.1-5.2-0.3-7.8-6.4-4.2-2.3-3.3-0.9z"><title>Iraq</title></path>
+          <path d="M653.4 395.3l0-1.2 0.8-1.2 0-1.3 1.3-0.6-0.5-0.4 0.2-2 1.5 0 1.2 2.1 1.6 1.1 2 0.4 1.6 0.5 1.3 1.8 0.7 1 1 0.4 0 0.6-1 1.8-0.4 0.9-1.2 0.9-1 2-1.3-0.1-0.6 0.7-0.4 1.5 0.3 2-0.2 0.3-1.3 0-1.8 1.1-0.2 1.4-0.7 0.7-1.7-0.1-1.1 0.8 0 1.1-1.3 0.9-1.5-0.3-1.9 1-1.3 0.1-0.9-2-2.2-4.8 8.4-3 1.8-5.9-1.2-2.2zM656.3 386.2l-0.5-1.1 0.8-1 0.3 0.2-0.3 1.3-0.3 0.6z"><title>Oman</title></path>
+          <path d="M964.5 504.9l1.7 1.6-0.9 0.4-0.9-1.3 0.1-0.7zM963.3 504.2l-0.4-0.8 0-2.2 1.3 0.9 0.4 2.3-0.7-0.3-0.6 0.1z"><title>Vanuatu</title></path>
+          <path d="M785 426l-0.7-3.4 1.8-2.4 3.6-0.5 2.6 0.4 2.3 1.1 1.2-2 2.5 1.1 0.6 1.9-0.3 3.4-4.7 2.2 1.2 1.7-2.9 0.2-2.4 1.1-2.3-0.4-1.1-1.4-1.4-3z"><title>Cambodia</title></path>
+          <path d="M798.3 420.3l-2.5-1.1-1.2 2-2.3-1.1 0.9-1.3 0.1-2.5-2.2-2.5-0.2-2.8-2.1-2.4-2.1-0.2-0.6 1-1.6 0.1-0.9-0.5-2.9 1.7 0-2.6 0.6-3.1-1.8-0.1-0.2-1.8-1.2-0.9 0.6-1.1 2.4-1.9 0.2 0.7 1.5 0-0.4-3.4 1.4-0.4 1.6 2.3 1.3 2.7 3.4 0.1 1.1 2.6-1.8 0.7-0.8 1.1 3.3 1.7 2.3 3.5 1.8 2.6 2.1 2 0.7 2-0.5 2.9z"><title>Laos</title></path>
+          <path d="M778.1 402.2l-1.6 0.7-1.6 1.2-2 0.2-1.2 3.2-1.2 0.5 1.3 2.6 1.8 2.1 1.1 1.9-1 2.5-0.9 0.5 0.6 1.5 1.9 2.3 0.3 1.5-0.1 1.4 1.1 2.6-1.5 2.6-1.3 2.9-0.3-2.1 0.8-2.2-0.9-1.6 0.2-3.1-1.1-1.5-0.9-3.4-0.5-3.7-1.2-2.4-1.8 1.5-3.2 2-1.5-0.2-1.8-0.7 1-3.6-0.6-2.7-2.2-3.4 0.4-1.1-1.7-0.4-1.9-2.4-0.2-2.4 1 0.5 0-2.2 1.4-0.7-0.3-1.2 0.6-1.1 0.1-3.1 2.2 0.7 1.2-2.5 0.2-1.5 1.5-2.6-0.1-1.8 3.6-2.1 2 0.5-0.2-1.9 1-0.6-0.2-1.2 1.6-0.2 0.9 1.9 1.2 0.7 0.1 2.4-0.1 2.6-2.6 2.5-0.4 3.6 3-0.5 0.6 2.8 1.8 0.6-0.8 2.5 2 1.1 1.2 0.6 2.1-0.9 0.1 1.3-2.4 1.9-0.6 1.1z"><title>Myanmar</title></path>
+          <path d="M862.9 329.9l0.4 0.6-1.1-0.2-1.2 1.3-0.8 1.2 0.1 2.7-1.4 0.8-0.5 0.7-1.1 1-1.8 0.6-1.2 1-0.1 1.6-0.4 0.4 1.2 0.5 1.5 1.6-0.4 0.9-1.2 0.2-1.9 0.2-1.1 1.6-1.2-0.2-0.2 0.3-1.4-0.6-0.3 0.6-0.8 0.3-0.1-0.6-0.7-0.4-0.8-0.5 0.8-1.6 0.6-0.4-0.2-0.6 0.7-2-0.2-0.6-1.6-0.4-1.3-0.9 2.2-2.4 3.1-1.9 1.9-2.7 1.3 1.2 2.4 0.1-0.4-1.9 4.3-1.6 1.1-2.2 1.8 2.3z"><title>North Korea</title></path>
+          <path d="M850.5 346.7l0.2-0.3 1.2 0.2 1.1-1.6 1.9-0.2 1.2-0.2 0.4-0.9 2.4 4.2 0.7 2.2 0 4-1 1.9-2.5 0.6-2.3 1.4-2.5 0.3-0.3-1.8 0.5-2.6-1.2-3.6 2.1-0.6-1.9-3z"><title>South Korea</title></path>
+          <path d="M743.8 302.3l2.9-0.7 5.3-3.8 4.2-2 2.4 1.3 2.9 0.1 1.9 2 2.7 0.2 4.1 1.1 2.7-3-1.2-2.6 2.9-4.7 3.1 1.9 2.5 0.5 3.3 1.2 0.5 3.3 4 1.8 2.6-0.8 3.5-0.6 2.8 0.6 2.7 2.1 1.7 2.2 2.6-0.1 3.5 0.7 2.5-1 3.7-0.8 4.1-3 1.6 0.5 1.5 1.4 3.3-0.3-1.3 3.2-2 4.2 0.7 1.7 1.6-0.5 2.7 0.6 2.2-1.5 2.2 1.3 2.5 2.9-0.3 1.4-2.2-0.4-4 0.5-2 1.1-2 2.7-4.3 1.5-2.7 2.1-2.9-0.8-1.5-0.3-1.5 2.5 0.9 1.5 0.4 1.2-1.9 1.3-2 2.1-3.2 1.3-4.2 0.1-4.5 1.3-3.2 2.1-1.3-1.2-3.3 0-4.1-2.3-2.8-0.5-3.7 0.5-5.7-0.9-3.1 0.1-1.6-2.2-1.3-3.6-1.7-0.4-3.3-2.4-3.8-0.6-3.3-0.7-1-1.7 1.1-4.7-1.9-3.3-4-1.5-2.3-2.2-0.7-3z"><title>Mongolia</title></path>
+          <path d="M757.4 397.3l0 2.2-1-0.5 0.2 2.4-0.8-1.5-0.2-1.5-0.5-1.5-1.2-1.7-2.5-0.2 0.2 1.3-0.8 1.7-1.2-0.7-0.4 0.6-0.8-0.3-1.1-0.3-0.4-2.5-1-2.2 0.5-1.9-1.7-0.8 0.6-1.1 1.7-1.2-2-1.6 1-2.1 2.2 1.4 1.3 0.1 0.3 2.1 2.6 0.5 2.6-0.1 1.6 0.6-1.3 2.5-1.2 0.2-0.9 1.7 1.5 1.6 0.5-1.9 0.8 0 1.4 4.7z"><title>Bangladesh</title></path>
+          <path d="M754.7 379.8l1.1 1-0.2 1.9-2.2 0.1-2.4-0.2-1.7 0.5-2.5-1.2-0.1-0.6 1.8-2.4 1.5-0.8 2 0.8 1.5 0 1.2 0.9z"><title>Bhutan</title></path>
+          <path d="M744.8 379.5l-0.2 1.3 0.3 2-0.3 1.2-2.3 0.1-3.3-0.8-2.2-0.3-1.6-1.5-3.8-0.4-3.6-1.8-2.6-1.5-2.7-1.2 1-3 1.8-1.5 1.2-0.7 2.2 0.9 2.8 2.1 1.6 0.5 0.9 1.5 2.1 0.6 2.3 1.4 3.1 0.7 3.3 0.4z"><title>Nepal</title></path>
+          <path d="M716.2 354.6l-2.7 2.8-3.1 0.5-4.2-0.8-1.3 1.4 0.9 3 1 2.2 2.2 1.6-2.3 1.9 0 2.4-2.7 3.2-1.7 3.2-2.9 3.3-3.2-0.2-3.1 3.3 1.8 1.4 0.3 2.4 1.6 1.5 0.5 2.6-6.1 0-1.8 2.1-2.1-0.8-0.8-2.2-2.1-2.3-5.2 0.6-4.5 0-3.9 0.4 1.1-3.5 4-1.6-0.3-1.5-1.3-0.5-0.1-2.8-2.6-1.3-1.1-2-1.4-1.6 4.6 1.6 2.8-0.5 1.7 0.4 0.5-0.7 2 0.3 3.6-1.3 0.1-2.8 1.5-1.8 2.1 0 0.3-0.9 2.1-0.4 1.1 0.3 1-0.9-0.1-2 1.2-2 1.7-0.9-1.1-2.2 2.7 0.1 0.8-1.2-0.2-1.3 1.4-1.4-0.3-1.7-0.7-1.4 1.7-1.5 3-0.8 3.1-0.4 1.5-0.6 1.6-0.4 2 1.6 0.8 2.7 4.6 1.4z"><title>Pakistan</title></path>
+          <path d="M684.8 348.1l1.5 0 2.1 0.8 0.9 0.4 2-1.1 0.9 0.6 0.9-1.6 1.7 0.1 0.4-0.5 0.3-1.4 1.2-1.3 1.5 0.9-0.3 1 0.8 0.2-0.2 2.9 1.1 1.2 0.9-0.8 1.3-0.3 1.7-1.6 1.9 0.3 2.9 0 0.5 1-1.6 0.4-1.5 0.6-3.1 0.4-3 0.8-1.7 1.5 0.7 1.4 0.3 1.7-1.4 1.4 0.2 1.3-0.8 1.2-2.7-0.1 1.1 2.2-1.7 0.9-1.2 2 0.1 2-1 0.9-1.1-0.3-2.1 0.4-0.3 0.9-2.1 0-1.5 1.8-0.1 2.8-3.6 1.3-2-0.3-0.5 0.7-1.7-0.4-2.8 0.5-4.6-1.6 2.5-3-0.2-2-2.1-0.6-0.2-2.1-0.9-2.6 1.1-1.8-1.2-0.5 0.8-2.4 1.1-4.3 2.9 1.3 2.1-0.4 0.5-1.6 2.2-0.5 1.6-1.1 0.5-2.7 2.4-0.7 0.4-1.2 1.3 0.9 0.9 0.1z"><title>Afghanistan</title></path>
+          <path d="M688.4 348.9l1.6-3.6-0.6-2.6-2.1-0.9 0.8-1.6 2.3 0.2 1.3-2 0.9-2.3 3.7-0.9-0.6 1.7 0.4 1 1.2-0.1-1.1 1.1-3-0.6-0.2 2.1 3-0.3 3.4 1.2 5.3-0.5 0.7 3.3 0.9-0.4 1.7 0.8-0.1 1.4 0.4 2-2.9 0-1.9-0.3-1.7 1.6-1.3 0.3-0.9 0.8-1.1-1.2 0.2-2.9-0.8-0.2 0.3-1-1.5-0.9-1.2 1.3-0.3 1.4-0.4 0.5-1.7-0.1-0.9 1.6-0.9-0.6-2 1.1-0.9-0.4z"><title>Tajikistan</title></path>
+          <path d="M697.1 330.4l0.6-1.7 1.9-0.5 4.5 1.3 0.5-2.3 1.5-0.7 4 1.5 1-0.4 4.6 0.1 4.1 0.4 1.4 1.4 1.7 0.5-0.3 0.9-4.4 2-1 1.5-3.6 0.4-1 2.4-3-0.5-1.9 0.7-2.6 1.7 0.3 0.8-0.7 0.9-5.3 0.5-3.4-1.2-3 0.3 0.2-2.1 3 0.6 1.1-1.1 2.1 0.4 3.5-2.6-3.3-2-1.9 0.9-2.1-1.4 2.3-2.4-0.8-0.3z"><title>Kyrgyzstan</title></path>
+          <path d="M645.8 332.2l1.3-1.3 3.1-0.8 1.9 1.1 1.9 2.9 1.5-0.2 3.1 0-0.5-1.9 2.4-1.3 2.4-2.2 3.7 2 0.3 3 1.1 0.7 3-0.1 0.9 0.7 1.4 3.7 3.1 2.5 1.8 1.7 3 1.7 3.6 1.6 0 2.1-0.9-0.1-1.3-0.9-0.4 1.2-2.4 0.7-0.5 2.7-1.6 1.1-2.2 0.5-0.5 1.6-2.1 0.4-2.9-1.3-0.2-2.9-2.1-0.1-3.2-3.1-2.2-0.4-3.1-1.7-1.9-0.4-1.2 0.7-1.9-0.1-2 2-2.4 0.7-0.5-2.5 0.4-3.7-2.2-1.2 0.7-2.5-1.8-0.2 0.6-3.1 2.6 0.9 2.4-1.2-2-2.2-0.8-2.1-2.2 0.9-0.3 2.8-0.9-2.4z"><title>Turkmenistan</title></path>
+          <path d="M634.9 372.9l-1.5-1.6-0.1-1.8-0.8 0 0.4-2.3-1.4-2.5-3.4-1.8-1.9-3.2 0.6-2.6 1.4-1.2-0.2-2-1.8-1-1.8-4.1-1.6-2.8 0.6-1.1-0.9-4.1 1.9-1 0.5 1.3 1.4 1.7 1.9 0.4 1-0.1 3.3-2.6 1-0.3 0.8 1.1-0.9 1.8 1.7 1.8 0.7-0.2 0.9 2.6 2.6 0.8 1.9 1.7 4 0.6 4.3-0.9 0.3-0.8 2.4-0.7 2-2 1.9 0.1 1.2-0.7 1.9 0.4 3.1 1.7 2.2 0.4 3.2 3.1 2.1 0.1 0.2 2.9-1.1 4.3-0.8 2.4 1.2 0.5-1.1 1.8 0.9 2.6 0.2 2.1 2.1 0.6 0.2 2-2.5 3 1.4 1.6 1.1 2 2.6 1.3 0.1 2.8 1.3 0.5 0.3 1.5-4 1.6-1.1 3.5-5.2-0.9-3-0.7-3.2-0.4-1.1-3.8-1.4-0.6-2.1 0.6-2.8 1.5-3.4-1-2.8-2.4-2.7-0.9-1.8-3-2.1-4.3-1.5 0.6-1.8-1.1-1 1.2z"><title>Iran</title></path>
+          <path d="M599.2 363.9l0.3-0.5 0-1.4 0.7-1.8 1.5-1.3-0.5-1.3-1.2-0.2-0.3-2.6 0.7-1.4 0.8-0.7 0.7-0.8 0.2-1.9 0.9 0.7 3-1 1.5 0.7 2.3 0 3.2-1.4 1.5 0.1 3.1-0.5-1.4 2.1-1.5 0.9 0.3 2.5-1.1 4.1-6.1 3.5-5.5 3.5-3.1-1.3z"><title>Syria</title></path>
+          <path d="M629.2 343.1l-1 0.1-1.2-2 0.1-0.6-1.3 0-0.8-0.9-0.6 0.1-1.1-1.1-2-0.9 0.2-1.8-0.4-1.3 3.8-0.6 0.6 1 1.1 0.7-0.6 0.9 1.5 1.2-0.8 1.2 1.2 1 1.2 0.6 0.1 2.4z"><title>Armenia</title></path>
+          <path d="M530.6 256.8l1.3-3.1 2.3-3.8 0.9-6.7-1.8-3-0.2-7.9 1.8-5.9 2.8 0.1 1-2.5-1-2.2 4.3-9.4 2.7-7.8 1.9-5.3 2.6 0.1 0.8-4.2 5.2 1.2 0.4-5 1.7-0.4 3.8 3.8 4.3 5.1 0.1 11.1 0.9 2.6-4.8 2-2.7 4.6 0.5 4-4.5 5.1-5.3 5.3-2 8.3 1.9 4.1 2.7 3.1-2.6 6.2-2.9 1.2-1 8.8-1.6 4.7-3.4-0.5-1.5 3.9-3.2 0.3-0.9-4.7-2.4-5.8-2.1-7.4z"><title>Sweden</title></path>
+          <path d="M578.3 270.7l2.9 1.2 0.4 1.3 1.4-0.6 2.8 1.2 0.2 2.2-0.6 1.3 1.8 3.2 1.1 0.8-0.2 0.9 1.9 0.8 0.8 1.3-1.1 1-2.2-0.2-0.5 0.4 0.6 1.6 0.7 2.9-2.4 0.3-0.8 0.9-0.2 2.3-1.1-0.4-2.5 0.2-0.8-1.1-1 0.8-1.1-0.6-2.1-0.1-3.1-1.1-2.8-0.3-2.2 0.1-1.5 1.2-1.3 0.1-0.1-2-0.9-2.1 1.7-0.9 0-1.8-0.7-1.8-0.2-2.1 2.7 0.1 3-1.8 0.7-2.7 2.3-1.6-0.3-2.2 1.7-0.8 3-1.9z"><title>Belarus</title></path>
+          <path d="M588.3 290l1 0.2 0.7-1.1 0.9 0.3 2.9-0.5 1.7 2.6-0.7 0.9 0.3 1.4 2.2 0.2 1 1.9-0.1 0.9 3.5 1.5 2.2-0.7 1.7 2 1.6 0 4.1 1.4 0 1.3-1.1 2.2 0.6 2.3-0.4 1.4-2.7 0.3-1.4 1.1-0.1 1.8-2.2 0.4-1.9 1.3-2.6 0.2-2.4 1.5 0.2 2.1-0.5-0.1-0.3-0.8-0.9-0.1-2-0.9-0.7 1-0.4-0.4-4.3-1-0.2-1.5-2.6 0.5-1 2.2-2.2 2.9-1.2-0.7-1.3 0.7-1.3-0.8 0.7-0.4 0.5-1.4 0.8-1.2-0.2-0.8 0.6-0.3 0.2 0.6 1.7 0.1 0.7-0.3-0.5-0.4 0.2-0.6-1-1-0.4-1.8-1-0.6 0.2-1.4-1.3-1.1-1.1-0.2-2-1.3-1.9 0.4-0.7 0.6-1.1 0-0.7 1-2.1 0.4-0.9 0.6-1.3-1-1.8 0-1.7-0.4-1.2 0.8-0.2-1.1-1.6-1.1 0.6-1.7 0.8-1.1 0.6 0.2-0.7-1.9 2.5-3.6 1.4-0.5 0.2-1.2-1.3-3.9 1.3-0.1 1.5-1.2 2.2-0.1 2.8 0.3 3.1 1.1 2.1 0.1 1.1 0.6 1-0.8 0.8 1.1 2.5-0.2 1.1 0.4 0.2-2.3 0.8-0.9 2.4-0.3z"><title>Ukraine</title></path>
+          <path d="M565.2 281.6l0.2 2.1 0.7 1.8 0 1.8-1.7 0.9 0.9 2.1 0.1 2 1.3 3.9-0.2 1.2-1.4 0.5-2.5 3.6 0.7 1.9-0.6-0.2-2.7-1.6-2 0.6-1.3-0.5-1.6 0.9-1.4-1.5-1.2 0.6-0.1-0.3-1.3-2.1-2.1-0.2-0.2-1.4-1.9-0.5-0.5 1.1-1.5-0.8 0.2-1.3-2.1-0.3-1.3-1.5-1.1-2.8 0.2-1.6-0.7-2.4-1-1.6 0.8-1.3-0.7-2.3 1.9-1.4 4.4-2.2 3.5-1.6 2.7 0.8 0.2 1.1 2.7 0.1 3.4 0.5 5.1 0 1.5 0.5 0.6 1.4z"><title>Poland</title></path>
+          <path d="M547.2 307.2l-0.2 1.7-1.6 0 0.5 0.9-0.9 2.7-0.5 0.7-2.5 0-1.4 1-2.2-0.3-4-1.1-0.6-1.4-2.8 0.7-0.3 0.8-1.7-0.6-1.4-0.1-1.3-0.8 0.5-1-0.1-0.7 0.8-0.2 1.4 1.1 0.4-1.1 2.4 0.2 2-0.7 1.4 0.1 0.8 0.8 0.3-0.6-0.4-2.8 1-0.5 1-1.9 2 1.3 1.6-1.7 1-0.3 2.1 1.3 1.3-0.2 1.3 0.8-0.2 0.5 0.3 1.4z"><title>Austria</title></path>
+          <path d="M561.3 306l1.6 1.1 0.2 1.1-1.7 0.9-1.3 2.8-1.7 2.7-2.2 0.8-1.8-0.2-2.1 1.1-1 0.6-2.3-0.8-2.1-1.7-0.9-0.5-0.5-1.4-0.5 0 0.9-2.7-0.5-0.9 1.6 0 0.2-1.7 1.4 1.1 1 0.5 2.3-0.6 0.3-0.8 1.1-0.1 1.3-0.7 0.3 0.3 1.3-0.5 0.7-1 0.9-0.3 3 1.3 0.5-0.4z"><title>Hungary</title></path>
+          <path d="M573.9 306.8l0.7-0.6 1.9-0.4 2 1.3 1.1 0.2 1.3 1.1-0.2 1.4 1 0.6 0.4 1.8 1 1-0.2 0.6 0.5 0.4-0.7 0.3-1.7-0.1-0.2-0.6-0.6 0.3 0.2 0.8-0.8 1.2-0.5 1.4-0.7 0.4-0.5-1.8 0.3-1.7-0.1-1.8-1.6-2.4-0.9-1.7-0.8-1.3-0.9-0.4z"><title>Moldova</title></path>
+          <path d="M578.4 317.9l1.3 0.8 1.3-0.7 1.2 0.7 0.1 1-1.4 0.9-0.8-0.4-0.8 4.7-1.6-0.4-2-1.4-3.3 0.9-1.4 1-4.1-0.2-2.1-0.6-1.1 0.2-0.8-1.6-0.5-0.6 0.7-0.7-0.7-0.5-0.9 0.9-1.6-1.1-0.2-1.7-1.7-0.9-0.3-1.2-1.5-1.6 2.2-0.8 1.7-2.7 1.3-2.8 1.7-0.9 1.2-0.8 1.7 0.4 1.8 0 1.3 1 0.9-0.6 2.1-0.4 0.7-1 1.1 0 0.9 0.4 0.8 1.3 0.9 1.7 1.6 2.4 0.1 1.8-0.3 1.7 0.5 1.8z"><title>Romania</title></path>
+          <path d="M573.6 273.4l0.3 2.2-2.3 1.6-0.7 2.7-3 1.8-2.7-0.1-0.6-1.4-1.5-0.5-0.2-1.3 0.3-1.3-1.2-0.7-2.9-0.9-0.6-4.1 3.2-1.6 4.6 0.4 2.8-0.5 0.3 1 1.5 0.3 2.7 2.4z"><title>Lithuania</title></path>
+          <path d="M575.8 264.1l1.3 1.1 0.3 2.5 0.9 3-3 1.9-1.7 0.8-2.7-2.4-1.5-0.3-0.3-1-2.8 0.5-4.6-0.4-3.2 1.6 0.1-3.8 1.3-3.2 2.7-1.8 2.2 3.9 2.2-0.1 0.5-4 2.4-0.9 1.2 0.6 2.4 2 2.3 0z"><title>Latvia</title></path>
+          <path d="M577.7 253.4l0.4 1-1.9 3.1 0.8 4.9-1.2 1.7-2.3 0-2.4-2-1.2-0.6-2.4 0.9 0.4-3.1-1.1 0.7-1.7-1.9-0.3-3.1 3.5-1.5 3.5-0.8 3.1 0.9 2.8-0.2z"><title>Estonia</title></path>
+          <path d="M562.9 322.8l0.8 1.6 1.1-0.2 2.1 0.6 4.1 0.2 1.4-1 3.3-0.9 2 1.4 1.6 0.4-1.4 1.6-1 2.7 0.9 2.1-2.4-0.5-2.9 1.2 0 1.8-2.5 0.4-2-1.3-2.2 1-2-0.1-0.2-2.4-1.4-1.2 0.4-0.6-0.3-0.4 0.5-1.2 1-1.2-1.3-1.7-0.2-1.4 0.6-0.9z"><title>Bulgaria</title></path>
+          <path d="M573 355.2l-0.3 1-4 0.3 0-0.6-3.4-0.6 0.5-1.5 1.6 1.2 2.1-0.2 2.1 0.2-0.1 0.6 1.5-0.4zM563.8 333.8l2 0.1 2.2-1 2 1.3 2.5-0.4 0-1.8 1.4 1-0.9 2.3-0.6 0.4-1.7-0.1-1.5-0.3-3.3 0.9 1.9 2.1-1.4 0.6-1.6 0-1.4-1.9-0.5 0.8 0.6 2.2 1.4 1.6-1.1 0.8 1.6 1.7 1.3 1 0.1 2-2.6-1 0.8 1.8-1.7 0.4 1 3.1-1.8 0-2.3-1.5-1-2.8-0.5-2.3-1.1-1.7-1.4-2-0.2-1 1.3-1.8 0.1-1.2 0.9-0.5 0.1-1 1.8-0.3 1.1-0.8 1.5 0.1 0.4-0.7 0.6-0.1z"><title>Greece</title></path>
+          <path d="M624.4 348.8l-1.4 0.6-0.9-0.9-3.3-0.5-1.2 0.6-3.1 0.5-1.5-0.1-3.2 1.4-2.3 0-1.5-0.7-3 1-0.9-0.7-0.2 1.9-0.7 0.8-0.8 0.7-1-1.5 1-1.3-1.6 0.3-2.4-0.8-1.9 2-4.2 0.4-2.2-1.9-3-0.1-0.7 1.4-1.9 0.4-2.7-1.8-3 0.1-1.7-3.5-2-2 1.4-2.7-1.8-1.7 3.1-3.5 4.3-0.2 1.1-2.7 5.3 0.4 3.4-2.4 3.2-1 4.6-0.1 4.8 2.6 4 1.5 3.3-0.6 2.3 0.3 3.3-1.9 3-0.2 2.7 1.8 0.4 1.3-0.2 1.8 2 0.9 1.1 1.1-1.9 1 0.9 4.1-0.6 1.1 1.6 2.8zM572.5 332l2.9-1.2 2.4 0.5 0.3 1.5 2.4 1.2-0.5 0.9-3.3 0.2-1.2 1.1-2.3 2-0.9-1.7 0.1-0.8 0.6-0.4 0.9-2.3-1.4-1z"><title>Turkey</title></path>
+          <path d="M558.4 335.6l-0.1 1-0.9 0.5-0.1 1.2-1.3 1.8-0.5-0.3-0.1-0.8-1.5-1.2-0.2-1.7 0.2-2.5 0.4-1.2-0.5-0.6-0.2-1.2 1.2-1.8 0.2 0.7 0.8-0.4 0.5 1.1 0.7 0.3 0.2 1.4-0.4 1.3 0.4 1.5 1.2 0.9z"><title>Albania</title></path>
+          <path d="M546 313.9l0.9 0.5 2.1 1.7 2.3 0.8 1-0.6 0.7 1.5 0.9 1.1-1.1 1.5-1.3-0.9-1.9 0.1-2.4-0.7-1.3 0.1-0.6 0.8-1-0.9-0.6 1.7 1.4 1.8 0.6 1.2 1.3 1.4 1 0.9 1.1 1.6 2.5 1.4-0.4 0.7-2.6-1.4-1.6-1.4-2.5-1.2-2.3-2.8 0.5-0.3-1.3-1.6 0-1.3-1.8-0.7-0.8 1.7-0.9-1.3 0.1-1.4 0.1 0 1.9 0.1 0.5-0.6 1 0.6 1.1 0.1 0-1.1 0.9-0.4 0.3-1.7 2.2-1z"><title>Croatia</title></path>
+          <path d="M516.8 298.7l0.5 1-0.1 1.9-0.8 0.1-0.6-0.4 0.3-2.4 0.7-0.2z"><title>Luxembourg</title></path>
+          <path d="M479.3 349l-0.2-1.1 1-1.3 0.4-1-1-1.1 0.8-2.3-1.1-2.1 1.2-0.3 0.1-1.8 0.4-0.5 0.1-2.8 1.3-1-0.8-1.9-1.6-0.1-0.5 0.4-1.7 0-0.7-1.8-1.1 0.5-1 1 0.1-2.7-1.1-1.6 3.9-2.8 3.4 0.7 3.8 0 2.9 0.7 2.3-0.2 4.5 0.1 1.1 1.5 5.1 1.7 1-0.8 3.2 1.7 3.2-0.5 0.1 2.2-2.6 2.4-3.5 0.8-0.3 1.2-1.7 2.1-1.1 2.9 1.1 2.1-1.6 1.5-0.6 2.3-2.1 0.7-2 2.7-3.5 0-2.6 0-1.8 1.2-1 1.3-1.4-0.3-1-1.1-0.8-2-2.6-0.6z"><title>Spain</title></path>
+          <path d="M482.8 281.8l0.4 3.4-2.1 4.1-4.9 2.6-3.9-0.6 2.2-4.8-1.4-4.7 3.8-3.8 2.1-2.2 0.5 2.6-0.5 2.5 1.7 0 2.1 0.9z"><title>Ireland</title></path>
+          <path d="M960.5 520.1l2.3 1.8 1.4 1.4-1 0.7-1.6-0.8-2-1.4-1.7-1.5-1.9-2.1-0.4-1 1.2 0 1.6 1 1.2 1 0.9 0.9z"><title>New Caledonia</title></path>
+          <path d="M950.3 489.4l0.8 1-1.9 0-1.1-1.8 1.7 0.7 0.5 0.1zM949.1 486.9l-0.4 0.5-2.1-2.4-0.5-1.7 0.9 0 1 2.3 1.1 1.3zM946.8 487.7l-1.1 0.1-1.7-0.3-0.6-0.5 0.2-1.1 1.8 0.5 1 0.6 0.4 0.7zM943.4 482.5l0.7 0.9 0.1 0.5-2.2-1.1-1.5-1.1-1-0.9 0.4-0.3 1.3 0.7 2.2 1.3zM936.5 479.7l1.1 0.9-0.6 0.2-1.2-0.7-1.1-1.1 0.1-0.5 1.7 1.2z"><title>Solomon Is.</title></path>
+          <path d="M991.3 581.8l-1 2-1.4 2.5-2.1 1.5-0.5-1-1.2-0.5 1.6-3.1-0.9-2-3-1.4 0.1-1.3 2-1.3 0.5-2.7-0.1-2.3-1.2-2.3 0.1-0.6-1.3-1.4-2.2-3.1-1.2-2.4 1.1-0.2 1.5 1.9 2.1 0.8 0.8 3.1 2 3.6 0.1-2.3 1.3 0.9 0.4 2.6 2.2 1.2 1.9 0.3 1.6-1.4 1.4 0.4-0.7 3.2-0.8 2.1-2.2-0.1-0.7 1.1 0.3 1.5-0.5 0.7zM971.3 594.8l2.4-2 1.6-2 1.3-2.8 1-0.9 0.4-2.1 2-1.6 0.6 1.5 0.6 1.5 2-1.5 0.8 1.6 0 1.6-1 1.7-1.8 2.8-1.5 1.5 1.1 1.9-2.2 0-2.3 1.5-0.8 2.5-1.6 4-2.2 1.8-1.3 1.2-2.6-0.1-1.8-1.4-3-0.2-0.5-1.5 1.5-3 3.5-3.8 1.8-0.7 2-1.5z"><title>New Zealand</title></path>
+          <path d="M910.2 584.5l1.7 0.3 0.2 4.4-0.9 1.2-0.3 3.1-1-1-1.9 2.6-0.6-0.2-1.7-0.1-1.7-3.3-0.4-2.5-1.6-3.2 0.1-1.7 1.8 0.3 2.7 1.3 1.5-0.5 2.1-0.7zM850.4 554.8l-2.9 1.6-2.4 0.8-0.6 1.7-1 1.4-2.4 0.1-1.7 0.3-2.5-0.6-2 0.3-1.9 0.2-1.6 1.8-0.8-0.2-1.4 1-1.4 1.1-2-0.2-1.8 0-3-2.1-1.5-0.7 0.1-1.9 1.4-0.4 0.4-0.8-0.1-1.2 0.4-2.3-0.3-1.9-1.5-3.3-0.5-1.8 0.2-1.9-1.2-2 0-1-1.3-1.2-0.3-2.5-1.6-2.4-0.4-1.4 1.2 1.4-0.9-2.9 1.4 0.9 0.8 1.2 0-1.6-1.4-2.4-0.3-1-0.6-0.9 0.3-1.7 0.5-0.8 0.4-1.5-0.3-1.8 1.2-2.1 0.2 2.3 1.2-2.1 2.2-1 1.4-1.3 2.1-1.1 1.3-0.2 0.7 0.4 2.2-1.1 1.7-0.4 0.4-0.6 0.8-0.3 1.5 0.1 2.9-0.9 1.5-1.3 0.7-1.6 1.7-1.4 0.1-1.2 0.1-1.6 1.9-2.5 1.2 2.5 1.2-0.5-1-1.4 0.8-1.4 1.3 0.6 0.3-2.2 1.5-1.4 0.7-1.1 1.4-0.5 0-0.8 1.2 0.3 0.1-0.7 1.2-0.4 1.4-0.4 2 1.3 1.6 1.7 1.7 0 1.8 0.3-0.6-1.6 1.3-2.3 1.3-0.7-0.5-0.7 1.2-1.7 1.7-1 1.4 0.4 2.4-0.6-0.1-1.4-2-0.9 1.5-0.5 1.8 0.7 1.5 1.2 2.3 0.7 0.8-0.3 1.7 0.9 1.6-0.8 1.1 0.3 0.6-0.6 1.3 1.4-0.7 1.5-1.1 1.2-0.9 0.1 0.3 1.1-0.8 1.5-1 1.4 0.2 0.8 2.2 1.6 2.1 0.9 1.5 1 2 1.7 0.8 0 1.4 0.7 0.4 0.9 2.7 1 1.8-1 0.6-1.5 0.5-1.3 0.4-1.6 0.8-2.3-0.4-1.4 0.2-0.8-0.3-1.6 0.4-2.2 0.5-0.6-0.4-0.9 0.6-1.5 0.6-1.6 0-0.8 1.1-1.1 0.8 1.4 0.1 1.8 0.7 0.3 0.2 1.2 1 1.5 0.2 1.6-0.1 1 1 2.3 1.8-1.1 0.9 1.2 1.3 1.1-0.3 1.3 0.6 2.5 0.4 1.4 0.7 0.4 0.8 2.5-0.3 1.5 0.9 2 3 1.5 2 1.4 1.9 1.3-0.4 0.7 1.6 1.9 1.1 3.2 1.1-0.6 1.1 1.3 0.7-0.5 0.5 3.2 1.9 1.9 1.3 1.1 2.2 2.5 0.8 2.5 0 1.8-0.1 1.9 1.3 2.7-0.2 2.8-0.5 1.4-0.7 2.9 0 1.8-0.5 2.4-1.2 3-2.1 1.6-1 2.6-0.9 1.6-0.9 2.9-1 1.7-0.7 2.6-0.4 2.4 0.2 1.1-1.6 1.2-3.1 0.1-2.6 1.5-1.3 1.4-1.7 1.5-2.3-1.6-1.7-0.6 0.5-1.9-1.6 0.7-2.4 2.6-2.4-1-1.6-0.5-1.6-0.3-2.6-1-1.8-2.2-0.6-2.6-0.6-1.8-1.4-1.4-2.6-0.4 0.9-1.6-0.7-2.5-1.4 2.3-2.4 0.6 1.4-1.9 0.5-1.9 1-1.6-0.2-2.5-2.3 2.8-1.7 1.2-1.1 2.7-2.1-1.4 0.1-1.8-1.8-2.4-1.4-1.3 0.5-0.7-3.6-2-1.9-0.1-2.7-1.6-5 0.3-3.6 1.2-3.1 1.1-2.7-0.2z"><title>Australia</title></path>
+          <path d="M727.2 439.2l-0.4 2.9-1.2 0.8-2.4 0.6-1.3-2.2-0.5-4 1.2-4.6 2 1.6 1.2 2 1.4 2.9z"><title>Sri Lanka</title></path>
+          <path d="M529 312.3l1.7 0.6 0.3-0.8 2.8-0.7 0.6 1.4 4 1.1-0.4 1.9 0.7 1.7-2.2-0.6-2.3 1.5 0.2 1.9-0.3 1.1 0.9 2 2.6 1.9 1.4 3.2 3.1 3 2.1 0 0.7 0.8-0.8 0.8 2.5 1.3 2.1 1.1 2.3 1.9 0.3 0.7-0.5 1.3-1.5-1.7-2.4-0.6-1.2 2.4 2 1.3-0.3 1.9-1.2 0.2-1.5 3-1.1 0.3 0-1.1 0.5-1.9 0.6-0.8-1-2-0.9-1.9-1.1-0.4-0.9-1.6-1.7-0.7-1.2-1.4-2.1-0.3-2.2-1.6-2.5-2.5-1.9-2.2-0.9-3.7-1.3-0.5-2.3-1.3-1.3 0.6-1.6 1.8-1.1 0.2 0.3-1.6-1.5-0.5-0.8-3 1-1.2-0.8-1.5 0.1-1.2 1.2 0.9 1.3-0.2 1.6-1.4 0.5 0.7 1.3-0.1 0.6-1.7 2.1 0.5 1.2-0.6 0.2-1.7zM541 345.4l2.1-0.3-1 2.7 0.4 1.1-0.6 1.8-2.1-1.3-1.4-0.4-3.9-1.8 0.4-1.8 3.3 0.3 2.8-0.3zM524.2 335.4l1.4-1.1 1.6 2.6-0.3 4.8-1.3-0.2-1.1 1.1-1.1-0.9-0.1-4.4-0.6-2.1 1.5 0.2z"><title>Italy</title></path>
+          <path d="M527.6 276.5l-1.8 0.8-2.1-0.7-1.1-2.7-0.1-5.1 0.4-1.3 0.8-1.6 2.5-0.3 1-1.4 2.2-1.5-0.1 2.7-0.8 1.7 0.3 1.4 1.5 0.7-0.7 1.9-0.8-0.5-2 3.5 0.8 2.4zM534.4 271l0.8 2.5-1.6 3.9-2.9-2.7-0.4-2.1 4.1-1.6z"><title>Denmark</title></path>
+          <path d="M459.7 210.5l-0.6 4.5 3.1 4.5-3.6 5-8 4.4-2.4 1.1-3.7-0.9-7.7-2 2.7-2.8-6-3.2 4.9-1.3-0.1-1.9-5.9-1.6 1.9-4.4 4.2-1 4.3 4.6 4.3-3.7 3.5 1.9 4.5-3.7 4.6 0.5z"><title>Iceland</title></path>
+          <path d="M628.9 331.9l0.8 0.1 1.9 2.3 1.2 0.2 0.5-0.9 1.7-1.5 1.4 1.9 1.4 2.6 1.3 0.2 0.9 1-2.3 0.3-0.5 2.8-0.5 1.2-1 0.9 0.1 1.7-0.7 0.2-1.7-1.8 0.9-1.8-0.8-1.1-1 0.3-3.3 2.6-0.1-2.4-1.2-0.6-1.2-1 0.8-1.2-1.5-1.2 0.6-0.9-1.1-0.7-0.6-1 0.7-0.6 2.1 1.1 1.5 0.2 0.3-0.4-1.3-2 0.7-0.5zM628.2 343.2l-1.9-0.4-1.4-1.7-0.5-1.3 0.6-0.1 0.8 0.9 1.3 0-0.1 0.6 1.2 2z"><title>Azerbaijan</title></path>
+          <path d="M611 325.9l0.3-0.4 2.4 0.6 4.1 0.6 3.7 1.9 0.5 0.7 1.7-0.6 2.6 0.8 0.9 1.5 1.7 0.9-0.7 0.5 1.3 2-0.3 0.4-1.5-0.2-2.1-1.1-0.7 0.6-3.8 0.6-2.7-1.8-3 0.2 0.4-1.6-0.7-2.6-1.6-1.4-1.5-0.4-1-1.2z"><title>Georgia</title></path>
+          <path d="M835.6 424.6l-1.4-2.2 2.4 0.1 1 1-0.8 2.5-1.2-1.4zM840.5 432.3l0.7-0.8 0.3-1.8 1.5-0.1-0.4 1.9 2.1-2.8-0.3 2.7-1 1-0.9 1.7-0.8 0.9-1.8-2 0.6-0.7zM851 436.7l0.3 1.8 0.2 1.6-1 2.6-1-2.9-1.3 1.4 0.9 2.1-0.8 1.3-3.2-1.6-0.8-2 0.8-1.4-1.7-1.3-0.9 1.2-1.3-0.1-2.1 1.5-0.4-0.8 1.1-2.4 1.7-0.7 1.5-1.1 1 1.3 2.1-0.8 0.5-1.3 1.9 0-0.1-2.2 2.2 1.3 0.2 1.4 0.2 1.1zM829.2 434.1l-3.7 2.7 1.3-2 2-1.7 1.7-1.9 1.5-2.9 0.5 2.4-1.9 1.5-1.4 1.9zM839.8 408.6l-0.4 1.2 0.9 2.1-0.7 2.4-1.7 1-0.4 2.3 0.6 2.3 1.5 0.3 1.2-0.3 3.5 1.6-0.3 1.5 0.9 0.7-0.2 1.3-2.2-1.4-1-1.5-0.7 1.1-1.8-1.7-2.5 0.4-1.4-0.6 0.1-1.2 0.9-0.8-0.8-0.6-0.4 1-1.4-1.6-0.4-1.3-0.1-2.7 1.1 0.9 0.3-4.5 0.9-2.7 1.7 0 1.7 0.9 0.9-0.8 0.2 0.7zM839 428.2l-0.4-1.3 1.6 0.8 1.8 0-0.1 1.2-1.2 1.2-1.8 0.9-0.1-1.3 0.2-1.5zM848.6 426.1l0.8 3.2-2.1-0.8 0 1 0.7 1.7-1.3 0.6-0.1-1.9-0.9-0.2-0.4-1.7 1.6 0.2 0-1.1-1.7-2.1 2.6 0 0.8 1.1z"><title>Philippines</title></path>
+          <path d="M820.7 445l-0.1 1.4-0.2 1.7-1.3-0.1-0.6 1-1.3-1.4 1.1-1.1 2.4-1.5z"><title>Brunei</title></path>
+          <path d="M538.4 313.9l2.2 0.3 1.4-1 2.5 0 0.5-0.7 0.5 0 0.5 1.4-2.2 1-0.3 1.7-0.9 0.4 0 1.1-1.1-0.1-1-0.6-0.5 0.6-1.9-0.1 0.6-0.4-0.7-1.7 0.4-1.9z"><title>Slovenia</title></path>
+          <path d="M579.4 191.4l-0.4 5.3 4.3 5-2.6 5.4 3.2 7.9-1.8 5.7 2.5 4.8-1.2 4.1 4.1 4.3-1 3-2.6 3.5-5.9 7.3-5.1 0.5-4.9 2-4.5 1.2-1.6-3.1-2.7-1.8 0.6-5.7-1.3-5.4 1.3-3.5 2.5-3.9 6.4-7 1.8-1.4-0.2-2.8-3.9-3.2-0.9-2.6-0.1-11.1-4.3-5.1-3.8-3.8 1.7-2 3.1 4.1 3.6-0.4 3 1.9 2.7-3.4 1.3-5.9 4.3-2.7 3.6 3.2-1.2 5.6z"><title>Finland</title></path>
+          <path d="M562.7 303.2l-0.8 1.1-0.6 1.7-0.5 0.4-3-1.3-0.9 0.3-0.7 1-1.3 0.5-0.3-0.3-1.3 0.7-1.1 0.1-0.3 0.8-2.3 0.6-1-0.5-1.4-1.1-0.3-1.4 0.2-0.5 0.4-1 1.2 0.1 1-0.4 0.1-0.4 0.5-0.2 0.2-1 0.6-0.2 0.4-0.7 0.9-0.1 0.1 0.3 1.2-0.6 1.4 1.5 1.6-0.9 1.3 0.5 2-0.6 2.7 1.6z"><title>Slovakia</title></path>
+          <path d="M541.7 294.4l1.3 1.5 2.1 0.3-0.2 1.3 1.5 0.8 0.5-1.1 1.9 0.5 0.2 1.4 2.1 0.2 1.3 2.1-0.9 0.1-0.4 0.7-0.6 0.2-0.2 1-0.5 0.2-0.1 0.4-1 0.4-1.2-0.1-0.4 1-1.3-0.8-1.3 0.2-2.1-1.3-1 0.3-1.6 1.7-2-1.3-1.6-1.8-1.4-1.1-0.3-1.8-0.5-1.3 2-0.9 1-1.1 2-0.9 0.7-0.8 0.8 0.5 1.2-0.5z"><title>Czechia</title></path>
+          <path d="M601.2 419.6l-0.3-1.1 1.2-4.2 0.3-2 0.8-0.9 2.1-0.4 1.4-1.7 1.6 3.4 0.8 2.6 1.5 1.4 3.8 2.7 1.5 1.7 1.5 1.6 0.9 1 1.4 0.9-0.9 0.7-1.2-0.3-0.9-0.9-1.1-1.7-1.3-0.9-0.7-1-2.4-1.1-1.9-0.1-0.7-0.6-1.6 0.7-1.7-1.3-0.9 2.1-3.2-0.6z"><title>Eritrea</title></path>
+          <path d="M338.4 517.4l0.8 1.6-0.1 4.1 2.9 0.6 1.1-0.6 1.9 0.8 0.5 0.9 0.3 2.7 0.3 1.2 1 0.1 1.1-0.4 1 0.5 0 1.7-0.4 1.8-0.5 1.8-0.5 2.7-2.5 2.4-2.2 0.5-3.1-0.5-2.8-0.8 2.7-4.7-0.4-1.4-2.9-1.2-3.3-2.3-2.3-0.4-5.1-4.9 1.1-3.6 0-1.6 1.4-2.6 4.8-0.9 2.6 0.1 2.6 1.5 0 0.9z"><title>Paraguay</title></path>
+          <path d="M644.4 406.4l2.2 4.8 0.9 2-2 0.8-0.5 1.3-0.1 1-2.8 1.2-4.4 1.3-2.5 2-1.2 0.2-0.8-0.2-1.7 1.2-1.7 0.6-2.4 0.1-0.7 0.2-0.6 0.7-0.7 0.2-0.4 0.8-1.4-0.1-0.9 0.4-1.9-0.2-0.7-1.6 0-1.6-0.4-0.8-0.6-2.1-0.8-1.2 0.6-0.2-0.3-1.3 0.4-0.5-0.2-1.3 1.2-0.9-0.2-1.3 0.7-1.4 1.1 0.8 0.8-0.3 3.2-0.1 0.5 0.3 2.7 0.3 1.1-0.1 0.7 1 1.3-0.5 1.9-3.1 2.6-1.3 8-1.1z"><title>Yemen</title></path>
+          <path d="M597.1 374.8l3.1 0.5 1.2-1 0.7-1.2 2.1-0.4 0.4-1.1 1-0.5-2.8-3.3 5.5-1.6 0.6-0.5 3.3 0.9 4.2 2.3 7.8 6.4 5.2 0.3 2.4 0.3 0.7 1.5 2-0.1 1.1 2.7 1.3 0.8 0.5 1.1 1.9 1.3 0.2 1.2-0.3 1.1 0.4 1 0.8 0.9 0.3 1 0.4 0.7 0.9 0.6 0.7-0.2 0.6 1.2 0.1 0.7 1 3.1 8.4 1.5 0.6-0.7 1.2 2.2-1.8 5.9-8.4 3-8 1.1-2.6 1.3-1.9 3.1-1.3 0.5-0.7-1-1.1 0.1-2.7-0.3-0.5-0.3-3.2 0.1-0.8 0.3-1.1-0.8-0.7 1.4 0.2 1.3-1.2 0.9-0.3-1.2-0.9-0.9-0.2-1.2-1.4-1-1.5-2.5-0.8-2.4-1.9-2-1.2-0.5-1.9-2.8-0.3-2.1 0.1-1.8-1.6-3.3-1.3-1.2-1.5-0.6-0.9-1.8 0.2-0.7-0.8-1.6-0.8-0.7-1.1-2.3-1.7-2.5-1.4-2.1-1.4 0 0.4-1.8 0.2-1.1 0.3-1.2z"><title>Saudi Arabia</title></path>
+          <path d="M590.9 355.8l0.2-0.1 0.4-0.8 2 0.1 2.5-1.1-1.8 1.5 0.2 0.6-0.3-0.1-0.6 0.3-0.4-0.1-0.1 0.1-0.1-0.3-0.2-0.2-0.5-0.1-0.8 0.3-0.5-0.1z"><title>N. Cyprus</title></path>
+          <path d="M590.9 355.8l0.5 0.1 0.8-0.3 0.5 0.1 0.2 0.2 0.1 0.3 0.1-0.1 0.4 0.1 0.6-0.3 0.3 0.1 0.1 0.3-2.9 1.4-1.4-0.5-0.6-1.3 1.3-0.1z"><title>Cyprus</title></path>
+          <path d="M494 355.7l1 2.1 0.2 2.1 0.9 3.5 0.8 0.7-0.5 1.3-3.7 0.5-1.2 1.2-1.6 0.3-0.2 2.4-3.2 1.3-1.1 1.6-2.2 0.9-2.8 0.5-4.5 2.3 0 3.7-0.4 0 0.1 1.7-1.7 0.1-0.9 0.7-1.3 0-1-0.4-2.3 0.4-1 2.4-0.8 0.2-1.3 3.9-3.9 3.3-0.9 4.1-1.1 1.4-0.4 1.1-6.2 0.2-0.1 0 0.2-1.4 1-0.8 0.9-1.6-0.2-1 1-2.1 1.6-2 0.9-0.5 0.7-1.7 0.1-1.7 1-1.9 1.8-1.1 1.8-3.2 0.1 0 1.3-1.3 2.6-0.3 2.2-2.2 1.4-0.8 2.3-2.7-0.7-4 1.1-2.8 0.4-1.7 1.8-2.3 2.7-1.5 2.1-1.4 1.9-3.5 0.8-2.1 2.1 0.1 1.6 1.4 2.7-0.2 2.9 0.7 1.2 0.1z"><title>Morocco</title></path>
+          <path d="M602.4 397.5l-11 0-10.8 0-11.2 0 0-11.2 0-11.2-0.8-2.5 0.7-2-0.4-1.4 1-1.6 3.7 0 2.7 0.8 2.7 1 1.3 0.5 2.2-1 1.1-1 2.4-0.2 2 0.4 0.8 1.6 0.6-1.1 2.2 0.8 2.2 0.2 1.4-0.8 1.5 4.7 0.3 0.8-0.8 1.3-0.6 2.4-0.7 1.6-0.7 0.6-0.9-1-1.3-1.4-1.9-4.6-0.3 0.3 1.1 3.3 1.7 3.2 2.1 4.9 1.1 1.6 0.9 1.8 2.4 3.4-0.5 0.5 0.1 2 3.2 2.7 0.5 0.6z"><title>Egypt</title></path>
+          <path d="M569.4 397.5l0 5.9-3.2 0 0 1.3-11.1-5.7-11-5.8-2.8 1.7-2 1.1-1.6-1.7-4.4-1.3-1.2-1.9-2.2-1.4-1.3 0.6-1-1.7-0.1-1.3-1.6-2.3 1.1-1.3-0.3-1.9 0.4-1.8-0.2-1.4 0.5-2.6-0.2-1.4-0.9-2.9 1.4-0.7 0.2-1.4-0.3-1.3 1.9-1.3 0.9-1 1.4-1 0.1-2.5 3.3 1.1 1.1-0.3 2.4 0.6 3.6 1.5 1.3 2.9 2.5 0.6 4 1.4 2.9 1.6 1.4-0.9 1.3-1.5-0.6-2.5 0.8-1.6 2-1.5 1.9-0.4 3.8 0.6 0.9 1.5 1.1 0 0.9 0.6 2.7 0.4 0.7 1-1 1.6 0.4 1.4-0.7 2 0.8 2.5 0 11.2 0 11.2z"><title>Libya</title></path>
+          <path d="M632.7 437.8l-7.8 8.4-3.6 0.1-2.5 2-1.8 0.1-0.7 0.8-1.9 0-1.2-0.9-2.5 1.2-0.8 1.1-1.9-0.2-0.6-0.3-0.6 0.1-0.9-0.1-3.5-2.3-2 0-0.9-0.9 0-1.6-1.5-0.5-1.6-3-1.3-0.7-0.4-1.1-1.5-1.4-1.7-0.2 1-1.6 1.5 0 0.4-0.9-0.1-2.5 0.9-3 1.3-0.8 0.3-1.1 1.1-2.2 1.7-1.4 1.1-2.8 0.5-2.5 3.2 0.6 0.9-2.1 1.7 1.3 1.6-0.7 0.7 0.6 1.9 0.1 2.4 1.1 0.7 1 1.3 0.9 1.1 1.7 0.9 0.9-0.9 1.3-1 1.3 0.2 0.8 0.1 0.8 1.5 0.1 0.7-0.2 0.6 0.5-0.6 1 1 1.6 1.1 1.3 1 1 9.1 3.4 2.3-0.1z"><title>Ethiopia</title></path>
+          <path d="M617.6 425l1.2 0.3 0.9-0.7 0.6 0.8-0.1 1.2-1.5 0.7 1.1 0.8-1 1.5-0.6-0.5-0.7 0.2-1.5-0.1-0.1-0.8-0.2-0.8 1-1.3 0.9-1.3z"><title>Djibouti</title></path>
+          <path d="M636 428.2l-0.1 0.1 0 1.1 0 2.9 0 1.5-1.2 1.7-2 2.3-2.3 0.1-9.1-3.4-1-1-1.1-1.3-1-1.6 0.6-1 1-1.5 1 0.5 0.5 1.2 1.2 1.2 1.4 0 2.6-0.8 3.1-0.3 2.4-0.9 1.4-0.2 1-0.5 1.6-0.1z"><title>Somaliland</title></path>
+          <path d="M594.2 462.8l-5.7 0.2-3 0-1 0.3-1.7 0.8-0.6-0.2 0-2.1 0.6-1.1 0.2-2.2 0.6-1.3 1-1.5 1.1-0.7 0.9-1-1.1-0.4 0.1-3.2 1.2-0.8 1.8 0.6 2.2-0.6 1.9 0 1.8-1.3 1.3 2 0.3 1.3 1.2 3.2-1 2.1-1.4 1.8-0.8 1.1 0.1 3z"><title>Uganda</title></path>
+          <path d="M584.5 463.3l1.1 1.6-0.2 1.6-0.8 0.3-1.4-0.1-0.9 1.5-1.7-0.2 0.3-1.5 0.4-0.2 0.1-1.7 0.8-0.7 0.6 0.2 1.7-0.8z"><title>Rwanda</title></path>
+          <path d="M551.6 328.9l-2.5-1.4-1.1-1.6-1-0.9-1.3-1.4-0.6-1.2-1.4-1.8 0.6-1.7 1 0.9 0.6-0.8 1.3-0.1 2.4 0.7 1.9-0.1 1.3 0.9 1 0-0.7 1.7 1.3 1.5-0.4 1.8-0.6 0.2-0.5 0.3-0.9 0.9-0.4 2.1z"><title>Bosnia and Herz.</title></path>
+          <path d="M562.2 330.2l1.4 1.2 0.2 2.4-0.6 0.1-0.4 0.7-1.5-0.1-1.1 0.8-1.8 0.3-1.2-0.9-0.4-1.5 0.4-1.3 0.3 0 0.2-0.7 1.6-0.6 0.6-0.2 1-0.2 1.3 0z"><title>Macedonia</title></path>
+          <path d="M552.3 316.3l2.1-1.1 1.8 0.2 1.5 1.6 0.3 1.2 1.7 0.9 0.2 1.7 1.6 1.1 0.9-0.9 0.7 0.5-0.7 0.7 0.5 0.6-0.6 0.9 0.2 1.4 1.3 1.7-1 1.2-0.5 1.2 0.3 0.4-0.4 0.6-1.3 0-1 0.2-0.1-0.2 0.4-0.5 0.3-0.9-0.4 0-0.5-0.7-0.5-0.2-0.4-0.6-0.5-0.2-0.4-0.6-0.5 0.3-0.4 1.2-0.6 0.3 0.2-0.3-1.1-0.8-0.9-0.4-0.4-0.6-0.7-0.6 0.6-0.2 0.4-1.8-1.3-1.5 0.7-1.7-1 0 1.1-1.5-0.9-1.1-0.7-1.5z"><title>Serbia</title></path>
+          <path d="M555.8 329.1l-0.8 0.4-0.2-0.7-1.2 1.8 0.2 1.2-0.6-0.3-0.8-1.2-1.2-0.7 0.4-0.7 0.4-2.1 0.9-0.9 0.5-0.3 0.7 0.6 0.4 0.6 0.9 0.4 1.1 0.8-0.2 0.3-0.5 0.8z"><title>Montenegro</title></path>
+          <path d="M557.2 331.9l-0.2-1.4-0.7-0.3-0.5-1.1 0.5-0.8 0.6-0.3 0.4-1.2 0.5-0.3 0.4 0.6 0.5 0.2 0.4 0.6 0.5 0.2 0.5 0.7 0.4 0-0.3 0.9-0.4 0.5 0.1 0.2-0.6 0.2-1.6 0.6-0.2 0.7-0.3 0z"><title>Kosovo</title></path>
+          <path d="M328.7 430.1l1.6-0.4 0.5 0.1-0.1 2.1-2.3 0.3-0.5-0.2 0.8-0.8 0-1.1z"><title>Trinidad and Tobago</title></path>
+          <path d="M585.6 450.4l-2.4-1.9-0.7-1.2-1.5 0.6-1.3-0.2-0.7 0.5-1.3-0.3-1.7-2.3-0.4-0.9-2.1-1.1-0.7-1.7-1.1-1.2-1.9-1.5 0-0.9-1.6-1.1-1.8-1.1 0.8-0.3 1-0.5 0.7-2.5 0.7-1.4 2-0.3 0.5 0.7 1.4 1.7 0.8 0.2 1-0.5 2 0.1 0.4 0.6 2.8 0 0.1-0.6 1.4-0.5 0.3-0.8 1-0.6 2.4 1.6 1.4-0.2 1.4-2.1 1.5-1.5-0.2-1.7-0.7-0.9 1.7-0.1 0.2-0.6 1.2 0.2-0.3 2 0.3 2.1 1.5 1.1 0.3 1 0 1.4 0.3 0 0.1 2.2-0.4 0.9-1.5 0-1 1.6 1.7 0.2 1.5 1.4 0.4 1.1 1.3 0.7 1.6 3-1.8 1.9-1.7 1.6-1.8 1.3-1.9 0-2.2 0.6-1.8-0.6-1.2 0.8z"><title>S. Sudan</title></path>
+          <path class="visited" d="M158.8 303.6l-0.4 0-5.4-4.3-2-1.8-5-1.8-1.5-4 0.4-2.7-3.6-2-0.5-3.7-3.3-3.4-0.1-2.5 1.5-2.3 0-3.2-4.8-3.1-2.8-5.9-1.7-3.7-2.6-2.4-1.8-2.3-1.5-2.8-2.8 1.8-2.7 3-2.5-3.5-1.9-2.5-2.7-1.5-2.8-0.2 0.1-35.1 0-27.4 5.2 1.9 4.3 3.8 2.9 0.7 2.5-3.3 3.3-2.5 4.2 1 4.1-3.5 4.6-2 1.9 3.3 2-1.9 0.7-3.8 1.9 0.8 4.7 7.3 3.7-5.5 0.4 6.2 3.4-1.4 1-2.3 3.4 0.5 4.2 3.3 6.5 2.9 3.9 1.3 2.7-0.5 3.7 3.9-3.9 3.7 5 1.6 7.5-0.9 2.4-1.3 3 4.4 3-3.7-2.9-3.2 1.8-2.6 3.4-0.3 2.2-0.8 2.3 1.8 2.8 4.1 3.1-0.6 4.9 3.3 4.3-1.1 4 0.2-0.3-4.7 2.5-1.3 4.3 2.6 0 6.9 1.8-5.8 2.2 0.2 1.2-7.7-2.9-4.8-3.3-3.3 0.2-9.3 3.3-6.3 3.7 1.4 2.8 3.9 3.8 9.5-2.5 4 5.2 1.6 0 7.9 3.7-6 3.3 4.9-0.8 5.6 2.7 4.9 2.9-5.3 2-6.5 0.1-8.6 4 0.6 4.1 1.2 3.7 3.9 0.2 3.8-2.1 4.1 2 3.9-0.4 3.5-5.4 4.9-3.9 1.1-2.8-2.1-0.9 3.5-2.7 5.7-0.8 2.9-3.2 4.3-4 0.4-2.2 2.7-0.1 4-3.3 0.8-3.4 4.8-3 6.6-1.1 4.4-0.1 6.4 4.1 0.9 1.2 4.9 1.3 4 3.9-1.1 5.2 2.3 2.7 1.9 2 2.3 3.5 1.4 3 2.1 4.5 0.2 3.1 0.5-0.5 4.2 0.9 4.7 2 5.1 4.1 4.3 2.2-1.5 1.5-4.6-1.5-7.4-1.9-2.5 4.4-2.2 3.1-3.5 1.6-3.4-0.2-3.4-1.9-4.4-3.4-4 3.3-5.7-1.2-5.1-1-9.1 2-1.4 4.7 1.6 2.9 0.6 2.3-1.6 2.6 2 3.4 3.5 0.8 2.2 5 0.4-0.1 4.8 0.9 6.9 2.6 0.9 2 3.1 4-2.9 2.7-6.1 1.8-2.5 2.2 4.9 3.6 6.8 3.1 6.3-1.2 3.1 3.7 2.8 2.5 2.8 4.5 1.3 1.7 1.5 1.1 4.1 2.2 0.6 1.1 1.7 0.2 5.2-2 1.7-2 1.6-4.6 1.5-3.5 3.6-4.7 0.7-5.9-0.9-4.2 0-2.8 0.3-2.4 3.1-3.5 1.9-4 5.5-3.2 3.8 2.3-0.7 4.5-5.4 5.8-3.5 4.2-0.4 2.4 2-2.6 2.9 0.9 4.4 0.9 3 3.6 2 4.6-0.5 2.8-4.6 0.2 3 1.8 1.4-3.5 2.6-6.1 2.4-2.8 1.5-3.1 2.8-2.1-0.3-0.1-3.2 4.8-3.3-4.4 0.1-3.1 0.5-1.8-2.2 0-5.5-1.2-1.2-1.9 0.7-0.9-1.1-2.1 3.1-0.9 3.1-1 1.9-1.2 0.6-0.8 0.2-0.3 0.9-5.1 0-4.3 0.1-1.2 0.7-3 2.8-0.3 0.3-0.9 1.5-2.5 0-2.8 0-1.2 0.6 0.4 0.8 0.3 1.1-0.1 0.4-3.6 1.9-2.9 0.6-3.2 2-0.7 0-0.9-0.6-0.3-0.6 0-0.3 0.6-1.4 1.3-2 0.8-2.3-0.5-3.4-0.6-3.5-2.9-1.9 0.3-0.7-0.4-0.5-0.7 0-0.6-0.6-0.1-1-0.6 0.5-0.7-0.2 0.2-0.4-0.7-0.4-0.3-1-2.1-1.3-2.3-1.4-2.7-1.6-2.6-1.5-2.5 1.2-0.9 0-3.4-1.1-2.3 0.6-2.6-1.3-2.9-0.7-1.9-0.2-0.9-0.8-0.5-2.3-0.9 0 0 1.7-5.8 0-9.5 0-9.4 0-8.4 0-8.3 0-8.2 0-8.5 0-2.7 0-8.2 0-7.9 0zM266.7 236.4l2.1-2.8 3.8 0-0.1 1.2-3.2 3.3-2-0.1-0.6-1.6zM278.4 159.5l-3.1-5.1 0.2-3.5 1.3-0.7 6.4 1.1 4.7 5.3 0.3 2.7-3-0.3-3-0.2-3 1.3-0.8-0.6zM276.9 238.6l1.1-1.8 1.1 0.1 0.7 1.2-1.1 3.1-1.2-0.5-0.7-1.7 0.1-0.4zM240 137.7l-1.5 4.1-4.1-0.8-3.3-2.8 1.4-4.9 4-3 2.5 3.9 1 3.5zM239.3 107.9l-1.2 0.4-5.2-0.9-0.8-3.6 5.6 0.2 2 2.4-0.4 1.5zM231.2 91l3.4 4.9-0.8 4.9-4.1 2.8-2.3-3.1-1.2-5.1-0.2-5.9 3.6 0.6 1.6 0.9zM255.1 143.8l-4.4-1.2-7.4-3.4-1-6-0.3-5.5-2.8-5.1-5.8-1.4-3.2-3.7 1.1-5.1 5.7 0.8 3.1 4 5.4-0.1 2.4 4-0.6 4.4 3.2 2.6 1.8 2.6 3.7 0.5 4.1 1 4.4-2.4 5.6-1 4.5 0.8 3 4.2 0.6 4.5-1.7 2.8-4.1 2.2-3.6-1.3-8 1.6-5.7 0.2zM190.9 99.5l4 2.1-1 4-5.2 3.7-4.1-4.2 2.3-4.2 4-1.4zM191.8 90.5l3.6 2.9-3.4 2.7-4.6-0.1 0-1.9 2.9-4.3 1.5 0.7zM345.6 293.5l-1.5 2.8-1.9 3.8 1.8-1.5 1.9 1-1 1.5 2.5 1.1 1.3-1 2.8 1.3-0.9 3.1 1.9-0.7 0.4 2.2 0.9 2.6-1.2 3.6-1.3 0.1-1.8-0.8 0.6-3.3-0.8-0.5-3.2 3.5-1.6-0.1 1.9-1.9-2.7-1-2.9 0.2-5.4-0.1-0.5-1.2 1.8-1.5-1.2-1.1 2.3-2.6 2.9-6.8 1.7-2.6 2.4-1.5 1.3 0.2-0.5 1.2zM267 219.7l3 2.2 3.2 2 0.3 3.1 2-0.5 2 2.1-2.5 1.9-4.3-1.5-1.6-2.8-2.7 3.3-4 3.2-0.9-3.6-3.8 0.6 2.4-3.1 0.4-5.1 0.9-6.1 2 0.6 0.6 2.9 1.4-1 1.6 1.8zM281.2 163.7l2.6-3.7 6.2 4.6 3.8 4.3 0.4 3.9 5.1-2 2.9 5.5 6.7 3.3 2.4 3.3 2.7 7.5-5.1 3.6 6.5 5 4.4 1.6 4 6.6 4.4 0.5-0.9 4.9-4.8 7.8-3.5-2.8-4.3-6.6-3.6 0.9-0.4 3.9 2.9 3.9 3.8 3 1.2 1.7 1.8 6.2-1 4.4-3.5-1.6-7-5 4 5.4 2.9 3.6 0.4 2.1-7.5-2.4-6-3.5-3.4-3 1-1.8-4.1-3.2-4.1-3.1 0.1 1.8-8.1 1.1-2.3-2.2 1.8-4.9 5.2-0.1 5.8-0.8-1-2.4 1-3.5 3.6-6.8-0.8-3.2-1-2.6-4.3-3.6-5.6-2.6 1.8-2-3-4.9-2.4-0.5-2.2-2.7-1.5 2.4-5 1-10.2-1.8-5.8-2.4-4.5-1.2-2.3-3 2.9-3.9-4 0-0.9-9 2.2-8.3 2.8-4 7.2-2.6-2 6.3 2.1 5.9 2.6-7.7 7-4 4.8 10-0.4 6 5.5-2.6zM237.5 146.5l5.8 0.3 5.3 2.5-4.2 8.6-3.3 1.9-3 6.8-3.1-0.3-1.8-8.1 0.1-4.8 1.4-4.2 2.8-2.7zM158.7 125l4.8-8.9 5.7-8.1 4.2 0.2 3.8-1.9-0.4 9.7-2.1 4.1-2.6 0.6-5.2 5-4.4 1.8-3.8-2.5zM131.4 281l2.6-0.3-0.8 5.3 2.4 3.6-1.1 0-1.7-2.1-1-2.1-1.4-1.4-0.5-2.1 0.2-1.5 1.3 0.6zM207 83.2l5.4 2 7.5 5.3 2.2 6.7 1 5.6-4.5-1.5-4.6-4.4-6.2-0.5 2.7-4.1-3.3-3.5-0.2-5.6zM156.9 305.6l-1.4 0.6-4.5-1.9-0.9-1.5-2.5-1.5-0.5-1.2-2.8-0.8-1.1-2.4 0.3-1 2.9 1 1.7 0.6 2.6 0.5 0.9 1.5 1.4 2 2.8 1.8 1.1 2.3zM162.4 143.2l4 2.2 7.1 0.6 2.7 2.9 2.9 4.1-3.5 2.5-6.8 6.6-3.4 6.4 0 3.8-7.3 4.1-1.5-3.7-6.4-4.7 1.2-3.8 1.9-6.8 2.4-6.4-2.7-6.1 9.4-1.7zM200.5 128.1l2.5-1.9 2.9 0.5 0.5 5.5-1.7 5.2-9.4 1.6-7 4.6-4.3 0.2-0.3-3.4 5.8-4.7-12.6 1.3-3.9-2 3.8-11 2.6-3.3 7.9 4 4.9 6.7 4.8 0.9-3.9-11 2.5-4.3 2.9 1.4 0.9 5.6 1.1 4.1zM204.1 156.9l3.1 3.8 1.8 8.8 0.8 6.2 4.7 4.1 5 3.9-0.3 3.6-4.6 0.6 1.8 3-0.9 2.9-5.1-1.2-4.7-2.1-3.3 0.4-5.2 2.7-7 1.1-5 0.7-1.5-3.6-3.8-2.1-2.4 0.9-3.4-6.3 1.8-0.9 4.3-1.4 3.9 0.4 3.6-1.5-5.3-1.9-6 0.7-3.9-0.2-1.5-3.1 6.5-3.4-4.3 0.1-4.9-2.3 2.4-6.7 1.9-3.7 7.4-5.8 2.9 1.9-1.4 4.4 6.2-2.9 3.8 4.8 3.2-4.8 2.5 3.1 2.3 8.9 1.4-3.7-2-9.5 2.4-1.4 2.8 1.5zM221 160.4l-3.1-6.2 3.3-4.8 3.3 2.1 5-1.3 0.7 2.9-2.6 4.6 4.2 4-0.5 8.2-4.5 3.4-2.7-0.8-1.9-3.3-6.9-7 0-3 5.7 1.2zM203.9 151.8l3.7-0.4 2.1 2.2-2.4 6.3-4.4-6.7 1-1.4zM226.4 117.9l2.1 5.5 0.1 5.8-1.3 8.2-4.5 1.1-3-1.7 0-6.4-4.5 0.9-0.2-8.9 3 0.4 4.2-4.1 3.9 0.7 0.2-1.5zM233.3 62.5l1.9-5.3 2.9-1.3-1.3-4.1 6.5-0.9 3.6 9.5 4.6 3.6 4.6 3.2 2.2 10.6 3.3 4.9-3.8 4.4-5.1 10.6-4.9 1-5.8-1.8-3-5.7 0.1-5.2 2.2-4-5.1 0.1-3.1-5-1.7-7.3 1.9-7.3zM245.6 38.8l4.1-3.8 3.3-0.6 5.4-3.3 4.1-7.9 3.4 1.1 3 5.9 2.2-11.6 3.6-3.6 5-2.6 8.5-0.9 1.5 2.4 8-3.9 6 1.5 6 1.5 7.4 1.8 6 2.9 5.1 6-0.1 5.6-6.8 8.9-6.7 3.9-2.5 4.3 6-0.1-6.5 11-4.6 4.9-4.7 13.4-5.8 2.6-1.7 3.1-8.4 1.6 3.8 1.9-1.9 2.6 2.3 7-2.7 4.7-4.3 3.8-1.3 5.1-3.9 3.8 0.4 2.8 4.8-0.4 0 2.9-7.4 7.2-7.2-3.3-8.2 1.9-4.1-1.5-5.3-0.6-0.3-5.8 5.1-2.8-1.4-9.3 1.7-0.9 7.5 5.6-3.8-8.4-4.5-2.6 2.2-5.5 4.9-3.4 0.8-5.2-3.9-6-1.2-8.2 7.6 0.7 2.2 1.8 4.3-6-6.2-2-9.7 1.1-4.9-5.8-2.4-7.2-3.2-5.5-0.6-6.6zM291.1 203.5l-1.8 2.1-3.2 0.4-0.6-3.5 1.1-4.2 2.6-1 2.2 2.1 0 3.1-0.3 1zM232.6 188l1.7 3-1.7 2.7-3.8-2.3-2.2 0.9-3.8-3.6 2.4-2.4 2-3.5 2.9 2.3 1.7 1.4 0.8 1.5zM320.8 299.8l0.9-0.3 3.7 1 2.8 1.8 0.1 0.8-1.3 0.1-3.6-1.3-2.6-2.1zM322.2 311.7l1 2 2 0.5 2.5-0.1-1.3 1.7-1 0.2-3.6-1.7-0.7-1.3 1.1-1.3z"><title>Canada</title></path>
+          <path class="visited" d="M158.8 303.6l7.9 0 8.2 0 2.7 0 8.5 0 8.2 0 8.3 0 8.4 0 9.4 0 9.5 0 5.8 0 0-1.7 0.9 0 0.5 2.3 0.9 0.8 1.9 0.2 2.9 0.7 2.6 1.3 2.3-0.6 3.4 1.1 0.9 0 2.5-1.2 2.6 1.5 2.7 1.6 2.3 1.4 2.1 1.3 0.3 1 0.7 0.4-0.2 0.4 0.7 0.2 0.6-0.5 0.1 1 0.6 0.6 0.7 0 0.4 0.5-0.3 0.7 2.9 1.9 0.6 3.5 0.5 3.4-0.8 2.3-1.3 2-0.6 1.4 0 0.3 0.3 0.6 0.9 0.6 0.7 0 3.2-2 2.9-0.6 3.6-1.9 0.1-0.4-0.3-1.1-0.4-0.8 1.2-0.6 2.8 0 2.5 0 0.9-1.5 0.3-0.3 3-2.8 1.2-0.7 4.3-0.1 5.1 0 0.3-0.9 0.8-0.2 1.2-0.6 1-1.9 0.9-3.1 2.1-3.1 0.9 1.1 1.9-0.7 1.2 1.2 0 5.5 1.8 2.2 0.5 1.3-3 1.9-2.8 1.3-3 1.2-1.4 2.2-0.5 0.9 0 2 0.9 2 1.1 0.1-0.3-1.4 0.9 0.8-0.2 1.1-1.9 0.6-1.4-0.1-2 0.7-1.2 0.2-1.6 0.1-2.3 1.1 4-0.7 0.9 0.7-3.9 1.1-1.8 0 0.1-0.4-0.9 1 0.9 0.2-0.6 2.6-2.1 2.7-0.2-0.9-0.6-0.2-0.9-0.9 0.6 2 0.7 0.6 0 1.3-0.9 1.4-1.5 2.8-0.3-0.1 0.9-2.4-1.5-1.4-0.3-2.9-0.5 1.5 0.6 2.3-1.9-0.6 2 1.2 0.1 3.3 0.8 0.2 0.3 1.2 0.3 3.5-1.7 2.5-2.9 1-1.8 2-1.4 0.2-1.4 1.2-0.4 1.1-3.1 2.2-1.5 1.5-1.3 2-0.5 2.3 0.5 2.2 1 2.7 1.2 2.3 0 1.3 1.3 3.7-0.1 2.1-0.1 1.2-0.7 1.8-0.8 0.4-1.4-0.3-0.4-1.4-1.1-0.7-1.4-2.7-1.3-2.3-0.5-1.3 0.6-2.1-0.8-1.7-2.1-2.7-1.1-0.5-2.8 1.5-0.5-0.2-1.4-1.5-1.7-0.8-3.1 0.4-2.5-0.3-2.1 0.2-1.2 0.5 0.5 0.9 0 1.2 0.6 0.7-0.6 0.4-1-0.5-1 0.6-2-0.1-2.1-1.7-2.4 0.4-2.1-0.7-1.7 0.2-2.3 0.8-2.6 2.3-2.7 1.4-1.5 1.5-0.7 1.4 0 2.2 0.1 1.5 0.6 1-1.1 0.1-2-0.7-2.2-0.9-0.7-1.5-0.6-2.2-1.7-1.8-0.9-1.8-1.4-2.2-2-1.3-2.3 0.1-1.7 2.5-2.3-1-1.5-0.9-0.6-1.8-1-1.7-1.6-1.4-1.4-1-1.1-1.2-4.8 0 0 1.4-2.2 0-5.5 0-6.3-2.3-4.2-1.6 0.2-0.6-3.5 0.3-3.2 0.3-0.4-1.7-1.8-1.9-1.3-0.4-0.3-1-1.6-0.2-1-0.9-2.6-0.3-0.7-0.5-0.3-1.9-2.7-3.4-2.3-4.9 0.1-0.8-1.2-1.1-2.2-3-0.4-2.9-1.4-2 0.6-3.1-0.1-3.1-0.9-2.9 1.1-3.6 0.3-3.5 0.3-3.6-0.5-5.4-0.8-3.5-0.8-1.9 0.3-0.8 4 1.4 1.5 3.9 0.7-1.1-0.5-3.4-0.9-3.4zM68.3 403.2l0.5 0.2 0.5 0.4 0.7 1.1-0.1 0.1-1.1 0.7-0.9 0.4-0.4 0.5-0.7-0.4 0.1-0.8-0.4-1.1 0.1-0.3 0.5-0.5-0.2-0.6 0.2-0.3 0.2 0.1 1 0.5zM66.7 401.2l-0.2 0.3-1 0.2-0.5-0.6-0.3-0.2 0-0.2 0.3-0.3 1 0.3 0.7 0.5zM64.6 399.9l-0.1 0.3-1.5 0 0.2-0.4 1.4 0.1zM61 398.3l0.3 0.2 0.8 1-0.2 0.2-0.2-0.1-0.9-0.1-0.4-0.7-0.1-0.1 0.7-0.4zM57.3 396.8l0.1 0.7-0.4 0.3-0.9-0.5 0.2-0.2 0.4-0.3 0.6 0zM37.6 248.4l2.2 0.5 0.3 2.1-1.7 0.9-1.9-1-1.6-1.6 2.7-0.9zM74.4 261.5l1.8 0.3 1.2 1.7-2.4 2.4-2.8 1.9-1.4-1.3-0.4-2.4 2.5-1.8 1.5-0.8zM108.4 186.3l0 27.4-0.1 35.1 2.8 0.2 2.7 1.5 1.9 2.5 2.5 3.5 2.7-3 2.8-1.8 1.5 2.8 1.8 2.3 2.6 2.4 1.7 3.7 2.8 5.9 4.8 3.1 0 3.2-1.5 2.3-1.5-1.8-2.5-1.6-0.8-4.3-3.5-4.1-1.5-4.9-2.7-0.4-4.4-0.1-3.3-1.5-5.7-5.6-2.7-1.1-4.8-1.9-3.9 0.4-5.4-2.5-3.3-2.4-3.1 1.2 0.5 3.9-1.5 0.3-3.2 1.2-2.5 1.8-3 1.2-0.4-3.2 1.2-5.5 3-1.8-0.8-1.4-3.5 3.1-1.9 3.8-4 3.9 2 2.6-2.6 3.9-3 2.2-2.8 1.5-0.7 2.3-4.3 2.6-0.9 2.4-3.2 2.1-1.9-0.4-2.6 1.4-2.9 1.6-2.3 1.6-4.7 1.4-0.5-0.8 3.1-2.3 2.7-1.5 2.9-2.7 3.5-0.5 1.4-2.1 3.8-3 0.6-1 2.1-1.8 0.5-4 1.4-3.2-3.2 1.7-0.9-1-1.5 2-1.8-2.7-0.8 1.9-1-2.7-2.8 2.2-1.7 0-0.2-3.2 0.5-2-1.8-2-3.6 1.1-2.4-2.7-1.9-1.3 0-3.2-2.1-2.5 1-3.4 2.3-3.3 1-3.1 2.2-0.5 1.9 1 2.3-3 2 0.5 2.1-1.9-0.5-2.9-1.6-1.1 2.1-2.5-1.7 0-3 1.4-0.8 1.5-2.2-1.5-3.9 0.8-4.1-1.6-1.2-2.6-3.5-3.9 3.9-2.8 6.2-3.4 2.3 0-0.4 3.5 5.9-0.3-2.3-4.3-3.4-2.7-1.9-3.6-2.7-3.2-3.8-2.3 1.5-4 5-0.3 3.5-3.5 0.6-3.9 2.9-3.9 2.7-0.9 5.2-3.8 2.6 0.6 4.3-4.6 4.2 1.9 2 3.8 1.2-1.7 4.7 0.6-0.2 1.9 4.3 1.4 2.8-0.8 5.9 2.6 5.3 0.8 2.1 1 3.7-1.3 4.3 2.4 3 1.2zM23 228.2l1.7 1.2 1.7-0.6 2.3 1.6 2.7 0.8-0.2 0.7-2.1 1.3-2.1-1.3-1.1-1.2-2.4 0.4-0.7-0.5 0.2-2.4z"><title>United States of America</title></path>
+          <path class="visited" d="M174.6 364.5l3.2-0.3 3.5-0.3-0.2 0.6 4.2 1.6 6.3 2.3 5.5 0 2.2 0 0-1.4 4.8 0 1.1 1.2 1.4 1 1.6 1.4 1 1.7 0.6 1.8 1.5 0.9 2.3 1 1.7-2.5 2.3-0.1 2 1.3 1.4 2.2 0.9 1.8 1.7 1.8 0.6 2.2 0.7 1.5 2.2 0.9 2 0.7 1.1-0.1-1.1 2.7-0.5 2.2-0.2 4.1-0.3 1.4 0.5 1.7 0.9 1.4 0.5 2.3 1.9 2.2 0.6 1.7 1.1 1.5 3 0.7 1.1 1.3 2.4-0.8 2.2-0.3 2-0.6 1.8-0.5 1.8-1.2 0.6-1.7 0.2-2.5 0.5-0.8 1.9-0.8 2.9-0.7 2.5 0.1 1.7-0.3 0.7 0.7-0.1 1.4-1.5 1.8-0.7 1.8 0.5 0.5-0.4 1.2-0.7 2.3-0.7-0.7-0.6 0-0.5 0.1-1 1.7-0.5-0.3-0.3 0.1 0 0.5-2.6-0.1-2.6 0 0 1.7-1.2 0 1 0.9 1 0.7 0.3 0.6 0.5 0.2-0.1 1-3.6 0-1.3 2.4 0.4 0.5-0.3 0.7-0.1 0.8-3.1-3.1-1.5-0.9-2.2-0.8-1.6 0.2-2.2 1.1-1.4 0.3-2-0.8-2.1-0.5-2.6-1.3-2-0.4-3.2-1.4-2.3-1.4-0.7-0.8-1.6-0.1-2.8-1-1.2-1.3-2.9-1.7-1.4-1.8-0.7-1.5 0.9-0.3-0.3-0.8 0.7-0.8 0-1-0.9-1.3-0.3-1.2-0.9-1.6-2.5-3-2.8-2.3-1.3-2-2.4-1.2-0.5-0.8 0.4-1.9-1.4-0.7-1.6-1.5-0.7-2.2-1.5-0.3-1.6-1.6-1.3-1.6-0.2-0.9-1.5-2.5-0.9-2.4 0-1.3-2-1.3-0.9 0.2-1.6-0.9-0.5 1.3 0.5 1.6 0.3 2.4 0.9 1.3 2.1 2.2 0.4 0.8 0.5 0.2 0.3 1.1 0.5-0.1 0.6 2.1 0.8 0.8 0.6 1.1 1.8 1.5 0.9 2.9 0.8 1.4 0.8 1.4 0.1 1.6 1.4 0.1 1.1 1.4 1 1.4-0.1 0.5-1.1 1.1-0.5 0-0.8-1.8-1.8-1.8-2-1.4-1.4-0.8 0.1-2.3-0.4-1.6-1.4-1-1.9-1.4-0.3 0.4-0.7-0.8-1.8-0.7-1.6-1.9 0.2-0.2 1.2 0.2 1-1.2 0.1-1.4-2.2-2.3-1.6-0.9-1-2-1-2.1-1.3-2.6-1.2-2.9z"><title>Mexico</title></path>
+          <path class="visited" d="M351.7 559.9l-0.7-1.9 1.2-1.6-1.6-2.2-2.2-1.8-2.8-2.1-1.1 0.1-2.8-2.5-1.8 0.4 3.7-4.4 3.2-3.1 1.8-1.2 2.4-1.8 0-2.4-1.4-1.8-1.3 0.6 0.5-1.8 0.4-1.8 0-1.7-1-0.5-1.1 0.4-1-0.1-0.3-1.2-0.3-2.7-0.5-0.9-1.9-0.8-1.1 0.6-2.9-0.6 0.1-4.1-0.8-1.6 0.9-0.6-0.3-1.7 0.8-1.3 0.5-2.3-0.7-1.8-1.5-0.8-0.3-1.2 0.4-1.7-5.3-0.1-1.1-3.3 0.8-0.1 0-1.2-0.5-0.9-0.2-1.6-1.6-0.9-1.7 0.1-1.2-0.9-1.9-0.5-1-1.1-3.2-0.5-3-2.5 0.3-1.9-0.4-1.1 0.3-2.1-3.6 0.5-1.5 1-2.4 1.2-0.6 0.8-1.5 0.1-2-0.3-1.6 0.5-1.3-0.3 0.2-4.3-2.3 1.7-2.4-0.1-1.1-1.5-1.8-0.2 0.6-1.2-1.6-1.7-1.1-2.5 0.7-0.5 0-1.2 1.7-0.8-0.3-1.5 0.7-1 0.2-1.3 3.2-1.9 2.3-0.5 0.3-0.4 2.6 0.1 1.2-7.6 0.1-1.2-0.5-1.6-1.2-1 0-2.1 1.6-0.4 0.5 0.3 0.1-1.1-1.6-0.3 0-1.7 5.4 0 0.9-0.9 0.8 0.9 0.5 1.6 0.5-0.3 1.6 1.4 2.1-0.2 0.6-0.8 2-0.7 1.2-0.4 0.3-1.2 2-0.8-0.2-0.6-2.3-0.2-0.4-1.8 0.1-1.8-1.2-0.7 0.5-0.3 2 0.4 2.2 0.7 0.8-0.7 2-0.4 3.1-1.1 1.1-1-0.4-0.8 1.4-0.2 0.7 0.7-0.4 1.2 1 0.4 0.6 1.3-0.8 1-0.4 2.4 0.7 1.4 0.2 1.3 1.7 1.3 1.4 0.1 0.3-0.5 0.9-0.1 1.2-0.5 0.9-0.8 1.6 0.3 0.6-0.1 1.6 0.2 0.2-0.6-0.5-0.5 0.3-0.8 1.1 0.2 1.4-0.3 1.5 0.6 1.3 0.6 0.8-0.8 0.6 0.2 0.4 0.7 1.3-0.2 1.1-1 0.9-2.1 1.6-2.5 1-0.1 0.6 1.5 1.6 4.9 1.5 0.4 0.1 1.9-2.1 2.3 0.8 0.9 4.9 0.4 0.1 2.8 2.2-1.8 3.4 0.9 4.7 1.7 1.3 1.7-0.4 1.5 3.2-0.8 5.4 1.4 4.1-0.1 4.2 2.3 3.5 3.1 2.1 0.8 2.4 0.2 1 0.8 1 3.6 0.4 1.7-1.1 4.6-1.4 1.9-3.9 3.9-1.8 3.2-2 2.5-0.7 0-0.8 2.1 0.2 5.4-0.8 4.5-0.3 1.9-0.9 1.1-0.4 4-2.9 3.8-0.4 3.1-2.3 1.3-0.6 1.8-3.1 0-4.3 1.2-2 1.3-3.1 0.9-3.3 2.4-2.3 3.1-0.4 2.3 0.4 1.7-0.5 3.2-0.6 1.5-1.9 1.8-3.1 5.6-2.5 2.6-1.9 1.6-1.2 3.1-1.9 1.9z"><title>Brazil</title></path>
+          <path class="visited" d="M792.3 420.1l-2.6-0.4-3.6 0.5-1.8 2.4 0.7 3.4-2.5-1.3-2.4 0.1 0.4-2.3-2.5 0-0.2 3.2-1.5 4.1-0.9 2.5 0.2 2.1 1.8 0 1.2 2.6 0.5 2.4 1.5 1.6 1.7 0.4 1.4 1.4-0.9 1.2-1.8 0.3-0.2-1.4-2.3-1.3-0.5 0.5-1.1-1-0.5-1.4-1.4-1.6-1.4-1.3-0.4 1.6-0.6-1.5 0.3-1.8 0.9-2.7 1.3-2.9 1.5-2.6-1.1-2.6 0.1-1.4-0.3-1.5-1.9-2.3-0.6-1.5 0.9-0.5 1-2.5-1.1-1.9-1.8-2.1-1.3-2.6 1.2-0.5 1.2-3.2 2-0.2 1.6-1.2 1.6-0.7 1.2 0.9 0.2 1.8 1.8 0.1-0.6 3.1 0 2.6 2.9-1.7 0.9 0.5 1.6-0.1 0.6-1 2.1 0.2 2.1 2.4 0.2 2.8 2.2 2.5-0.1 2.5-0.9 1.3z"><title>Thailand</title></path>
+          <path class="visited" d="M789.8 430.8l2.4-1.1 2.9-0.2-1.2-1.7 4.7-2.2 0.3-3.4-0.6-1.9 0.5-2.9-0.7-2-2.1-2-1.8-2.6-2.3-3.5-3.3-1.7 0.8-1.1 1.8-0.7-1.1-2.6-3.4-0.1-1.3-2.7-1.6-2.3 1.5-0.8 2.2 0.1 2.7-0.4 2.4-1.6 1.3 1.1 2.6 0.6-0.5 1.7 1.3 1.2 2.8 0.8-3.7 2.6-2.3 2.7-0.6 2.1 2.1 3.1 2.6 3.8 2.5 1.8 1.7 2.3 1.3 5.3-0.4 5-2.3 1.9-3.2 1.8-2.2 2.3-3.5 2.7-1-1.8 0.8-2-2.1-1.6z"><title>Vietnam</title></path>
+          <path class="visited" d="M770.4 378.2l0.2 1.2-1 0.6 0.2 1.9-2-0.5-3.6 2.1 0.1 1.8-1.5 2.6-0.2 1.5-1.2 2.5-2.2-0.7-0.1 3.1-0.6 1.1 0.3 1.2-1.4 0.7-1.4-4.7-0.8 0-0.5 1.9-1.5-1.6 0.9-1.7 1.2-0.2 1.3-2.5-1.6-0.6-2.6 0.1-2.6-0.5-0.3-2.1-1.3-0.1-2.2-1.4-1 2.1 2 1.6-1.7 1.2-0.6 1.1 1.7 0.8-0.5 1.9 1 2.2 0.4 2.5-0.4 1.1-1.9 0-3.4 0.6 0.2 2.2-1.5 1.8-4 2-3.1 3.4-2.1 1.9-2.8 1.9 0 1.3-1.4 0.7-2.5 1-1.3 0.2-0.8 2.2 0.6 3.7 0.1 2.4-1.2 2.7 0 4.8-1.4 0.1-1.3 2.2 0.9 0.9-2.6 0.8-0.9 1.9-1.1 0.8-2.6-2.6-1.3-3.9-1.1-2.9-1-1.3-1.4-2.8-0.7-3.5-0.5-1.8-2.5-4-1.2-5.6-0.8-3.7 0-3.6-0.6-2.8-4 1.8-2-0.4-3.6-3.6 1.4-1.1-0.9-1.2-3.2-2.5 1.8-2.1 6.1 0-0.5-2.6-1.6-1.5-0.3-2.4-1.8-1.4 3.1-3.3 3.2 0.2 2.9-3.3 1.7-3.2 2.7-3.2 0-2.4 2.3-1.9-2.2-1.6-1-2.2-0.9-3 1.3-1.4 4.2 0.8 3.1-0.5 2.7-2.8 3 3.9-0.3 2.8 1.1 1.7-0.1 1.6-2-0.4 0.8 3.6 2.7 2.1 3.9 2.2-1.8 1.5-1 3 2.7 1.2 2.6 1.5 3.6 1.8 3.8 0.4 1.6 1.5 2.2 0.3 3.3 0.8 2.3-0.1 0.3-1.2-0.3-2 0.2-1.3 1.7-0.7 0.2 2.5 0.1 0.6 2.5 1.2 1.7-0.5 2.4 0.2 2.2-0.1 0.2-1.9-1.1-1 2.3-0.4 2.5-2.4 3.2-2 2.3 0.8 2-1.3 1.3 1.9-0.9 1.4 3 0.4z"><title>India</title></path>
+          <path class="visited" d="M539.2 282.4l0.7 2.3-0.8 1.3 1 1.6 0.7 2.4-0.2 1.6 1.1 2.8-1.2 0.5-0.8-0.5-0.7 0.8-2 0.9-1 1.1-2 0.9 0.5 1.3 0.3 1.8 1.4 1.1 1.6 1.8-1 1.9-1 0.5 0.4 2.8-0.3 0.6-0.8-0.8-1.4-0.1-2 0.7-2.4-0.2-0.4 1.1-1.4-1.1-0.8 0.2-3-1.2-0.6 0.8-2.4 0 0.4-2.9 1.4-2.9-4-0.8-1.3-1.1 0.1-1.9-0.5-1 0.3-2.9-0.5-4.7 1.7 0 0.7-1.7 0.7-4.2-0.5-1.5 0.5-1 2.3-0.3 0.6 1 1.8-2.3-0.6-1.8-0.1-2.7 2.1 0.7 1.8-0.8 0 1.9 2.8 1.1 0 1.7 2.8-0.9 1.6-1.3 3.1 1.9 1.3 1.5z"><title>Germany</title></path>
+          <path class="visited" d="M526.7 309.7l0.1 0.7-0.5 1 1.3 0.8 1.4 0.1-0.2 1.7-1.2 0.6-2.1-0.5-0.6 1.7-1.3 0.1-0.5-0.7-1.6 1.4-1.3 0.2-1.2-0.9-0.9-1.7-1.4 0.6 0.1-1.8 2-2.3-0.1-1.1 1.3 0.4 0.7-0.7 2.4 0 0.6-0.8 3 1.2z"><title>Switzerland</title></path>
+          <path class="visited" d="M517.1 295.8l-0.3 2.9-0.7 0.2-0.3 2.4-2.5-2-1.4 0.4-1.9-2.1-1.3-1.7-1.3-0.1-0.4-1.5 2.2-0.9 2 0.3 2.6-0.9 1.8 1.9 1.5 1.1z"><title>Belgium</title></path>
+          <path class="visited" d="M519.2 283.7l0.5 1.5-0.7 4.2-0.7 1.7-1.7 0 0.5 4.7-1.5-1.1-1.8-1.9-2.6 0.9-2-0.3 1.4-1.2 2.5-6.7 3.8-2 2.3 0.2z"><title>Netherlands</title></path>
+          <path class="visited" d="M474.9 331.8l1-1 1.1-0.5 0.7 1.8 1.7 0 0.5-0.4 1.6 0.1 0.8 1.9-1.3 1-0.1 2.8-0.4 0.5-0.1 1.8-1.2 0.3 1.1 2.1-0.8 2.3 1 1.1-0.4 1-1 1.3 0.2 1.1-1.1 0.9-1.5-0.5-1.4 0.4 0.4-2.7-0.3-2.2-1.2-0.3-0.7-1.3 0.3-2.4 1.1-1.3 0.2-1.5 0.5-2.2 0-1.5-0.6-1.3-0.1-1.3z"><title>Portugal</title></path>
+          <path class="visited" d="M804.1 408.7l-2.3-0.9-0.1-2.5 1.4-1.4 3-0.8 1.6 0.1 0.7 1.1-1.3 1.3-0.6 1.7-2.4 1.4zM722.9 330l-0.2-2.1 1.9-1-2.5-6.7 5.5-1.6 1.5-0.9 2-7.2 5.5 1.4 1.5-1.9 0.1-4.1 2.3-0.4 2.2-2.9 1.1-0.3 0.7 3 2.3 2.2 4 1.5 1.9 3.3-1.1 4.7 1 1.7 3.3 0.7 3.8 0.6 3.3 2.4 1.7 0.4 1.3 3.6 1.6 2.2 3.1-0.1 5.7 0.9 3.7-0.5 2.8 0.5 4.1 2.3 3.3 0 1.3 1.2 3.2-2.1 4.5-1.3 4.2-0.1 3.2-1.3 2-2.1 1.9-1.3-0.4-1.2-0.9-1.5 1.5-2.5 1.5 0.3 2.9 0.8 2.7-2.1 4.3-1.5 2-2.7 2-1.1 4-0.5 2.2 0.4 0.3-1.4-2.5-2.9-2.2-1.3-2.2 1.5-2.7-0.6-1.6 0.5-0.7-1.7 2-4.2 1.3-3.2 3.3 1.6 4-2.7-0.1-2 2.5-4.6 1.6-1.5-0.1-2.5-1.5-1.1 2.3-2.3 3.5-0.8 3.7-0.1 4.1 1.3 2.4 1.7 1.8 4.6 1 1.9 1 2.8 1 4.2 4.8 1.4 3.3 3 1.1 3.9 4.3 0 2.4-1.6 4.6-1.2-1.5 3.7-1.1 1.5-0.9 4.4-1.9 3.9-3.4-0.7-2.3 1.4 0.7 3.3-0.4 4.5-1.4 0.2 0 1.9-1.8-2.3-1.1 2.2-4.3 1.6 0.4 1.9-2.4-0.1-1.3-1.2-1.9 2.7-3.1 1.9-2.2 2.4-3.9 1-2 1.7-3 1 1.4-1.7-0.5-1.4 2.2-2.4-1.5-1.9-2.4 1.3-3.2 2.5-1.7 2.3-2.7 0.2-1.4 1.7 1.4 2.4 2.3 0.5 0.1 1.6 2.2 1 3.1-2.5 2.5 1.4 1.8 0.1 0.4 1.8-3.9 1-1.3 1.8-2.7 1.8-1.4 2.3 3 1.9 1.1 3.3 1.6 3 1.9 2.5 0 2.5-1.8 0.8 0.7 1.8 1.6 1-0.4 2.5-0.7 2.6-1.5 0.2-2.1 3.4-2.2 4.1-2.6 3.7-3.8 2.8-3.9 2.5-3.1 0.4-1.7 1.3-1-1-1.5 1.5-3.9 1.5-3 0.5-0.9 3.1-1.6 0.2-0.7-2.2 0.7-1.1-3.8-1-1.3 0.5-2.8-0.8-1.3-1.2 0.5-1.7-2.6-0.6-1.3-1.1-2.4 1.6-2.7 0.4-2.2-0.1-1.5 0.8-1.4 0.4 0.4 3.4-1.5 0-0.2-0.7-0.1-1.3-2.1 0.9-1.2-0.6-2-1.1 0.8-2.5-1.8-0.6-0.6-2.8-3 0.5 0.4-3.6 2.6-2.5 0.1-2.6-0.1-2.4-1.2-0.7-0.9-1.9-1.6 0.2-3-0.4 0.9-1.4-1.3-1.9-2 1.3-2.3-0.8-3.2 2-2.5 2.4-2.3 0.4-1.2-0.9-1.5 0-2-0.8-1.5 0.8-1.8 2.4-0.2-2.5-1.7 0.7-3.3-0.4-3.1-0.7-2.3-1.4-2.1-0.6-0.9-1.5-1.6-0.5-2.8-2.1-2.2-0.9-1.2 0.7-3.9-2.2-2.7-2.1-0.8-3.6 2 0.4 0.1-1.6-1.1-1.7 0.3-2.8-3-3.9-4.6-1.4-0.8-2.7-2-1.6-0.5-1-0.4-2 0.1-1.4-1.7-0.8-0.9 0.4-0.7-3.3 0.7-0.9-0.3-0.8 2.6-1.7 1.9-0.7 3 0.5 1-2.4 3.6-0.4 1-1.5 4.4-2 0.3-0.9z"><title>China</title></path>
+          <path class="visited" d="M838.3 390.2l-1.7 4.9-1.2 2.5-1.5-2.6-0.3-2.2 1.7-3 2.2-2.3 1.3 0.9-0.5 1.8z"><title>Taiwan</title></path>
+          <path class="visited" d="M482.8 281.8l-2.1-0.9-1.7 0 0.5-2.5-0.5-2.6 2.3-0.2 3 3-1.5 3.2zM491.4 284l0.4-2.7-1.8-2.9-0.1-0.1-3.4-0.9-0.6-1.3 1-2.1-0.9-1.4-1.5 2.3-0.2-4.7-1.4-2.6 1-5.3 2.2-4.3 2.2 0.4 3.4-0.4-3 5.7 2.8-0.8 3.1 0.1-0.8 4.2-2.5 4.5 2.9 0.3 0.2 0.5 2.5 5.7 1.9 0.8 1.7 5.4 0.8 1.8 3.4 0.9-0.4 2.9-1.4 1.3 1.1 2.3-2.5 2.3-3.7 0-4.7 1.2-1.3-0.8-1.8 2-2.6-0.5-2 1.7-1.4-0.9 4-4.6 2.5-1-4.3-0.7-0.8-1.8 2.9-1.4-1.5-2.5 0.5-3 4.1 0.4z"><title>United Kingdom</title></path>
+          <path class="visited" d="M778 442.1l0.5-0.5 2.3 1.3 0.2 1.4 1.8-0.3 0.9-1.2 0.7 0.3 1.6 1.7 1.2 1.8 0.1 1.9-0.3 1.3 0.3 0.9 0.2 1.7 1 0.7 1.1 2.5-0.1 0.9-1.9 0.2-2.7-2-3.3-2.2-0.3-1.5-1.6-1.8-0.4-2.3-1-1.5 0.3-2.1-0.6-1.2zM827.4 448.6l-2.4-0.4-3.2 0-0.9 3.1-1.1 1-1.4 3.9-2.3 0.6-2.6-0.8-1.3 0.2-1.7 1.4-1.7-0.2-1.8 0.6-1.9-1.6-0.5-1.8 2.1 0.9 2.1-0.5 0.6-2.4 1.1-0.5 3.4-0.6 2-2.2 1.3-1.7 1.3 1.4 0.6-1 1.3 0.1 0.2-1.7 0.1-1.4 2.1-2 1.4-2.1 1.2-0.1 1.4 1.5 0.1 1.2 1.8 0.8 2.4 0.8-0.2 1.1-1.9 0.1 0.5 1.4-2.1 0.9z"><title>Malaysia</title></path>
+          <path class="visited" d="M894.1 341.7l-2.5 3.5 0 3.7-1 2.7 0.4 1.8-1.4 2.4-3.6 1.6-4.8 0.2-4 3.8-1.9-1.3-0.1-2.5-4.8 0.7-3.3 1.6-3.3 0.1 2.9 2.4-1.9 5.6-1.8 1.4-1.3-1.3 0.7-2.9-1.8-1-1.1-2.2 2.6-1.1 1.4-2.1 2.8-1.7 2.1-2.3 5.5-1.1 3 0.7 2.9-6.1 1.8 1.7 4.1-3.5 1.6-1.4 1.7-4.4-0.4-4 1.1-2.4 3-0.6 1.5 5-0.1 3zM901.7 323.9l2-1.6 0.6 4.3-4.1 1-2.5 3.8-4.3-2.6-1.6 4.1-3 0.1-0.4-3.8 1.4-2.9 2.9-0.2 0.8-5.3 0.9-3.1 3.2 4.1 2.1 1.3 2 0.8zM867.7 361.4l1.5-2 1.6 0.4 1.2-1.4 2 0.7 0.3 1.2-1.5 2-1.2-1.1-1.4 0.8-0.7 1.9-1.8-0.9 0-1.6z"><title>Japan</title></path>
+        </svg>
         <br><br>
 <!--         <div class="col-lg-6 col-lg-offset-3" >
           <h3>UPCOMING TRIPS</h3><br>
@@ -580,77 +330,77 @@
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/thailand.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/thailand.png" itemprop="thumbnail" alt="Image description" />
+                <img src="img/photos/thailand-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Snorkeling in Maya Bay - Phuket, Thailand</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="img/photos/vancouver.jpg" itemprop="contentUrl" data-size="3022x3022">
-                <img src="img/photos/vancouver.jpg" itemprop="thumbnail" alt="Image description" />
+            <a href="img/photos/vancouver.jpg" itemprop="contentUrl" data-size="2000x2000">
+                <img src="img/photos/vancouver-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Granville Island - Vancouver, Canada</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/newyork.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/newyork-t.jpg" itemprop="thumbnail" alt="Image description" />
+                <img src="img/photos/newyork-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Brooklyn Bridge - New York, NY</figcaption>                           
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/ostrich.jpg" itemprop="contentUrl" data-size="750x1334">
-                <img src="img/photos/ostrich-t.jpg" itemprop="thumbnail" alt="Image description" />
+                <img src="img/photos/ostrich-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Ostrichland - Solvang, CA</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="img/photos/yosemite.jpg" itemprop="contentUrl" data-size="1814x2419">
-                <img src="img/photos/yosemite-t.jpg" itemprop="thumbnail" alt="Image description" />
+            <a href="img/photos/yosemite.jpg" itemprop="contentUrl" data-size="1500x2000">
+                <img src="img/photos/yosemite-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Yosemite Falls - Yosemite, CA</figcaption>                           
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/coachella.jpg" itemprop="contentUrl" data-size="1224x918">
-                <img src="img/photos/coachella-t.jpg" itemprop="thumbnail" alt="Image description" />
+                <img src="img/photos/coachella-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Coachella - Indio, CA</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/monterey.png" itemprop="contentUrl" data-size="489x582">
-                <img src="img/photos/monterey-t.jpg" itemprop="thumbnail" alt="Image description" />
+                <img src="img/photos/monterey-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Monterey Bay Aquarium - Monterey, CA</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-            <a href="img/photos/oneonta.jpg" itemprop="contentUrl" data-size="3024x4032">
-                <img src="img/photos/oneonta.jpg" itemprop="thumbnail" alt="Image description" />
+            <a href="img/photos/oneonta.jpg" itemprop="contentUrl" data-size="1500x2000">
+                <img src="img/photos/oneonta-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
-            <figcaption itemprop="caption description">Oneonta Gorge - Portland, CA</figcaption>
+            <figcaption itemprop="caption description">Oneonta Gorge - Portland, OR</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/taiwan.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/taiwan.jpg" itemprop="thumbnail" alt="Image description" />
+                <img src="img/photos/taiwan-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Qixingtan Beach - Taiwan</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/japan.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/japan-t.jpg" itemprop="thumbnail" alt="Image description" />
+                <img src="img/photos/japan-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Nara, Japan</figcaption>
           </figure>
 <!-- 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/breckenridge.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/breckenridge-t.jpg" itemprop="thumbnail" alt="Image description" />
+                <img src="img/photos/breckenridge-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
             </a>
             <figcaption itemprop="caption description">Image caption 4</figcaption>
           </figure> -->
@@ -729,15 +479,11 @@
     <script src="js/bootstrap.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/jquery.fittext.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="js/photoswipe.min.js"></script>
+    <script src="js/photoswipe-ui-default.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/main.js"></script>
-
-    <script src="js/photoswipe.min.js"></script> 
-    <script src="js/photoswipe-ui-default.min.js"></script> 
 
     
 
