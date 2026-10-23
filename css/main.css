@@ -795,17 +795,14 @@ animation-duration: 1s;
     padding:10px;
 }
 
-.card button {
-    border: none;
-    outline: 0;
-    display: inline-block;
+.card .card-button,
+.card .card-button:hover,
+.card .card-button:focus {
+    display: block;
     padding: 8px;
     color: white;
     background-color: #72839a;
     text-align: center;
-    cursor: pointer;
-    width: 100%;
-
 }
 
 

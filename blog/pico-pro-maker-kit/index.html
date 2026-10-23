@@ -39,7 +39,7 @@
 <body>
 
 <div id="content" class="container">
-  <a href="../../index.html"><img id="logo" src="../../img/logo.png" alt="Vivian Kha"></a>
+  <a href="../../index.html"><img id="logo" src="../../img/logo.png" alt="Vivian Kha home page"></a>
 
   <div class="name">Vivian Kha</div>
   <div class="nav">
@@ -53,7 +53,8 @@
   <main id="tabs">
     <div class="col-lg-offset-2 col-lg-8" style="text-align:left">
       <a href="../../index.html#blog">&#8592; Back to Blogs</a>
-      <img src="../../img/blog/picoprokit/picopro_cover.jpg"  style="width:100%;margin-bottom:50px">
+      <img src="../../img/blog/picoprokit/picopro_cover.jpg" alt="Android Things Pico Pro Maker Kit box"  style="width:100%;margin-bottom:50px">
+      <p><i>Update: Google has since shut down Android Things, so some of the links in this post no longer work.</i></p>
       <p> Like many other people quarantining during COVID, I picked up a few new hobbies with all of the extra time that I at home. Some of my new hobbies consisted of paint-by-numbers, baking goods that I couldn't finish, and digging through things that I haven't touched in ages.<br><br> One of the things that I found laying around was a brand new, unopened Pico Pro Maker Kit that I had received at GHC a few years ago. I figured this would be a fun opportunity to test it out and tinker with some hardware. 
       </p>
 
@@ -66,22 +67,22 @@
         <li>5-inch multi-touch display</li>
         <li>Wi-Fi antenna</li>
       </ul>
-       <img loading="lazy" src="../../img/blog/picoprokit/picoprokit.jpg" style="width:50%;margin-bottom:50px">
+       <img loading="lazy" src="../../img/blog/picoprokit/picoprokit.jpg" alt="The assembled kit: development board, camera and Wi-Fi antenna connected to the touchscreen showing the Android Things logo" style="width:50%;margin-bottom:50px">
 
       <p>Once I finished connecting the kit, I was ready to set things up. Through the <a href="https://partner.android.com/things/console">Android Things console</a>, I created a new product and downloaded the latest build. I then flashed the board with the latest image and ran <a href="https://developer.android.com/things/hardware/imx7d#flash-at">setup utility</a> to connect the board to my home wifi. I also downloaded the <a href="https://play.google.com/store/apps/details?id=com.google.android.things.companion">Android Things Toolkit</a> on my phone to run sample apps.
       <br><br>
       Once the board was connected to my wifi, I was able to find my dev board on the Android Things Toolkit app. I explored the sample apps and selected TensorFlow Lite. </p>
       <br><br>
-      <img loading="lazy" src="../../img/blog/picoprokit/androidthingstoolkitapp.png" style="width:25%;margin-bottom:50px">
+      <img loading="lazy" src="../../img/blog/picoprokit/androidthingstoolkitapp.png" alt="Android Things Toolkit app showing the i.MX7D development board's settings" style="width:25%;margin-bottom:50px">
 
     <h3>RUNNING TENSORFLOW LITE</h3>
     <p>TensorFlow Lite works by taking in an image input and outputting a few words that it thinks the object should be classified as. First, I held up my board's camera module towards an object. When I'm ready, I tap the multi-display screen and it triggers a snapshot to be taken. The multi-display screen will then instantly display the snapshot and a few words it may classify the object as. I found a few of them accurate, and some of them very inaccurate (mostly human face detection). Below are a few of the results I got.</p>
     <br><br>
-    <img loading="lazy" src="../../img/blog/picoprokit/book.jpg" style="width:50%;margin-bottom:50px">
-    <img loading="lazy" src="../../img/blog/picoprokit/fork.jpg" style="width:50%;margin-bottom:50px">
-    <img loading="lazy" src="../../img/blog/picoprokit/coffeemug.jpg" style="width:50%;margin-bottom:50px">
-    <img loading="lazy" src="../../img/blog/picoprokit/lime.jpg" style="width:50%;margin-bottom:50px">
-    <img loading="lazy" src="../../img/blog/picoprokit/face.jpg" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="../../img/blog/picoprokit/book.jpg" alt="The kit's touchscreen showing a book, labeled 'envelope, book jacket or packet'" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="../../img/blog/picoprokit/fork.jpg" alt="The kit's touchscreen showing a fork, labeled 'broom, spatula or ladle'" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="../../img/blog/picoprokit/coffeemug.jpg" alt="The kit's touchscreen showing a coffee mug, labeled 'coffee mug, cup or chocolate sauce'" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="../../img/blog/picoprokit/lime.jpg" alt="The kit's touchscreen showing a lime, labeled 'butternut squash, dough or ping-pong ball'" style="width:50%;margin-bottom:50px">
+    <img loading="lazy" src="../../img/blog/picoprokit/face.jpg" alt="The kit's touchscreen showing my face, labeled 'lab coat, mortarboard or jersey'" style="width:50%;margin-bottom:50px">
 
 
     <br><br>

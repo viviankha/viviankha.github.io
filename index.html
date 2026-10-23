@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
     <meta name="description" content="Vivian Kha's personal website: blog posts, a map of places I've traveled, and photos.">
-    <meta name="keywords" content="self driving cars, autonomous driving, AV, autonomous vehicles, Nuro, TPM, technical program manager, android, developer, software engineer, niantic, personal website, vivian kha, data, operations, AR, augmented reality, data operations, 23andme, dna, tools, science, blog, vivian, kha, bioinformatics, ghc, ghc17, grace hopper, grace hopper celebration">
     <meta name="author" content="Vivian Kha">
 
     <title>Vivian Kha</title>
@@ -19,8 +18,11 @@
     <meta property="og:title" content="Vivian Kha">
     <meta property="og:description" content="Vivian Kha's personal website: blog posts, a map of places I've traveled, and photos.">
     <meta property="og:url" content="https://www.viviankha.com/">
-    <meta property="og:image" content="https://www.viviankha.com/img/logo.png">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://www.viviankha.com/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Vivian Kha's VK logo and name">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
@@ -46,7 +48,7 @@
 
 
 <div id="content" class="container">
-  <img id="logo" src="img/logo.png">
+  <img id="logo" src="img/logo.png" alt="">
 
   <div class="name">Vivian Kha</div>
   <div class="nav">
@@ -70,7 +72,7 @@
             </div>
             <div class="col-lg-4">
               	</br></br>
-		<img src="img/vivian_3.jpg" width="100%"  style="max-width:200px">
+		<img src="img/vivian_3.jpg" alt="Vivian smiling in front of a lake, with a hillside town and church spires behind her" width="100%"  style="max-width:200px">
             </div>
         </div>
     </div>
@@ -81,7 +83,7 @@
 
           <div class="col-md-4">
             <div class="card">
-              <img src="img/blog/23andme/23andme_thumbnail.jpg" loading="lazy" style="width:100%">
+              <img src="img/blog/23andme/23andme_thumbnail.jpg" alt="" loading="lazy" style="width:100%">
               <div id="card-title">
                 <span id="card-title-text">
                   <h3>23andMe</h3>
@@ -89,13 +91,13 @@
                 </span>
               </div>
               <p class="title" style="height:100px">My experience with 23andMe and using the raw data to explore other tools.</p>
-               <a href="blog/23andme/index.html"><button style="width:100%">Read More</button></a>
+               <a class="card-button" href="blog/23andme/index.html">Read More</a>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="card">
-              <img src="img/blog/ghc17/ghc17_thumbnail.jpg" loading="lazy" style="width:100%">
+              <img src="img/blog/ghc17/ghc17_thumbnail.jpg" alt="" loading="lazy" style="width:100%">
               <div id="card-title">
                 <span id="card-title-text">
                   <h3>Grace Hopper Celebration 2017</h3>
@@ -103,13 +105,13 @@
                 </span>
               </div>
               <p class="title" style="height:100px">Attending GHC as a Google Travel Grant Scholar.</p>
-              <a href="blog/grace-hopper-2017/index.html"><button style="width:100%">Read More</button></a>
+              <a class="card-button" href="blog/grace-hopper-2017/index.html">Read More</a>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="card">
-              <img src="img/blog/picoprokit/androidthings_thumbnail.jpg" loading="lazy" style="width:100%">
+              <img src="img/blog/picoprokit/androidthings_thumbnail.jpg" alt="" loading="lazy" style="width:100%">
               <div id="card-title">
                 <span id="card-title-text">
                   <h3>Android Things - Pico Pro Maker Kit</h3>
@@ -117,7 +119,7 @@
                 </span>
               </div>
               <p class="title" style="height:100px">Experimenting with TensorFlow on the Pico Pro Maker Kit.</p>
-               <a href="blog/pico-pro-maker-kit/index.html"><button style="width:100%">Read More</button></a>
+               <a class="card-button" href="blog/pico-pro-maker-kit/index.html">Read More</a>
             </div>
           </div>
 
@@ -330,77 +332,77 @@
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/thailand.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/thailand-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/thailand-t.jpg" alt="Snorkeling in Maya Bay, Phuket, Thailand" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Snorkeling in Maya Bay - Phuket, Thailand</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/vancouver.jpg" itemprop="contentUrl" data-size="2000x2000">
-                <img src="img/photos/vancouver-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/vancouver-t.jpg" alt="Granville Island, Vancouver, Canada" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Granville Island - Vancouver, Canada</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/newyork.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/newyork-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/newyork-t.jpg" alt="Brooklyn Bridge, New York" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Brooklyn Bridge - New York, NY</figcaption>                           
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/ostrich.jpg" itemprop="contentUrl" data-size="750x1334">
-                <img src="img/photos/ostrich-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/ostrich-t.jpg" alt="Ostrichland, Solvang, California" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Ostrichland - Solvang, CA</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/yosemite.jpg" itemprop="contentUrl" data-size="1500x2000">
-                <img src="img/photos/yosemite-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/yosemite-t.jpg" alt="Yosemite Falls, Yosemite, California" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Yosemite Falls - Yosemite, CA</figcaption>                           
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/coachella.jpg" itemprop="contentUrl" data-size="1224x918">
-                <img src="img/photos/coachella-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/coachella-t.jpg" alt="Coachella, Indio, California" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Coachella - Indio, CA</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/monterey.png" itemprop="contentUrl" data-size="489x582">
-                <img src="img/photos/monterey-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/monterey-t.jpg" alt="Monterey Bay Aquarium, Monterey, California" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Monterey Bay Aquarium - Monterey, CA</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/oneonta.jpg" itemprop="contentUrl" data-size="1500x2000">
-                <img src="img/photos/oneonta-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/oneonta-t.jpg" alt="Oneonta Gorge, near Portland, Oregon" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Oneonta Gorge - Portland, OR</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/taiwan.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/taiwan-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/taiwan-t.jpg" alt="Qixingtan Beach, Taiwan" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Qixingtan Beach - Taiwan</figcaption>
           </figure>
 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/japan.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/japan-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/japan-t.jpg" alt="Nara, Japan" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Nara, Japan</figcaption>
           </figure>
 <!-- 
           <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
             <a href="img/photos/breckenridge.jpg" itemprop="contentUrl" data-size="960x720">
-                <img src="img/photos/breckenridge-t.jpg" itemprop="thumbnail" loading="lazy" alt="Image description" />
+                <img src="img/photos/breckenridge-t.jpg" alt="Breckenridge, Colorado" itemprop="thumbnail" loading="lazy" />
             </a>
             <figcaption itemprop="caption description">Image caption 4</figcaption>
           </figure> -->
